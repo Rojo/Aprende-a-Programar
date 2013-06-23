@@ -1,0 +1,14 @@
+Sobre la versión en español
+Hace algunos años, me enteré de la existencia del lenguaje de programación Ruby y sus bondades enfocadas a ofrecer la posibilidad de hacer disfrutable la actividad de escribir código para desarrollador.  Para personas como yo, que han pasado por la experiencia de lo obscuro que puede llegar a ser el código en C/C++ y la excesiva cantidad de código que puede requerirse en Java, el pragmatismo y la simplicidad mostradas en los ejemplos de Ruby son una bocanada de aire fresco. Esto me llevo a buscar un curso introductorio para aprender la sintaxis y los conceptos básicos de lenguaje, además de ponerme a practicar.
+
+La creciente y activa comunidad en torno a Ruby ha generado bastante información al respecto, así que conseguir información en la Internet no es problema. Pero tuve la fortuna de toparme con el tutorial de Chris Pine, que da una introducción bastante accesible a la programación en general, mediante sencillas explicaciones e interesantes ejercicios que a la vez muestran las características propias del lenguaje Ruby; llevando al lector a recorrer los temas de los números y operaciones aritméticas, las cadenas de texto, las variables y la operación de asignación, los métodos, el control del flujo de los programas, los arreglos y las formas de recorrerlos, las clases y los bloques de instrucciones, para finalizar con consejos para continuar con el aprendizaje más allá de éste tutorial.
+
+Es por eso que me di a la tarea de solicitar al sr. Pine su consentimiento para  traducir y publicar su material en español, con el propósito de ofrecer su excelente contenido a los hispanohablantes en su lengua. Si llegaste hasta éste documento con la intención de iniciar el aprendizaje programación, seguramente encontrarás que está escrito de forma amena y que mantiene la atención (cualidades que espero retener lo más posible al traducirlo). De igual forma, si conoces a alguien interesado, no dudes en compartirlo con esa persona. Seguramente le será de utilidad.
+
+Si encuentras algún error en la traducción o crees que se podría mejorar algún párrafo o frase para hacerlo más fácil de entender sin perder el sentido, puedes contactarme en ésta dirección[1], o bien, colaborar con el proyecto disponible en Github[2].
+
+-- David O’ Rojo
+
+[1] david.orojo…@gmail.com
+[2] https://github.com/Rojo/Aprende-a-Programar
+
