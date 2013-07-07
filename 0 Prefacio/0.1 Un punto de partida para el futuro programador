@@ -7,7 +7,7 @@ Y el resultado fue muy bueno. Tenía todas esas ideas que eran buenas en teoría
 
 Lo que me salvó fue que hice realmente fácil para las personas el contactarme y siempre traté de ayudarles cuando se encontraban dificultades. Cuando veía que muchas personas tenían problemas en algún lugar, lo reescribía. Fue mucho trabajo, pero poco a poco se volvió mejor y mejor.
 
-Un par de años después, se estaba volviendo bastante bueno. :-) Muy bueno, de hecho, estaba listo para pronunciarlo terminado y moverme a algo más. Y justo en ese momento surgió la oportunidad de convertir el tutorial en un libro. Como prácticamente ya estaba hecho, se me figuro que no habría problema. Solo tendría que limpiar algunos puntos, añadir más ejercicios, tal vez algunos ejemplos más, unos cuantos capítulos más, pasarlo a 50 revisiones más...
+Un par de años después, se estaba volviendo bastante bueno. :-) Tan bueno que, de hecho, estaba listo para pronunciarlo terminado y moverme a algo más. Y justo en ese momento surgió la oportunidad de convertir el tutorial en un libro. Como prácticamente ya estaba hecho, se me figuro que no habría problema. Solo tendría que limpiar algunos puntos, añadir más ejercicios, tal vez algunos ejemplos más, unos cuantos capítulos más, pasarlo a 50 revisiones más...
 
 Me tomó otro año, pero ahora creo que es realmente bueno, sobre todo debido a los cientos de valientes almas que me ayudaron a escribirlo.
 
@@ -27,9 +27,9 @@ Aunque yo deseaba evitar el uso de jerga orientada a objetos innecesaria, querí
 En cuanto a los ejercicios, creo que ideé unos muy buenos, pero nunca tienes demasiados. Honestamente, apostaría que gaste la mitad de mi tiempo tratando de formular ejercicios divertidos e interesantes. Ejercicios aburridos matarán absolutamente cualquier deseo de programar, mientras que el ejercicio perfecto crea esa comezón que el nuevo programador no puede más que rascar. Resumiendo, el tiempo gastado en formular buenos ejercicios no es demasiado.
 
 Acerca del tutorial original
-Las páginas de éste tutorial (aun ésta), son generadas por un programa en Ruby, claro. :-) Todos los códigos de ejemplo son automáticamente ejecutados y sus resultados son mostrados como han sido generados. Creo que es la mejor, más fácil y genial manera de asegurarme que todo el código que presento funciona exactamente como yo digo que lo hace. No tienes que preocuparte por el que yo haya copiado mal la salida de alguno de los ejemplos, o no haya probado algún código; todo ha sido probado.
+Las páginas de éste tutorial (aun ésta), son generadas por un programa en Ruby, claro está. :-) Todos los códigos de ejemplo son automáticamente ejecutados y sus resultados son mostrados como han sido generados. Creo que es la mejor, más fácil y genial manera de asegurarme que todo el código que presento funciona exactamente como yo digo que lo hace. No tienes que preocuparte por el que yo haya copiado mal la salida de alguno de los ejemplos, o no haya probado algún código; todo ha sido probado.
 
 Agradecimientos
-Finalmente, quiero agradecer a todos en la lista de correo ruby-talk por sus comentarios y el ánimo que me dieron. A todos mi magníficos correctores que me ayudaron a hacer el libro mucho mejor de lo que pudiera haber hecho yo solo. A mi querida esposa especialmente por ser mi principal corrector-conejillo-de-indias-musa. A Matz por crear éste fabuloso lenguaje, y a los Programadores Pragmáticos por decirme acerca de él – ¡Y por supuesto por publicar mi libro! –.
+Finalmente, quiero agradecer a todos en la lista de correo ruby-talk por sus comentarios y el ánimo que me dieron. A todos mi magníficos correctores que me ayudaron a hacer el libro mucho mejor de lo que pudiera haber hecho yo solo. A mi querida esposa especialmente por ser mi principal corrector-conejillo-de-indias-musa. A Matz por crear éste fabuloso lenguaje, y a los Programadores Pragmáticos por decirme acerca de él –¡Y por supuesto por publicar mi libro!
 
 Si notas algún error, tanto en un programa como en el texto, o tienes algún comentario o sugerencia o buenos ejercicios que pudiera incluir, por favor déjame saber.
