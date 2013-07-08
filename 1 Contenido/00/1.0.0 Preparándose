@@ -1,0 +1,10 @@
+0. Preparándose
+Cuando programas una computadora, tienes que «hablar» en un lenguaje que tu computadora entiende: un lenguaje de programación. Hay montones y montones de diferentes lenguajes de programación ahí afuera; muchos de ellos son excelentes. En éste tutorial elegí usar mi lenguaje de programación favorito, Ruby.
+
+Además de ser mi favorito, Ruby es también el lenguaje de programación más sencillo que haya visto (y he visto bastantes). De hecho, ésta es la verdadera razón de escribir el tutorial: no decidí escribir un tutorial y luego escogí Ruby porque es mi favorito; en vez de eso, encontré a Ruby tan fácil de usar que decidí el que tendría que un buen tutorial para los principiantes. Es la simplicidad de Ruby lo que promovió éste tutorial, no el hecho de que sea mi favorito. (Escribir un tutorial similar usando otro lenguaje como C++ o Java, hubiera requerido cientos y cientos de páginas). Pero no pienses que Ruby es un lenguaje para principiantes sólo porque es fácil. Es un poderoso lenguaje de programación de uso profesional (si es que ha habido alguno).
+
+Cuando escribes algo en un lenguaje humano, lo que escribes es llamado texto. Cuando escribes algo en un lenguaje de computadora, lo que escribes es llamado código. He incluido muchos ejemplos de código en Ruby a través de éste tutorial, la mayoría de ellos son programas completos que puedes ejecutar en tu computadora. Para hacer el código más fácil de leer, he coloreado las partes en código con diferentes colores. (Por ejemplo, los números siempre son verdes). Cualquier cosa que necesites escribir estará en una caja gris, y cualquier cosa que un programa imprima estará en una caja azul.
+
+Si te cruzas con algo que no entiendes o si tienes una pregunta que no ha sido respondida, toma nota y continúa leyendo. Es muy posible que la respuesta aparezca en un capítulo más adelante. Sin embargo, si tu pregunta no fue respondida ya, en el último capítulo te diré donde puedes preguntar. Hay muchas maravillosas personas haya afuera deseando ayudar; sólo necesitas saber donde están.
+
+Pero primero necesitamos descargar e instalar Ruby en tu computadora.
