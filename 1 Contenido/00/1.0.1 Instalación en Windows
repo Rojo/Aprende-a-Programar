@@ -1,0 +1,12 @@
+Instalación en Windows
+La instalación de Ruby en Windows es fácil. Primero necesitas descargar Ruby Installer. Podría haber un par de versiones de las cuales escoger; éste tutorial usará la versión 1.8.4, así que asegúrate de que tu descarga sea una versión superior o al menos igual. (Yo obtendría la versión más reciente disponible). Después, simplemente inicia el programa de instalación. Éste te preguntará donde quieres instalar Ruby. A menos que tengas una buena razón para cambiar el lugar, deja la ruta por defecto.
+
+Al programar necesitarás ser capaz de escribir y ejecutar los programas. Para hacer esto necesitarás un editor de textos y la línea de comandos.
+
+En la red se encuentra el excelente editor de textos Notepad++, que colorea la sintaxis de muchos lenguajes, incluyendo Ruby (y que además es gratuito).
+
+También es una buena idea crear una carpeta en algún lugar para guardar todos tus programas. Asegúrate de que cuando guardes un programa lo hagas en esa carpeta.
+
+Para usar la línea de comandos, simplemente navega a la carpeta donde guardarás tus programas. Presiona Alt + D para seleccionar la barra de direcciones, escribe cmd y presiona Intro para mostrar la línea de comandos. Dentro de la línea de comandos, escribiendo cd .. subirás un nivel de carpeta, y cd nombre_carpeta te pondrá dentro de la carpeta llamada nombre_carpeta. Para ver todos las carpetas dentro de la carpeta donde en encuentras actualmente, escribe dir /ad.
+
+¡Y eso es todo! Estás listo para aprender a programar.
