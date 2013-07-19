@@ -1,0 +1,8 @@
+Instalación en Macintosh
+Si tienes Mac OS X 10.2 (Jaguar) o superior, ¡entonces ya tienes Ruby en tu sistema! ¿Qué podría ser más fácil? Infortunadamente, no creo que puedas usar Ruby en Mac OS X 10.1 y versiones anteriores.
+
+Al programar, necesitas ser capaz de escribir código. Para hacer esto, necesitarás un editor de textos y la línea de comandos. Puedes acceder a tu línea de comandos a través de la aplicación Terminal (encontrado en Aplicaciones/Utilidades).
+
+Como editor de texto, puedes usar cualquiera que te sea familiar o con el que estés confortable. Si usas TextEdit, asegúrate de guardar tus programas como solo texto, de otra forma tus programas no funcionarán. Otras opciones para programar son emacs, vi y pico, la cuales son todas accesibles desde la línea de comandos.
+
+¡Y eso es todo! Estás listo para comenzar a programar.

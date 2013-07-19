@@ -1,0 +1,16 @@
+Instalación en sistemas basados en Linux y Unix
+Las distribuciones recientes de sistemas basados en Linux permiten la instalación de Ruby de una manera muy fácil a través de sus administradores de paquetes. Pero antes de eso, debes cerciorarte que no hay una versión instalada en tu sistema que puedas utilizar. 
+
+Simplemente escribiendo el comando ruby -v en una terminal, se desplegará un mensaje parecido a ruby 2.0.0p247 (2013-06-27 revision 41674) [i686-linux]. De no ser así, instala el intérprete de Ruby con el comando correspondiente a tu distribución:
+
+Ubuntu/Mint/Debian: sudo apt-get install ruby 
+Fedora/Red Hat: sudo yum install ruby 
+Arch: sudo pacman -S ruby 
+Gentoo/Sabayon/Funtoo: emerge ruby 
+OpenIndiana: pkg install runtime/ruby-18 
+
+En la mayoría de las distribuciones de Linux puedes utilizar gedit o leafpad para escribir tus programas, además de que seguramente están disponibles vi, vim, pico o nano desde la línea de comandos de casí todas los sistemas basados en Unix.
+
+¡Y eso es todo! Estás listo para aprender a programar.[*]
+
+[*] También está disponible en la red un editor con características más avanzadas, llamado Geany.
