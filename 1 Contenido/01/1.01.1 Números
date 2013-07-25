@@ -1,0 +1,79 @@
+1. Números
+Ahora que está todo preparado, ¡vamos a escribir un programa! Abre tu editor de textos favorito y teclea lo siguiente:
+
+puts 1 + 2
+
+Guarda tu programa (¡sí, eso es un programa!) como operaciones.rb (el .rb es lo que usualmente ponemos al final de los programas escritos en Ruby). Ahora ejecuta tu programa tecleando ruby operaciones.rb en la línea de comandos. Éste debe poner un 3 en tu pantalla. ¿Ves? Programar no es tan difícil.
+
+Introducción a PUTS
+¿Qué está pasando en ese programa? Estoy seguro de que puedes adivinar lo que hace 1+2; nuestro programa es básicamente lo mismo que
+
+puts 3
+
+puts simplemente pone en la pantalla cualquier cosa que tenga enfrente.
+
+Enteros y fraccionarios
+En la mayoría de los lenguajes de programación (y Ruby no es la excepción) los números sin punto decimal son llamados enteros, y los números con punto decimal son usualmente llamados números de punto flotante, coma flotante, o simplemente, fraccionarios.
+
+Aquí hay algunos enteros:             Y aquí hay algunos fraccionarios:
+5                                     0.001
+-295                                  -205.3884
+9999999999999999999999                54.321
+0                                     0.0
+
+En la práctica, la mayoría de los programas no usan números fraccionarios, sólo enteros. (Después de todo, nadie quiere ver 7.4 correos, o navegar 1.8 páginas, o escuchar 5.24 de sus canciones favoritas...) Los números fraccionarios son usados para propósitos académicos (experimentos de física y parecidos) y para gráficos en 3D. Aún la mayoría de los programas de dinero sólo manejan enteros; simplemente llevan rastro de los centavos.
+
+Aritmética simple 
+Hasta ahora podemos hacer lo mismo que una calculadora simple. (Las calculadoras siempre usan números fraccionarios, así que si quieres que tu computadora funcione justo como una calculadora, deberías usar fraccionarios). Para la adición y substracción, usamos + y -, como ya has visto. Para la multiplicación, usamos *, y para la división usamos /. 
+
+La mayoría de los teclados tienen esas teclas en el teclado numérico en la orilla del lado derecho. Si tienes un teclado más pequeño o una laptop, usualmente podrás acceder a esos símbolos con una tecla especial más la tecla que tiene el símbolo marcado. Ahora intentemos expandir nuestro programa operaciones.rb un poco. Teclea lo siguiente y después ejecútalo: 
+
+puts 1.0 + 2.0 
+puts 2.0 * 3.0 
+puts 5.0 - 8.0 
+puts 9.0 / 2.0 
+
+Esto es lo que el programa retorna: 
+
+3.0 
+6.0 
+-3.0 
+4.5 
+
+(Los espacios en el programa no son importantes, sólo hacen el código más fácil de leer). Bueno, eso no fue muy sorprendente. Ahora hay que intentarlo con enteros: 
+
+puts 1+2 
+puts 2*3 
+puts 5-8 
+puts 9/2 
+
+3 
+6 
+-3 
+4 
+
+Casi lo mismo, ¿verdad? Uh... ¡excepto por ese último! Porque cuando haces aritmética con enteros, obtendrás respuestas con enteros.
+
+Cuando tu computadora no puede obtener la respuesta «correcta», siempre redondea hacia abajo. (Por supuesto, 4 es la respuesta correcta en aritmética de enteros para 9/2; simplemente es posible que no es la respuesta que estabas esperando). 
+
+Puede ser que te preguntes para qué sirve la división de enteros. Bueno, digamos que irás al cine, pero sólo tienes $9. Aquí en Portland, puedes ver una película en el cinema Bagdag por 2 dólares. ¿Cuántas películas puedes ver ahí? 9/2... 4 películas. 4.5 definitivamente no es la respuesta correcta en este caso; no te dejarán ver la mitad de una película, ni dejarán que la mitad de ti entre a ver una película completa... algunas cosas simplemente no son divisibles. 
+
+¡Ahora experimenta con algunos programas de tu invención! Si deseas escribir expresiones más complejas, puedes usar paréntesis. Por ejemplo: 
+
+puts 5 * (12 - 8) + -15 
+puts 98 + (59872 / (13 * 8)) * -52 
+
+5 
+-29802
+
+Algunas cosas para intentar
+Escribe un programa que te diga:
+¿Cuántas horas hay en un año?
+¿Cuántos minutos hay en una década?
+¿Cuántos segundos tienes de edad?
+¿Cuántos chocolates esperas comer en tu vida? Advertencia: ¡Ésta parte del programa puede tardar un poco en calcularse!
+
+Una pregunta un poco más difícil
+¿Si tengo 1031 millones de segundos de edad, que edad tengo en años?
+
+Cuando hayas terminado de jugar con los números, pasemos a ver las letras.
