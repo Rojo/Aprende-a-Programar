@@ -1,4 +1,6 @@
 
+# encoding: UTF-8
+
 # Escribe un programa que te diga: ¿Cuántos minutos hay en una década?
 
 # Una decada tiene 10 años

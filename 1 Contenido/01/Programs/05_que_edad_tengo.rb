@@ -1,4 +1,6 @@
 
+# encoding: UTF-8
+
 # Una pregunta un poco más difícil: ¿Si tengo 1031 millones de segundos de edad,
 # qué edad tengo en años?
 

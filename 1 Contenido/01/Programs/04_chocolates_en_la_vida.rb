@@ -1,3 +1,6 @@
+
+# encoding: UTF-8
+
 # Escribe un programa que te diga: ¿Cuántos chocolates esperas comer en tu vida?
 # Advertencia: ¡Ésta parte del programa puede tardar un poco en calcularse!
 

@@ -1,4 +1,6 @@
 
+# encoding: UTF-8
+
 # Escribe un programa que te diga: ¿Cuántas horas hay en un año?
 
 # Un año tiene 365 días
