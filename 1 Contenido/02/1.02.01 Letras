@@ -1,7 +1,7 @@
 2. Letras
 Así que hemos aprendido todo sobre los números pero, ¿qué hay de acerca de las letras? ¿Palabras? ¿Texto?
 
-Nos referimos a grupos de letras en un programa como cadenas de texto –puedes pensar en letras impresas que están juntas en un banner—. Para hacer más fácil el ver que parte del código es una cadena, las colorearé de rojo.
+Nos referimos a grupos de letras en un programa como cadenas de caracteres –puedes pensar en letras impresas que están juntas en un banner—. Para hacer más fácil el ver que parte del código es una cadena, las colorearé de rojo.
 
 Aquí hay algunas cadenas:
 'Hola.'
