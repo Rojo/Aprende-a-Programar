@@ -1,0 +1,77 @@
+3. Variables y asignación
+Hasta ahora, cuando mandamos imprimir una cadena o número, aquello que se imprime desaparece. Lo que quiero decir es, si quisiéramos imprimir algo dos veces, tendríamos que escribirlos dos veces.
+
+puts '...puedes decirlo de nuevo...'
+puts '...puedes decirlo de nuevo...'
+
+...puedes decirlo de nuevo...
+...puedes decirlo de nuevo...
+
+Sería bueno que pudiéramos escribirlo sólo una vez y después conservarlo... guardarlo en algún lugar. Bueno, por supuesto podemos – de otra forma, ¡no lo habría mencionado!
+
+Para almacenar una cadena en la memoria de tu computadora, necesitamos darle un nombre a la cadena. Los programadores frecuentemente se refieren a éste proceso como asignación, y llaman variables a los nombres. Una variable puede ser casi cualquier secuencia de caracteres y números, pero el primer carácter debe ser una letra minúscula.
+
+Intentemos de nuevo el último problema, pero ésta vez le daré a la cadena el nombre miCadena. (Aunque podría sólo haberla llamado cdn o miPequeñaCadena o enriqueOctavo.)
+
+miCadena = '...puedes decir eso de nuevo...'
+puts miCadena
+puts miCadena
+
+...puedes decirlo de nuevo...
+...puedes decirlo de nuevo...
+
+Cuando intentes hacer algo a miCadena, el programa lo hará a '...puedes decirlo de nuevo...' en su lugar. Puedes pensar en la variable miCadena como apuntando a la cadena '...puedes decirlo de nuevo...'.
+
+Aquí hay un ejemplo un poco más interesante:
+
+nombre = 'Yehuda Katz Yukihiro Matsumoto Linus Torvals Alan Turing'
+puts 'Mi nombre es ' + nombre + '.'
+puts '¡Oh! ¡' + nombre + ' es un nombre realmente largo!'
+
+Mi nombre es Yehuda Katz Yukihiro Matsumoto Linus Torvals Alan Turing.
+¡Oh! ¡Yehuda Katz Yukihiro Matsumoto Linus Torvals Alan Turing es un nombre realmente largo!
+
+También, así como podemos asignar un objeto a una variable, podemos reasignar un objeto diferente a esa variable. (Esto es por lo que las llamamos variables: debido a que lo que apuntan puede variar.)
+
+compositor = 'Mozart'
+puts compositor + ' era «la bomba», es sus días.'
+
+compositor = 'Beethoven'
+puts 'Pero, personalmente, yo prefiero a ' + compositor + '.'
+
+Mozart era “la bomba”, es sus días.
+Pero, personalmente, yo prefiero a Beethoven.
+
+Por supuesto, las variables pueden apuntar a cualquier clase de objeto, no sólo cadenas:
+
+var = 'sólo otra ' + 'cadena'
+puts var
+
+var = 5 * (1 + 2)
+puts var
+
+sólo otra cadena
+15
+
+De hecho, las variables pueden apuntar a casi todo... excepto otras variables. ¿Qué pasa si lo intentamos?
+
+var1 = 8
+var2 = var1
+puts var1
+puts var2
+
+puts ''
+
+var1 = 'ocho'
+puts var1
+puts var2
+
+8
+8
+
+ocho
+8
+
+Primero, cuando intentamos apuntar var2 a var1, en realidad apunto a 8 en su lugar (justo como lo hacía var1). Entonces hicimos a var1 apuntar a 'ocho', pero como var2 no estaba en realidad apuntando a var1, var2 se quedó apuntado a 8.
+
+¡Ahora que entendimos las variables, los números y las cadenas de caracteres, aprendamos cómo mezclarlo todo!
