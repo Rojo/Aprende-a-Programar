@@ -1,0 +1,261 @@
+5. Más acerca de los métodos
+Hasta ahora hemos visto un pequeño número de diferentes métodos, puts, gets, y así por el estilo (Examen rápido: ¡menciona todos los métodos que hemos visto hasta ahora! Son diez de ellos; la respuesta está más abajo.), pero no hemos hablado acerca de lo que son los métodos.
+
+Aunque realmente, eso es lo que son: cosas que hacen algo. Si los objetos (como las cadenas, los enteros y los flotantes) son los sustantivos en el lenguaje Ruby, entonces los métodos son como los verbos. Y, justo como en el lenguaje ingles, no puedes tener un verbo sin un sustantivo que realice el verbo. Por ejemplo, sonar no es sólo algo que pase; un reloj de pared (o de pulsera o algo) tiene que hacerlo. En español diríamos, «El reloj suena». En Ruby diríamos reloj.suena (asumiendo que reloj es un objeto en Ruby, claro). Los programadores podrían decir que estamos «llamando el método suena de reloj» o que «llamamos suena sobre reloj».
+
+¿Hiciste el examen rápido? ¡Bien! Bueno, estoy seguro recordaste los métodos puts, gets y chomp, ya que los acabamos de ver. También es probable que hayas recordado nuestros métodos de conversión: to_i, to_f y to_s. Sin embargo, ¿recordaste los últimos cuatro? ¡No son otros más que nuestros viejos compañeros aritméticos +, -, * y /!
+
+Y, como decía, justo como cada verbo necesita un sustantivo, así cada método necesita un objeto. Usualmente es fácil decir que objeto está realizando un método: es lo que viene justo antes del punto, como en el ejemplo de reloj.suena, o en 101.to_s. Algunas veces, sin embargo, no es tan obvio; como con los métodos aritméticos. Resulta que 5 + 5 es solo un atajo para escribir 5.+(5). Por ejemplo:
+
+puts 'hola '.+('mundo')
+puts (10.*(9)).+(9)
+
+hola mundo
+99
+
+No es muy bonito, así que no lo volveremos a escribir de esa forma; sin embargo, es importante comprender lo que realmente está pasando. (En mi maquina, eso también me da una advertencia: warning: parenthesize argument(s) for future version. Aun así, el código se ejecutó bien, pero me dice que está teniendo problemas interpretando lo que quiero decir, y que use más paréntesis en un futuro). Esto también nos da un mejor entendimiento de porqué podemos hacer 'cerdo'*5 pero no podemos hacer 5*'cerdo': 'cerdo'*5 le dice a 'cerdo' que haga la multiplicación, en cambio 'cerdo'*5 le dice a 5 que haga la multiplicación. 'cerdo' sabe como hacer 5 copias de sí mismo y como ponerlas todas juntas; sin embargo, 5 la tendrá mucho más difícil para hacer 'cerdo' copias de sí mismo y sumarlas todas.
+
+Y, por supuesto, aún tenemos a puts y a gets por explicar. ¿Dónde están sus objetos? En español, algunas veces puedes dejar fuera el sujeto; por ejemplo, si un villano grita «¡Muere!», el sujeto implícito es a quien le está gritando. En Ruby, si yo digo puts 'ser o no ser', lo que en realidad estoy diciendo es self.puts 'ser o no ser'. Entonces, ¿qué es self? Es una variable especial que apunta a cualquier objeto dentro del que te encuentras. Aún no sabemos como estar dentro de un objeto pero, hasta que lo averigüemos, siempre vamos a estar dentro de un gran objeto que es... ¡el programa completo! Y afortunadamente para nosotros, el programa tiene algunos métodos propios, como puts y gets. Observa esto:
+
+noPuedoCreerQueCreeUnaVariableTanLargaParaApuntarA3 = 3
+puts noPuedoCreerQueCreeUnaVariableTanLargaParaApuntarA3
+self.puts noPuedoCreerQueCreeUnaVariableTanLargaParaApuntarA3
+
+3
+3
+
+Si no seguiste todo lo anterior, está bien. Lo importante de todo eso es que cada método está siendo hecho por algún objeto, aun si no tiene un punto frente a él. Si entiendes eso, está todo bien.
+
+Métodos creativos para texto
+Aprendamos algunos métodos divertidos para cadenas de texto. No tienes que memorizarlos todos; puedes volver a revisar ésta página si los llegas a olvidar. Sólo quiero mostrarte una pequeña parte de lo que se puede hacer con el texto. De hecho, yo mismo no puedo recordar ni la mitad de los métodos de cadenas de texto — pero eso está bien, porque hay buenas referencias en la Internet con todos los métodos para cadenas listados y explicados. (Te enseñaré donde encontrarlos al final de éste tutorial). De verdad, ni siquiera quiero conocer todos los métodos para cadenas; es como querer conocer todas las palabras de un diccionario. Puedo hablar español bien sin conocer cada palabra del diccionario... y ¿no es ese el punto de que exista un diccionario? ¿Qué no tengas que conocer lo que hay en él?
+
+Así que, nuestro primer método para texto es reverse, que da una versión de atrás hacia adelante de una cadena.
+
+var1 = 'alto'
+var2 = 'estresado'
+var3 = '¿Puedes decir ésta oración al revés?'
+
+puts var1.reverse
+puts var2.reverse
+puts var3.reverse
+puts var1
+puts var2
+puts var3
+
+otla
+odasertse
+?séver la nóicaro atsé riced sedeuP¿
+alto
+estresado
+¿Puedes decir ésta oración al revés?
+
+Como puedes ver, reverse no voltea a la cadena original; sólo hace una versión de ella de atrás hacia adelante. Es por es que var1 sigue siendo 'alto' aún después de que llamó a reverse.
+
+Otro de los métodos de las cadenas es length, que nos dice el número de caracteres (incluyendo espacios) en la cadena.
+
+puts '¿Cuál es tu nombre completo?'
+nombre = gets.chomp
+puts '¿Sabías que hay ' + nombre.length + 'caracteres en tu nombre, ' + nombre + '?'
+
+¿Cuál es tu nombre completo?
+Christopher David Pine
+#<TypeError: can't convert Fixnum into String>
+
+¡Oh-oh! Algo salio mal y parece que pasó en algún lugar después de la línea nombre = gets.chomp... ¿Ves el problema? Prueba si puedes averiguarlo.
+
+El problema es con length: ya que devuelve un número, pero lo que queremos es texto. Es muy fácil, sólo agregaremos un to_s (y cruzaremos los dedos):
+
+puts '¿Cuál es tu nombre completo?'
+nombre = gets.chomp
+puts '¿Sabías que hay ' + nombre.length.to_s + 'caracteres en tu nombre, ' + nombre + '?'
+
+¿Cuál es tu nombre completo?
+Christopher David Pine
+¿Sabías que hay 22 caracteres en tu nombre, Christopher David Pine?
+
+No, no lo sabia. Nota: ese es el número de caracteres en mi nombre, no el número de letras (puedes contarlas). Creo que podríamos escribir un programa que pregunte por cada una de las partes de tu nombre individualmente y entonces sume las longitudes... ¡hey!, ¿por qué no lo haces? Vamos, yo esperare.
+
+¿Lo hiciste? ¡Bien! Es un bonito programa, ¿no es así? Después de unos cuantos capítulos más, te asombraras de lo que puedes hacer.
+
+También hay algunos métodos de cadenas que pueden cambiar la forma del texto (mayúsculas, minúsculas) en tus cadenas. upcase cambia todas las letras minúsculas a mayúsculas, y downcase cambia cada mayúscula a minúscula. swapcase cambia la forma de cada letra en la cadena (sí es mayúscula la vuelve minúscula y viceversa), y finalmente, capitalize es como downcase, excepto que cambia el primer carácter a mayúscula (si es una letra).
+
+letras = 'aAbBcCdDeE'
+
+puts letras.upcase
+puts letras.downcase
+puts letras.swapcase
+puts letras.capitalize
+puts ' a'.capitalize
+puts letras
+
+AABBCCDDEE
+aabbccddee
+AaBbCcDdEe
+Aabbccddee
+ a
+aAbBcCdDeE
+
+Cosas bastante usuales. Como puedes ver en la línea puts ' a'.capitalize, el método capitalize sólo cambia a mayúscula el primer carácter, no la primera letra. También, como hemos visto antes, a través de todos esas llamadas a métodos, las letras originales permanecen sin cambio. No deseo elaborar mucho ese punto, pero es importante entenderlo. Hay algunos métodos sí cambian el objeto asociado, pero no hemos visto alguno hasta ahora, y no lo haremos durante un tiempo.
+
+Los últimos métodos creativos para texto que veremos son los de formato visual. El primero, center, añade espacios al principio y final de la cadena para centrarla. Sin embargo, justo como debes decirle a puts que es lo que quieres imprimir, y a + lo que quieres añadir, debes decirle a center que tan ancha deseas que sea la cadena a centrar. Así, si yo quisiera centrar las líneas de un poema, lo haría de la siguiente forma:
+
+anchoDeLínea = 50
+puts('Como todas las cosas están llenas de mi alma'.center(anchoDeLínea))
+puts(   'emerges de las cosas, llena del alma mía.'.center(anchoDeLínea))
+puts(    'Mariposa de sueño, te pareces a mi alma,'.center(anchoDeLínea))
+puts(       'y te pareces a la palabra melancolía.'.center(anchoDeLínea))
+
+Como todas las cosas están llenas de mi alma
+emerges de las cosas, llena del alma mía.
+Mariposa de sueño, te pareces a mi alma,
+y te pareces a la palabra melancolía.
+
+Hmmm... no estoy seguro si así va ese fragmento, pero soy muy flojo para buscarlo. (Además, quería alinear la parte de .center(anchoDeLínea), por lo que puse esos espacios extra antes de las cadenas. Esto es porque pienso que se ve mejor de esa forma.
+
+Los programadores usualmente tienen fuertes sentimientos acerca de como les gusta escribir el código de los programas y frecuentemente está en desacuerdo. Entre más programas, más desarrollas tu propio estilo.) Hablando de ser flojo, la flojera no es siempre algo malo en la programación. Por ejemplo, ¿ves cómo guardé la longitud de la línea para alinear el poema en la variable anchoDeLínea? Esto es por si más tarde quiero que el poema se centre en una línea más amplia, sólo tengo que cambiar la primera línea de código del programa, en lugar de cada línea encargada de hacer el centrado. Con un poema muy largo, esto podría ahorrarme mucho tiempo. Éste tipo de flojera es realmente una virtud en cuanto a programación.
+
+Así que, acerca ese centrado... puedes haber notado que no es tan bonito como un procesador de palabras lo hubiera hecho. Si realmente deseas un centrado perfecto (y tal vez una fuente de texto más bonita), ¡entonces deberías usar un procesador de palabras! Ruby es una maravillosa herramienta, pero ninguna herramienta es la herramienta adecuada para todos los trabajos.
+
+Los otros dos métodos para el formato de cadenas de texto son ljust y rjust, que significan justificar a la izquierda y justificar a la derecha. Son similares a center, excepto que colocan espacio extra a la derecha y a la izquierda, respectivamente. Veamos a los tres en acción:
+
+anchoDeLínea = 44
+cadena = '--> texto <--'
+puts cadena.ljust  anchoDeLínea
+puts cadena.center anchoDeLínea
+puts cadena.rjust  anchoDeLínea
+puts cadena.ljust (anchoDeLínea / 2) + cadena.rjust (anchoDeLínea / 2)
+
+--> texto <--
+            --> texto <--
+                                 --> texto <--
+--> texto <--                    --> texto <--
+
+Algunas cosas para intentar
+Escribe el programa «Jefe enojado». Debe preguntar de forma ruda que es lo que quieres. Lo que sea que le pidas, el jefe enojado debe contestarte gritando y después, despedirte. Así que, por ejemplo, si tú escribes Quiero un aumento. él debe contestar gritando: ¿¡¿QUÉ QUIERES DECIR CON «QUIERO UN AUMENTO»?!? ¡¡ESTÁS DESPEDIDO!!
+
+Aquí hay algo para que puedas jugar un poco más con center, ljust y rjust. Escribe un programa que desplegará una «Tabla de contenidos» de forma que se vea como ésta:
+
+          Tabla de contenidos
+
+Capítulo 1: Números                   página 1
+Capítulo 2: letras                    página 72
+Capítulo 3: Variables               página 118
+        
+Matemáticas más avanzadas
+(Las siguientes secciones de éste capítulo son totalmente opcionales. Asumen un grado moderado de conocimiento matemático. Si no estás interesado, puedes continuar directamente al capítulo sobre control de flujo sin ningún problema. Sin embargo, un repaso rápido sobre la sección de números aleatorios podría ser de utilidad.)
+
+No hay tantos métodos para números como los hay para cadenas de caracteres (aún así, no los tengo todos en la memoria). Aquí veremos al resto de los métodos aritméticos, un generador de números aleatorios y el objeto Math con sus métodos trigonométricos y trascendentales.
+
+Más aritmética
+Los otros dos métodos aritméticos son ** (potenciación) y % (módulo). Así que si quieres escribir «cinco al cuadrado» en Ruby, lo escribirías como 5 ** 2. También puedes usar números reales como exponente, si quieres la raíz cuadrada de 5, puedes escribirlo como 5 ** 0.5. El método modulo te da el remanente de una división. Así que, por ejemplo, si divido 7 entre 3, obtengo 2 con un remanente de 1.
+
+Veamos como funcionan en un programa:
+
+puts 5 ** 2
+puts 5 ** 0.5
+puts 7 / 3
+puts 7 % 3
+puts 365 % 7
+
+25
+2.23606797749979
+2
+1
+1
+
+De la última línea aprendemos que un año (no bisiesto) tiene cierto número de semanas más un día. Así que si tu cumpleaños es (o fue) el martes éste año, será en miércoles el siguiente. También puedes usar números reales con el método módulo. Básicamente funciona de la única forma sensible que podría... pero te dejaré jugar con eso.
+
+Hay un último método que mencionar antes de ver la generación de números aleatorios: abs. Sólo devuelve el valor absoluto de un número:
+
+puts (5 - 2).abs
+puts (2 - 5).abs
+
+3
+3
+
+Números aleatorios
+Ruby incluye un bonito generador de números aleatorios. El método para obtener un número elegido al azar es rand. Si llamas a rand sólo así, obtendrás un número real igual o mayor que 0 y menor que 1.0. Si le das a rand un entero (5, por ejemplo), te devolverá un entero mayor o igual que 0 y menor que 5 (cinco posibles números del 0 al 4).
+
+Vemos a rand en acción.
+
+puts rand
+puts rand
+puts rand
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts rand(1)
+puts rand(1)
+puts rand(1)
+puts rand(99999999999999999999999999999999999999999999999999999999999)
+puts 'El hombre del clima dijo que hay '+rand(101).to_s+'% de probabilidad'
+puts 'de lluvia, pero nunca debes de confiar en el hombre del clima.'
+
+0.866769322351658
+0.155609260113273
+0.208355946789083
+61
+46
+92
+0
+0
+0
+22982477508131860231954108773887523861600693989518495699862
+El hombre del clima dijo que hay 47% d probabilidad
+de lluvia, pero nunca debes de confiar en el hombre del clima.
+
+Nota que he usado rand(101) para obtener números entre 0 y 100, y que rand(1) siempre regresa 0. No comprender el rango de posibles valores devueltos es el error más grande que he visto a otras personas realizar con rand; aun programadores profesionales; aun en productos terminados que puedes comprar en una tienda. Una vez tuve un reproductor de CDs que al ser colocado en modo de «reproducción aleatoria», reproducía todas las pistas excepto la última... (Me pregunto, ¿qué hubiera pasado su hubiera colocado con un CD con sólo una pista en él?)
+
+Algunas veces podrías querer que rand devuelva los mismos números aleatorios en la misma secuencia en dos diferentes ejecuciones de tu programa. (Por ejemplo, una vez utilice un generador de números aleatorios para crear un mundo generado automáticamente para un juego de computadora. Si encontraba un mundo que realmente me gustara, tal vez me gustaría jugar en el de nuevo, o enviarlo a un amigo.) Para lograr esto, necesitas configurar un valor semilla, lo cual puedes hacer con srand. Algo así:
+
+srand 1776
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts ''
+srand 1776
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts rand(100)
+puts rand(100)
+
+24
+35
+36
+58
+70
+
+24
+35
+36
+58
+70
+
+Hará lo mismo cada vez que utilices el mismo número como semilla. Si quieres volver a obtener diferentes números otra vez (como si nunca hubieras usado srand), entonces llama srand 0. Esto le da como semilla un número realmente raro, usando (entre otras cosas) la hora actual de tu computadora, con precisión de milisegundos.
+
+
+El objeto Math
+Por último, veamos el objeto Math. También podríamos saltar directamente dentro de él:
+
+puts Math::PI
+puts Math::E
+puts Math.cos(Math::PI / 3)
+puts Math.tan(Math::PI / 4)
+puts Math.log(Math::E ** 2)
+puts (1 + Math.sqrt(5)) / 2
+
+3.14159265358979
+2.71828182845905
+0.5
+1.0
+2.0
+1.61803398874989
+
+Lo primero que tal vez notaste fue la notación ::. Explicar el operador de alcance (que es lo eso es) está realmente más allá del, eh... del alcance de éste tutorial. No es broma. Lo juro. Es suficiente decir que puedes usar Math::Pi justo como lo esperarías.
+
+Como puedes ver, Math tiene todas las cosas que podrías esperar de una calculadora científica decente. Y como siempre, los números reales están realmente cerca de ser las respuestas correctas.
+
+Así que ahora, ¡fluyamos!
