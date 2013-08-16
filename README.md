@@ -12,7 +12,6 @@ ___
 ## Como participar
 
 Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pull request» con la sección que has traducido. En caso de que encuentres  algún error ortográfico o gramatical puedes crear un «issue». También puedes enviar tus soluciones a los ejercicios o sugerencias de como resolverlos de una forma más sencilla.
-___
 ## Capítulos y secciones completadas
 
 * Sobre la versión en español
@@ -27,6 +26,8 @@ ___
 * 4 Mezclando todo
 * 5 Más acerca de los métodos
 * 6 Matemáticas avanzadas
+* 7 Control de flujo
+
 ___
 ## Información legal
 El contenido de éste tutorial está protegido por derechos de autor a favor de Chris Pine (© 2003-2009 Chris Pine). Éste tu tutorial es traducido y distribuido bajo su consentimiento por escrito.
