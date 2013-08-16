@@ -1,0 +1,282 @@
+7. Control de flujo
+Ahhh, el control de flujo. Aquí es donde todo se condensa. Aun cuando éste capítulo es más corto y sencillo que el capítulo sobre métodos, abrirá un completo mundo de posibilidades de programación. Después de éste capítulo, seremos capaces de escribir programar realmente interactivos; en el pasado hemos hecho programas que dicen diferentes cosas dependiendo de lo que escribías en el teclado, pero después de éste capítulo realmente harán diferentes cosas también. Pero antes de que podamos hacer eso, necesitamos ser capaces de comparar los objetos en nuestros programas. Necesitamos...
+
+Métodos de comparación
+Vamos a darnos prisa por ésta parte para poder llegar a la siguiente sección, ramificación, donde ocurren todas las cosas interesantes. Así que, para ver si un objeto es mayor o menor que otro, usamos los métodos > y <, de ésta forma:
+
+puts 1 > 2
+puts 1 < 2
+
+false
+true
+
+Sin problemas. De igual forma podemos encontrar si un objeto es mayor-o-igual (o menor-o-igual) que otro con los métodos >= y <=:
+
+puts 5 >= 5
+puts 5 <= 4
+
+true
+false
+
+Y, finalmente, podemos ver si dos objetos son iguales o no usando == (que significa «¿son iguales?») y != (que significa «¿son diferentes?»). Es importante no confundir = con ==. = es para decir a una variable que apunte a un objeto (asignación), y == es para hacer la pregunta «¿Son estos dos objetos iguales?»:
+
+puts 1 == 1
+puts 2 != 1
+
+true
+true
+
+Por supuesto, también podemos comparar cadenas de caracteres. Cuando las cadenas son comparadas, se hace utilizando su orden lexicográfico, lo que básicamente significa su orden de aparición en un diccionario, gato aparece antes que perro, así que:
+
+puts 'gato' < 'perro'
+
+true
+
+Sin embargo, hay un detalle: la forma en la que las computadoras usualmente hacen las cosas. Ellas usualmente ordenan las letras mayúsculas antes de las letras minúsculas. (Así es como almacenan las letras en las fuentes, por ejemplo: primero todas las letras en mayúsculas, después todas las letras en minúsculas.) Esto significa que la computadora pensará que 'Zoológico' viene antes que 'hormiga', así que si quieres averiguar que palabra viene primero en un diccionario real, está seguro de usar downcase (o upcase o capitalize) en ambas palabras antes de intentar compararlas.
+
+Una última cosa antes de ver el tema de ramificación: Los métodos de comparación no nos están dando las cadenas de texto 'true' y 'false'; nos están dando los objetos especiales true y false. (Por supuesto, true.to_s nos devuelve 'true', que es como puts imprimió 'true'.) true y false se usan todo el tiempo en...
+
+Ramificación
+La ramificación (o bifurcación) es un concepto simple, pero poderoso. De hecho, es tan simple que apuesto a que no tendré que explicarlo para nada; sólo te lo mostraré:
+
+puts 'Hola, ¿cómo te llamas?'
+nombre = gets.chomp
+puts 'Hola, ' + nombre + '.'
+if nombre == 'Chris'
+  puts '¡Qué hermoso nombre!'
+end
+
+Hola, ¿cómo te llamas?
+Chris
+Hola, Chris.
+¡Qué hermoso nombre!
+
+Pero si le damos un nombre diferente...
+
+Hola, ¿cómo te llamas?
+Chewbacca
+Hola, Chewbacca.
+
+Y eso es la ramificación. Si lo que viene después de if da como resultado true, ejecutamos el código entre if y end. Si lo que viene después if da como resultado false, no lo hacemos. Así de simple.
+
+Identé el código entre if y end sólo porque creo que es más fácil que darse cuenta de la ramificación de esa forma. Casi todos los programadores lo hacen así, sin importar el lenguaje de programación que estén utilizando. Puede no parecer de mucha ayuda en éste ejemplo simple, pero conforme las cosas se vuelven más complejas, la identación hace una gran diferencia.
+
+Algunas veces, quisiéramos que un programa hiciera una cosa si una expresión es true, e hiciera otra si la misma expresión es false. Para eso está else:
+
+puts 'Soy un adivinador de fortunas. Dime tu nombre:'
+nombre = gets.chomp
+if nombre == 'Chris'
+  puts 'Veo grandes cosas en tu futuro.'
+else
+  puts 'Tu futuro es... ¡Oh, mira la hora!'
+  puts 'Realmente me tengo que ir, ¡lo siento!'
+end
+
+Soy un adivinador. Dime tu nombre:
+Chris
+Veo grandes cosas en tu futuro.
+
+Ahora intentemos con un nombre diferente...
+
+Soy un adivinador. Dime tu nombre:
+Ringo
+Tu futuro es... ¡Oh, mira la hora!
+Realmente me tengo que ir, ¡lo siento!
+
+La ramificación es como llegar a un cruce en el camino de nuestro código: ¿Tomamos el camino para la persona cuyo nombre == 'Chris' o, de otra forma, tomamos el otro camino?
+Y justo como en las ramas de un árbol, puedes tener ramas que tienen ramas dentro de sí mismas:
+
+puts 'Hola y bienvenido a la clase de Inglés del sexto grado.'
+puts 'Yo soy la señorita Dulcinea. ¿Y tu nombre es...?'
+nombre = gets.chomp
+
+if nombre == nombre.capitalize
+  puts 'Por favor toma asiento, ' + nombre + '.'
+else
+  puts '¿' + nombre + '? Quieres decir ' + nombre.capitalize + ', ¿no es así?'
+  puts '¿No sabes ni siquiera cómo escribir tu propio nombre?'
+  respuesta = gets.chomp
+
+  if respuesta.downcase == 'sí'
+  puts '¡Jum! Bueno, ¡siéntate!'
+  else
+  puts '¡FUERA DE AQUÍ!'
+  end
+end
+
+Hola y bienvenido a la clase de Inglés del sexto grado.
+Yo soy la señorita Dulcinea. ¿Y tu nombre es...?
+chris
+¿chris? Quieres decir Chris, ¿no es así?
+¿No sabes ni siquiera cómo escribir tu propio nombre?
+sí
+¡Jum! Bueno, ¡siéntate!
+
+Bien, lo pondré en mayúsculas...
+
+Hola y bienvenido a la clase de Inglés del sexto grado.
+Yo soy la señorita Dulcinea. ¿Y tu nombre es...?
+Chris
+Por favor, toma asiento Chris.
+
+Algunas veces puede ser confuso intentar comprender a donde van todos los if, else y end. Lo que yo hago es escribir el end al mismo tiempo que escribo su correspondiente if, por lo que es así como lucia el programa cuando comencé a escribirlo:
+
+puts 'Hola y bienvenido a la clase de Inglés del sexto grado.'
+puts 'Yo soy la señorita Dulcinea. ¿Y tu nombre es...?'
+nombre = gets.chomp
+
+if nombre == nombre.capitalize
+else
+end
+
+Entonces lo llene con comentarios, cosas en el código que la computadora ignorará:
+
+puts 'Hola y bienvenido a la clase de Inglés del sexto grado.'
+puts 'Yo soy la señorita Dulcinea. ¿Y tu nombre es...?'
+nombre = gets.chomp
+
+if nombre == nombre.capitalize
+  # Ella es amable.
+else
+  # Ella se molesta.
+end
+
+Todo lo que viene después de un # es considerado un comentario (claro, a menos que esté dentro de una cadena de caracteres). Después de eso, remplacé los comentarios con código que funciona.
+
+A algunas personas les gusta dejar los comentarios; personalmente, creo que código bien escrito usualmente habla por sí mismo. Solía utilizar más comentarios, pero entre más «fluido» me volvía en Ruby, menos los usaba. Hoy en día los encuentro como distracciones la mayor parte del tiempo. Es mi elección personal, tú encontrarás tu (usualmente siempre en evolución) estilo personal. Así que mi siguiente paso parecía algo así:
+
+puts 'Hola y bienvenido a la clase de Inglés del sexto grado.'
+puts 'Yo soy la señorita Dulcinea. ¿Y tu nombre es...?'
+nombre = gets.chomp
+
+if nombre == nombre.capitalize
+  puts 'Por favor toma asiento, ' + nombre + '.'
+else
+  puts '¿' + nombre + '?  Quieres decir ' + nombre.capitalize + ', ¿no es así?'
+  puts '¿No sabes ni siquiera cómo escribir tu propio nombre?'
+  respuesta = gets.chomp
+
+  if respuesta.downcase == 'sí'
+  else
+  end
+end
+
+De nuevo, escribí el if, el else y el end el mismo tiempo. Realmente me ayuda a recordar  «donde me encuentro dentro» del código. También hace parecer el trabajo más fácil porque puedo concentrarme en una pequeña parte, como en llenar el código entre el if y después dentro del else.
+
+El otro beneficio de hacerlo de ésta manera es que la computadora puede comprender el programa en cualquier estado. Cada una de las versiones sin terminar del programa que he mostrado podría ser ejecutada. No estaban terminados, pero eran programas funcionales. De ésta forma podría probarlo conforme lo iba escribiendo, lo que me ayudo a ver como iba quedando y que era lo que aún necesitaba trabajo. ¡Cuándo pasaba todas la pruebas es como sabía que había terminado!
+
+Estos consejos te ayudarán a escribir programas con ramificaciones, pero también ayudarán con otro tipo principal de flujo de control:
+
+Ciclos
+Usualmente querrás que tu computadora haga la misma cosa una y otra vez, después de todo para eso se supone que son buenas las computadoras.
+
+Cuando le dices a tu computadora que se mantenga repitiendo algo, también debes decirle el momento en que debe detenerse. Las computadoras nunca se aburren, por lo que si no les indicas que se detengan, no lo harán. Nos aseguramos que esto no ocurra indicando a la computadora que repita ciertas partes del código mientras cierta condición es verdadera. Esto funciona de manera muy similar a como funciona if:
+
+comando = ""
+
+while comando != "adiós"
+  puts comando
+  comando = gets.chomp
+end
+
+puts "¡Vuelve pronto!"
+
+
+¿Hola?
+¿Hola?
+¡Hola!
+¡Hola!
+Mucho gusto en conocerte.
+Mucho gusto en conocerte.
+Oh... ¡qué amable!
+Oh... ¡qué amable!
+adiós
+¡Vuelve pronto!
+
+Y eso es un ciclo. (Seguramente habrás notado la línea en blanco al principio de la salida; es del primer puts, antes del primer gets. ¿Cómo podrías cambiar el programa para deshacerte de esa primer línea? ¡Pruébalo! ¿Funciona exactamente cómo el programa de arriba a excepción de la línea en blanco?)
+
+Los ciclos (o bucles) te permiten hacer todo tipo de cosas interesantes, como estoy seguro puedes imaginar. Sin embargo, te pueden causar problemas si cometes algún error. ¿Qué pasa si tu computadora se queda atrapada en un ciclo infinito? Si creen que eso puede haber pasado, sólo mantén presionada la tecla Ctrl y presiona la tecla C.
+
+Antes de que comencemos a jugar con los ciclos, sin embargo, vamos a aprender algunas pocas cosas que harán nuestro trabajo más fácil.
+
+Un poco de lógica
+Revisemos nuestro primer programa con ramificaciones de nuevo. ¿Qué pasaría si mi esposa viniera a casa, viera el programa, lo probara y no el programa no le dijera que su nombre es hermoso? No quisiera herir sus sentimientos (o dormir en el sofá), así que vamos a reescribirlo.
+
+puts 'Hola, ¿cómo te llamas?'
+nombre = gets.chomp
+puts 'Hola, ' + nombre + '.'
+if nombre == 'Chris'
+  puts '¡Qué hermoso nombre!'
+else
+  if nombre == 'Katy'
+  puts '¡Qué hermoso nombre!'
+  end
+end
+
+Hola, ¿cómo te llamas?
+Katy
+Hola, Katy.
+¡Qué hermoso nombre!
+
+Bueno, funciona. Pero no es un programa muy bonito. ¿Por qué no? Bueno, la mejor regla que jamás aprendí en programación fue la regla DRY: «No te repitas a ti mismo». Probablemente podría escribir un pequeño libro de porque es una regla tan buena. En nuestro caso, repetimos la línea puts '¡Qué hermoso nombre!'. 
+
+¿Por qué es tan importante? Bueno, ¿qué hubiera pasado si hubiera cometido un error al reescribirlo? ¿Qué pasaría si quisiera cambiar la frase de 'hermoso' a 'adorable' en ambas líneas? ¿Soy flojo, recuerdan? Básicamente, si quiero que el programa haga la misma cosa cuando obtenga 'Chris' o 'Katy', entonces realmente debería hacer la misma cosa:
+
+puts 'Hola, ¿cómo te llamas?'
+nombre = gets.chomp
+puts 'Hola, ' + nombre + '.'
+if (nombre == 'Chris' or nombre == 'Katy')
+  puts '¡Qué hermoso nombre!'
+end
+
+Hola, ¿cómo te llamas?
+Katy
+Hola, Katy.
+¡Qué hermoso nombre!
+
+Mucho mejor. Para lograr hacerlo funcionar, utilice or. Los otros operadores lógicos son and y not. Siempre es buena idea usar paréntesis cuando trabajemos con estos. Veamos como funcionan:
+
+yoSoyChris    = true
+yoSoyMorado   = false
+meGustaLaComida = true
+yoComoRocas   = false
+
+puts (yoSoyChris and meGustaLaComida)
+puts (meGustaLaComida and yoComoRocas)
+puts (yoSoyMorado and meGustaLaComida)
+puts (yoSoyMorado and yoComoRocas)
+puts
+puts (yoSoyChris or meGustalaComida)
+puts (meGustaLaComida or yoComoRocas)
+puts (yoSoyMorado or meGustaLaComida)
+puts (yoSoyMorado or yoComoRocas)
+puts
+puts (not yoSoyMorado)
+puts (not yoSoyChris)
+
+true
+false
+false
+false
+
+true
+true
+true
+false
+
+true
+false
+
+El único que probablemente podría engañarte es or. En español, frecuentemente usamos «o» para indicar «uno o el otro, pero no ambos». Por ejemplo, tu madre podría decir «Para el postre, puedes elegir pay o pastel». ¡Ella no quiere decir que puedes comer ambos! Una computadora, por otro lado, usa or para decir «uno o el otro, o ambos». (Otra forma de decir esto es, «al menos uno de estos es verdad».) Es por esto que las computadoras son más divertidas que las madres.
+
+Algunas cosas para intentar
+* «Un elefante se balanceaba...» Escribe un programa que imprima la letra de ésta clásica canción infantil: «Un elefante se balanceaba sobre la tela de una araña».
+* Escribe el programa de la abuela sorda. Para cualquier cosa que le digas a la abuela (esto es, cualquier cosa que escribas), ella debe responder con ¿¡QUÉ!? ¡HABLA MÁS FUERTE HIJITO!, a menos que se lo digas gritando (escribiendo todo en mayúsculas). Si gritas, ella podrá escucharte (o al menos eso creerá ella) y te responderá gritando ¡NO, NO DESDE 1938! Para hacer el programa realmente creíble, haz que la abuela grite un año cualquiera al azar entre 1930 y 1950. (Ésta parte del programa es opcional y será mucho más fácil de realizar si lees la sección del generador de números aleatorios de Ruby al final del capítulo sobre métodos). No puedes dejar de hablar con la abuela hasta que grites ADIÓS.
+  Pista: ¡No te olvides de chomp! ¡'ADIÓS' con un Intro no es lo mismo que un 'ADIÓS' sin uno!
+  Pista 2: Trata de pensar acerca de partes de tu programa tienen que repetirse una y otra vez. Todas ellas deben estar dentro de una iteración con while.
+* Extiende tu programa de la abuela sorda: ¿Qué hay si la abuela no quiere que te vayas? Cuando grites ADIÓS, ella puede pretender no oirte. Cambia tu programa anterior para que tengas que gritar ADIÓS tres veces seguidas. Asegúrate de probar tu programa: si dices ADIÓS tres veces pero no de forma consecutiva, debes de seguir hablando con la abuela.
+* Años bisiestos: Escribe un programa que solicite un año inicial y un año final, y entonces imprima todos los años bisiestos entre esos dos años (incluyendolos si también son años bisiestos). Los años bisiestos son divisibles entre cuatro (como 1984 y 2004). Sin embargo, los años divisibles entre 100 no son años bisiestos (como 1800 y 1900) a menos que también sean divisibles entre 400 (como 1600 y 2000, los que fueron de hecho, años bisiestos). (Sí, es bastante confuso, pero no es tan confuso como tener el mes de Julio a mitad del invierno, que es lo que eventualmente pasaría).
+
+¡Cuando hayas terminado, toma un descanso! Ya has aprendido mucho. ¡Felicidades! ¿Estás sorprendido por el número de cosas que puedes decirle que haga a una computadora? Unos cuantos capítulos más y serás capaz de programar casi cualquier cosa. ¡De verdad! Sólo observa todas las cosas que puedes hacer ahora  que no podrías hacer sin los ciclos y la ramificación.
+
+Ahora, aprendamos algo acerca de un nuevo tipo de objetos, unos que guardan referencias a otros objetos: los arreglos.
