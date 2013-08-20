@@ -19,7 +19,7 @@ Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pul
     * Ideas para maestros
     * Acerca del tutorial original
     * Agradecimientos
-* 0 Agradecimientos
+* 0 Preparandose
 * 1 Números
 * 2 Letras
 * 3 Variables y asignación
