@@ -1,0 +1,145 @@
+8. Arreglos e iteradores
+Escribamos un programa que nos pida introducir tantas palabras como deseemos (una palabra por línea, continuando hasta que presionemos Intro en una línea vacía), y que repita las palabras que escribimos en orden alfabético. ¿Está bien?
+
+Así que... primero, buenooo... um... hmmm... Bueno, nosotros podríamos-er... um...
+
+Sabes, no creo que podamos hacerlo. Necesitamos una forma de almacenar una cantidad desconocida de palabras y de mantener un registro de todas ellas juntas, de forma que no se mezclen con otras variables. Necesitamos colocarlas en algún tipo de lista. Necesitamos arreglos.
+
+Un arreglo es sólo una lista en tu computadora. Cada casilla en la lista actúa como una variable: puedes ver hacia que objeto en particular apunta el casillero y puedes hacer que apunte a un objeto diferente. Veamos algunos arreglos:
+
+[]
+[5]
+['Hello', 'Goodbye']
+
+sabor = 'vainilla'             # Claro, éste no es un arreglo...
+[89.9, sabor, [true, false]]  # ...pero éste sí lo es.
+
+Primero tenemos un arreglo vacío, después un arreglo que contiene un sólo número, después un arreglo que contiene dos cadenas de texto. A continuación tenemos una asignación sencilla; y entonces un arreglo que contiene tres objetos, el último de los cuales es el arreglo [true, false]. Recuerda, las variables no son objetos, así que nuestro último arreglo realmente está apuntando a un número flotante, a una cadena de caracteres, y a un arreglo. Aún si hiciéramos que sabor apuntará a otra cosa, eso no cambiaría el arreglo.
+
+Para ayudarnos a encontrar un objeto en particular dentro de un arreglo, a cada casilla se le asigna un número de índice. Los programadores (e incidentalmente, la mayoría de los matemáticos) comienzan a contar desde cero, por lo que la primera casilla del arreglo es la casilla cero. Aquí se muestra cómo hacemos referencia a los objetos en un arreglo:
+
+nombres = ['Ada', 'Bella', 'Chris']
+
+puts nombres
+puts nombres[0]
+puts nombres[1]
+puts nombres[2]
+puts nombres[3]  # Esto está fuera de rango.
+
+Ada
+Bella
+Chris
+Ada
+Bella
+Chris
+nil
+
+Entonces, vemos que puts nombres imprime cada nombre en el arreglo nombres. Después, usamos puts nombres[0] para imprimir el primer nombre del arreglo, y puts nombres[1] para imprimir el segundo... Estoy seguro que esto parece confuso, pero te acostumbras. Sólo tienes que comenzar a pensar que el contar realmente comienza desde cero y dejar de usar palabras como «primero» y «segundo».
+
+Si vas a disfrutar de una comida de 5 entradas, no te refieras a la «primera entrada»; habla sobre la «entrada cero» (y en tu mente piensa entrada[0]). Tienes 5 dedos en tu mano derecha, y sus números son 0, 1, 2, 3 y 4. Mi esposa y yo somos malabaristas. Cuando hacemos malabares con seis objetos, lo hacemos con los objetos del 0 al 5. Tenemos esperanzas de, en unos pocos meses, seremos capaces de agregar el objeto 6 (con lo que estaríamos haciendo malabares con 7 objetos entre nosotros).
+
+Por último, intentamos puts nombres[3], sólo para ver lo que pasaría. ¿Estabas esperando un error? Algunas veces, cuando haces una pregunta, tu pregunta no tiene sentido (al menos para tu computadora); ahí es cuando obtienes un error. Otras veces, sin embargo, puedes hacer una pregunta y la respuesta es nada. ¿Qué hay en la casilla tres? Nada. ¿Cuál contenido de nombres[3]? nil: la forma en que Ruby dice «nada». nil es un objeto especial que básicamente significa «ningún otro objeto».
+
+Si toda ésta forma rara de numerar las casillas de los arreglos te pone nervioso, ¡no tengas miedo! Muy a menudo, podemos evitarlo completamente al utilizar varios métodos de arreglos, como éste:
+
+El método each
+each nos permite hacer algo (lo que sea que queramos) a cada objeto al que apunta un arreglo. Así que, si quisiéramos decir algo agradable sobre cada uno de los lenguajes dentro del arreglo de abajo, haríamos esto:
+
+lenguajes = ['el inglés', 'el alemán', 'Ruby']
+ 
+lenguajes.each do |lenguaje|
+  puts '¡A mí me gusta ' + lenguaje +'!'
+  puts '¿A ti no?'
+end
+ 
+puts '¡Ahora para Java!'
+puts '…'
+ 
+¡A mí me gusta el inglés!
+¿A ti no?
+¡A mí me gusta el alemán!
+¿A ti no?
+¡A mí me gusta Ruby!
+¿A ti no?
+'¡Ahora para Java!'
+...
+
+¿Qué acaba de pasar? Bueno, fuimos capaces de ir a través de cada objeto en el arreglo sin usar ningún número, y eso es definitivamente agradable. Traduciendo al español, el programa de arriba se lee algo como: Para cada objeto en lenguajes, apunta la variable lenguaje al objeto y entonces haz todo lo que te digo hasta que llegues al final. (Como dato cultural, Java es otro lenguaje de programación. Es mucho más difícil de aprender que Ruby; usualmente un programa en Java será mucho más grande que un programa en Ruby que haga lo mismo).
+
+Podrías estar pensando, «Esto es muy parecido a los ciclos sobre la que aprendimos antes». Sí, es similar. Una diferencia importante es que el método each es sólo eso: un método. while y end (así como do, if, else y todas las otras palabras azules) no son métodos. Son parte fundamental Ruby como lenguaje, al igual que = y los paréntesis; en forma similar a los signos de puntuación en el español.
+
+Pero each no es así, each es sólo otro métodos de los arreglos. Los métodos que al igual que each, «actúan como» ciclos, son llamados iteradores.
+
+Una cosa a notar sobre los iteradores es que siempre van seguidos de do … end. while e if nunca tienen un do cerca de ellos; sólo usamos do con iteradores.
+
+Aquí tenemos otro pequeño y bonito iterador, pero no es un método de arreglos… ¡es un método de los números enteros!
+
+3.times do
+  puts "¡Hip-Hip-Hurra!"
+end
+
+¡Hip-Hip-Hurra!
+¡Hip-Hip-Hurra!
+¡Hip-Hip-Hurra!
+
+Más métodos de arreglos
+Hemos aprendido sobre each, pero aún hay muchos otros métodos de arreglos…. ¡casi tantos como hay métodos de cadenas de texto! De hecho, algunos de ellos (como length, reverse, + y *) funcionan justo como lo hacen para las cadenas, excepto que operan sobre las casillas de los arreglos en vez de las letras de una cadena. Otros, como last y join, son específicos de los arreglos. Aún otros, como push y pop, modifican los arreglos. Al igual que con los métodos de las cadenas, no tienes porque recordar todos ellos, en tanto recuerdes donde informarte sobre ellos (justo en ésta sección).
+
+Primero, vamos a ver to_s y join. join funciona muy parecido a como lo hace to_s, excepto que puede agregar texto entre los elementos de un arreglo. Observemos como lo hace:
+
+alimentos = ['alcachofa', 'bollo', 'caramelo']
+ 
+puts alimentos
+puts
+puts alimentos.to_s
+puts
+puts alimentos.join(', ')
+puts
+puts alimentos.join('  :)  ') + '  8)'
+ 
+200.times do
+   puts []
+end
+
+alcachofa
+bollo
+caramelo
+
+alcachofabollocaralmelo
+
+alcachofa, bollo, caramelo
+
+alcachofa  :)  bollo  :)  caramelo 8)
+
+Como puedes ver, puts trata a los arreglos de forma diferente a otros objetos: simplemente llama a puts para cada uno de los elementos en el arreglo. Es por eso que intentar usar puts con un arreglo vacío 200 veces no hace nada; el arreglo apunta a nada, así que no hay algo que poner. (Hacer nada 200 veces aún es hacer nada.) Intenta usar puts con un arreglo que contenga otros arreglos; ¿se comporta como esperabas?
+
+Por cierto, ¿te diste cuenta que no use la cadena vacía cuando quise imprimir una línea en blanco? Hace lo mismo.
+
+Ahora observemos cómo funcionan push, pop y last. Los métodos push y pop son opuestos, como lo son + y -. push añade un objeto al final de tus arreglos, mientras que pop remueve el último objeto de tus arreglos (y te informa cual era). last es similar a pop en que te informa sobre que hay al final de un arreglo, excepto que no modifica el arreglo. De nuevo, push y pop sí modifican los arreglos:
+
+favoritos = []
+favoritos.push 'rocío sobre rosas'
+favoritos.push 'whiskey sobre gatitos'
+ 
+puts favoritos[0]
+puts favoritos.last
+puts favoritos.length
+ 
+puts favoritos.pop
+puts favoritos
+puts favoritos.length
+
+rocío sobre rosas
+whiskey sobre gatitos
+2
+whiskey sobre gatitos
+rocío sobre rosas
+1
+
+Algunas cosas para intentar
+* Escribe el programa sobre el que hablamos justo al principio de éste capítulo.
+    Pista: Hay un adorable método de arreglos que devuelve la versión ordenada de un arreglo, sort. ¡Úsalo!
+* Intenta escribir el programa anterior sin utilizar el método sort. Una parte importante de la programación es resolver problemas, ¡así que practica todo lo que puedas!
+* Reescribe el programa «Tabla de contenidos» (del capítulo sobre métodos). Comienza el programa con un arreglo que contenga toda la información de la tabla de contenidos (nombres de capítulos, números de página, etc.). Después imprime la información con una bonita presentación.
+ 
+Hasta ahora hemos aprendido un gran número de diferentes métodos. Ahora es tiempo de aprender a hacer los nuestros.
