@@ -27,6 +27,7 @@ Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pul
 * 5 Más acerca de los métodos
 * 6 Matemáticas avanzadas
 * 7 Control de flujo
+* 8 Arreglos e iteradores
 
 ___
 ## Información legal
