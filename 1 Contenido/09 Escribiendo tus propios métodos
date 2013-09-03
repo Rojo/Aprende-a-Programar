@@ -1,0 +1,147 @@
+Escribiendo tus propios métodos
+
+Como hemos visto, los ciclos e iteradores nos permiten hacer lo mismo (ejecutar el mismo código) una y otra vez. Sin embargo, puede pasar que deseemos hacer algo cierto número de veces desde diferentes partes del programa.
+
+Por ejemplo, digamos que escribíamos un programa de cuestionarios para un estudiante de psicología. De los estudiantes de psicología que he conocido y los cuestionarios que me han dado, seguramente sería algo como esto:
+
+puts 'Hola y gracias por tomar un tipo de tiempo para ayudarme con éste'
+puts 'experimento. Mi experimento trata de como se sienten las personas en'
+puts 'relación con la comida mexicana. Sólo ten presente en tu mente la comida'
+puts 'mexicana e intenta responder cada pregunta honestamente con un «sí» o un'
+puts '«no». El experimento no tiene nada que ver con mojar la cama.'
+
+# Hacemos éstas preguntas, pero ignoramos las respuestas.
+
+buenaRespuesta = false
+while (not buenaRespuesta)
+  puts '¿Te gusta comer tacos?'
+  respuesta = gets.chomp.downcase
+
+  if (respuesta == 'sí' or respuesta == 'no')
+    buenaRespuesta = true
+  else
+    puts 'Por favor, responde «sí» o «no».'
+  end 
+end
+
+buenaRespuesta = false
+while (not buenaRespuesta)
+  puts '¿Te gusta comer burritos?'
+  respuesta = gets.chomp.downcase
+
+  if (respuesta == 'sí' or respuesta == 'no')
+    buenaRespuesta = true
+  else
+    puts 'Por favor, responde «sí» o «no».'
+  end 
+end
+
+# Pero sí ponemos atención a *ésta* respuesta.
+
+buenaRespuesta = false
+while (not buenaRespuesta)
+  puts '¿Aún mojas la cama?'
+  respuesta = gets.chomp.downcase
+
+  if (respuesta == 'sí' or respuesta == 'no')
+    buenaRespuesta = true
+    
+    if respuesta == 'sí'
+      mojaLaCama = true
+    else
+      mojaLaCama = false
+    end
+  else
+    puts 'Por favor, responde «sí» o «no».'
+  end 
+end
+
+buenaRespuesta = false
+while (not buenaRespuesta)
+  puts '¿Te gusta comer chimichangas?'
+  respuesta = gets.chomp.downcase
+
+  if (respuesta == 'sí' or respuesta == 'no')
+    buenaRespuesta = true
+  else
+    puts 'Por favor, responde «sí» o «no».'
+  end 
+end
+
+puts 'Sólo unas cuantas preguntas más...'
+
+buenaRespuesta = false
+while (not buenaRespuesta)
+  puts '¿Te gusta comer sopapillas?'
+  respuesta = gets.chomp.downcase
+
+  if (respuesta == 'sí' or respuesta == 'no')
+    buenaRespuesta = true
+  else
+    puts 'Por favor, responde «sí» o «no».'
+  end 
+end
+
+# Hace un montón de otras preguntas sobre comida mexicana.
+
+puts
+puts 'EXPLICACIÓN:'
+puts 'Gracias por tomar tiempo para ayudarme con éste experimento. En realidad,'
+puts 'el experimento no tiene nada que ver con comida mexicana. Es un'
+puts 'experimento acerca de las personas que aún mojan la cama. La comida'
+puts 'mexicana sólo estaba ahí como distracción, con la esperanza de que'
+puts 'responderías con más honestidad. Gracias de nuevo.'
+puts
+puts mojaLaCama
+
+Hola y gracias por tomar un tipo de tiempo para ayudarme con éste experimento. Mi experimento trata de como se sienten las personas en relación con la comida mexicana. Sólo ten presente en tu mente la comida mexicana e intenta responder cada pregunta honestamente con un «sí» o un «no». El experimento no tiene nada que ver con mojar la cama.
+
+¿Te gusta comer tacos?
+sí
+¿Te gusta comer burritos?
+sí
+¿Aún mojas la cama?
+¡claro qué no!
+Por favor, responde «sí» o «no».
+¿Aún mojas la cama?
+NO
+Sólo unas cuantas preguntas más...
+¿Te gusta comer chimichangas?
+sí
+¿Te gusta comer sopapillas?
+sí
+
+EXPLICACIÓN:
+Gracias por tomar tiempo para ayudarme con éste experimento. En realidad, el experimento no tiene nada que ver con comida mexicana. Es un experimento acerca de las personas que aún mojan la cama. La comida mexicana sólo estaba ahí como distracción, con la esperanza de que responderías con más honestidad. Gracias de nuevo.
+
+false
+
+Ese fue un programa bastante largo, con muchas repeticiones. (Todas las secciones de código alrededor de preguntas sobre comida mexicana eran idénticas, y la pregunta sobre «mojar la cama» fue sólo ligeramente diferente. La repetición es mala. Aun así, no podemos usar un gran ciclo o un iterador, debido a que algunas veces tenemos cosas que queremos hacer entre preguntas. En situaciones como ésta, es mejor escribir un método.
+
+Se hace así:
+
+def muge
+  puts 'muuuuuu...'
+end
+
+Uh... Nuestro programa no mugió. ¿Por qué no? Porque no le indicamos que lo hiciera. Le indicamos como mugir, pero nunca le dijimos que lo hiciera. Intentemos de nuevo:
+
+def muge
+  puts 'muuuuuu...'
+end
+
+muge
+muge
+puts 'coin-coin'
+muge
+muge
+
+muuuuuu...
+muuuuuu...
+coin-coin
+muuuuuu...
+muuuuuu...
+
+¡Ahhh, mucho mejor! (Sólo en caso de que no hables francés, ese fue un pato francés a mitad del programa. En Francia, los patos dicen «coin-coin».)
+
+Definimos el método muge. (Se usa que los nombres de métodos, como los nombres de variables, comiencen con una letra minúscula. Aunque, hay algunas excepciones como + o ==.) Pero, ¿no tienen los métodos que estar siempre asociados con objetos? Bueno, sí, lo están, y en éste caso (al igual que puts y gets), el método está asociado con el objeto que representa el programa completo. En el siguiente capítulo veremos como agregar métodos a otros objetos. Pero primero...
