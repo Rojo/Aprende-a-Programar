@@ -145,3 +145,26 @@ muuuuuu...
 ¡Ahhh, mucho mejor! (Sólo en caso de que no hables francés, ese fue un pato francés a mitad del programa. En Francia, los patos dicen «coin-coin».)
 
 Definimos el método muge. (Se usa que los nombres de métodos, como los nombres de variables, comiencen con una letra minúscula. Aunque, hay algunas excepciones como + o ==.) Pero, ¿no tienen los métodos que estar siempre asociados con objetos? Bueno, sí, lo están, y en éste caso (al igual que puts y gets), el método está asociado con el objeto que representa el programa completo. En el siguiente capítulo veremos como agregar métodos a otros objetos. Pero primero...
+
+Parámetros en los métodos
+Tal vez hayas notado que algunos métodos (como gets, to_s, reverse...) pueden ser simplemente llamados sobre un objeto. Sin embargo, otros métodos (cómo +, -, puts...) toman parámetros para indicarle al objeto cómo realizar el método. Por ejemplo, no dirías simplemente 5+, ¿verdad? Porque le estarías diciendo a 5 que sume, pero no le estarías diciendo qué sumar.
+
+Para añadir un parámetro a muge (digamos, el número de veces que debe mugir), hacemos esto:
+
+def muge numeroDeVeces
+  puts 'muuuuuuu...' * numeroDeVeces
+end
+
+muge 3
+puts 'oinc, oinc'
+muge # Provocará un error porque falta un parámetro
+
+muuuuuuu...muuuuuuu...muuuuuuu...
+oinc, oinc
+#<ArgumentError: wrong number of arguments (0 for 1)>
+
+numeroDeVeces es una variable que apunta al parámetro pasado al método. Lo diré de nuevo ya que es un poco confuso: numeroDeVeces es una variable que apunta al parámetro pasado al método. Así que, si escribo muge 3, el parámetro es 3 y la variable numeroDeVeces apunta a 3.
+
+Como puedes ver, el parámetro es ahora requerido. Después de todo, ¿cómo puede muge multiplicar 'muuuuuuu...' si no le das ningún parámetro? Tu pobre computadora no tiene idea.
+
+Si los objetos en Ruby son como los sustantivos en español, y los métodos son como los verbos, entonces puedes pensar en los parámetros como adverbios (como en muge, donde el parámetro le dice como debe mugir) u otras veces como objetos directos (como con puts, donde el parámetro es lo que se imprime).
