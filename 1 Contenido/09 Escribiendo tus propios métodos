@@ -168,3 +168,46 @@ numeroDeVeces es una variable que apunta al parámetro pasado al método. Lo dir
 Como puedes ver, el parámetro es ahora requerido. Después de todo, ¿cómo puede muge multiplicar 'muuuuuuu...' si no le das ningún parámetro? Tu pobre computadora no tiene idea.
 
 Si los objetos en Ruby son como los sustantivos en español, y los métodos son como los verbos, entonces puedes pensar en los parámetros como adverbios (como en muge, donde el parámetro le dice como debe mugir) u otras veces como objetos directos (como con puts, donde el parámetro es lo que se imprime).
+
+Variables locales
+En el siguiente programa hay dos variables:
+
+def duplicaEsto numero
+  numeroPor2 = numero * 2
+  puts numero.to_s + ' al doble es ' + numeroPor2.to_s
+end
+
+duplicaEsto 44
+
+44 al doble es 88
+
+Las variables son numero y numeroPor2. Ambas se encuentran dentro del método duplicaEsto. Estás (y todas las variables que has visto hasta ahora) son variables locales. Esto significa que viven dentro del método y no pueden salir. Si intentas llamarlas afuera, obtendrás un error:
+
+def duplicaEsto numero
+  numeroPor2 = numero * 2
+  puts numero.to_s + ' al doble es ' + numeroPor2.to_s
+end
+
+duplicaEsto 44
+puts numeroPor2.to_s
+
+44 al doble es 88
+#<NameError: undefined local variable or method `numTimes2' for #<StringIO:0x82ba21c>>
+
+Variable local indefinida... De hecho, sí definimos esa variable local, pero no es local desde donde intentamos usarla; es local al método.
+
+Esto podría parecer un inconveniente, pero en realidad es bastante bueno. Mientras que eso significa que no puedes acceder a variables dentro de los métodos, también significa que ellos no tienen acceso a tus variables, y por lo tanto, no las pueden afectar.
+
+def pestecilla var
+  var = nil
+  puts 'Pestecilla: ¡Ja, ja! ¡He arruinado tu variable!'
+end
+
+var = 'Programa: ¡No puedes ni tocar mi variable!'
+pestecilla var
+puts var
+
+Pestecilla: ¡Ja, ja! ¡He arruinado tu variable!
+Programa: ¡No puedes ni tocar mi variable!
+
+En realidad hay dos variables llamadas var en ese pequeño programa: una dentro de la pequeñaPeste, y la otra fuera de ella. Cuando llamamos a pequeñaPeste var, en realidad sólo hicimos que ambas variables apuntaran a la misma cadena. Después, la pequeñaPeste apunto su propia var local hacia nil, pero no hizo nada a la var fuera del método.
