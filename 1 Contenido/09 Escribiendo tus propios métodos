@@ -211,3 +211,107 @@ Pestecilla: ¡Ja, ja! ¡He arruinado tu variable!
 Programa: ¡No puedes ni tocar mi variable!
 
 En realidad hay dos variables llamadas var en ese pequeño programa: una dentro de la pequeñaPeste, y la otra fuera de ella. Cuando llamamos a pequeñaPeste var, en realidad sólo hicimos que ambas variables apuntaran a la misma cadena. Después, la pequeñaPeste apunto su propia var local hacia nil, pero no hizo nada a la var fuera del método.
+
+Retorno de valores
+Probablemente te has dado cuenta que algunos métodos regresan algo cuando los llamas. Por ejemplo, gets retorna una cadena de caracteres (la cadena que escribiste con el teclado), y el método + en 5 + 3 (que es en realidad 5.+(3)), retorna 8. Los métodos aritméticos para números retornan números, y los métodos aritméticos para cadenas retornan cadenas.
+
+Es importante entender la diferencia entre métodos retornando un valor a la parte del programa donde fueron llamados y la presentación de información en pantalla, como lo hace puts. Así, 5 + 3 retorna 8, no imprime 8 en pantalla.
+Entonces, ¿qué retorna puts? No nos habíamos preocupado por eso, veamos ahora:
+
+valorRetornado = puts 'Esto retorno puts:'
+puts valorRetornado
+
+Esto es lo que retorno puts:
+nil
+
+Así que el primer puts retornó nil. Aunque no lo probamos directamente, el segundo puts también lo hizo; puts siempre retorna nil. Todos los métodos devuelven algo, aún si sólo es nil.
+
+Toma un pequeño descanso y escribe un programa con el que averigües que retorna el método muge.
+
+¿Te sorprendió? Bueno, así es como funciona: el valor que retorna un método es simplemente la última línea del método. En el caso de muge, esto significa que retorna puts 'muuuuuuu...' * numeroDeVeces, lo cual es nil debido a que puts siempre devuelve nil. Si quisiéramos que todos nuestros métodos siempre retornaran la cadena 'submarino amarillo', tendríamos que poner eso en ellos al final:
+
+def muge numeroDeVeces
+  puts 'muuuuuuu...' * numeroDeVeces
+  'submarino amarillo'
+end
+
+x = muge 2
+puts x
+
+muuuuuuu...muuuuuuu...
+submarino amarillo
+
+Entonces, intentemos ese experimento de psicología de nuevo, pero ésta vez escribiremos un método para hacer las preguntas por nosotros. Necesitará recibir la pregunta como parámetro, retornando como resultado true si es respondida con sí, mientras que retorna como resultado false si es respondida con no. (Aun cuando la mayor parte del tiempo ignoraremos la respuesta, es una buena idea que el método retorne el resultado. Así también podremos usar la pregunta sobre mojar la cama.) Además, acortaré la bienvenida y la explicación, para que sea más fácil de leer:
+
+def hacer_pregunta pregunta
+  buenaRespuesta = false
+
+  while (not buenaRespuesta)
+    puts pregunta
+    respuesta = gets.chomp.downcase
+
+    if (respuesta == 'sí' or respuesta == 'no')
+      buenaRespuesta = true
+
+      if respuesta == 'sí'
+        resultado = true
+      else
+         resultado = false
+      end
+    else
+       puts 'Por favor, responde «sí» o «no».'
+    end
+  end
+
+  resultado # lo que queremos retornar (true o false)
+end
+
+puts 'Hola y gracias por...'
+puts
+
+# ignoramos los valores retornados...
+hacer_pregunta '¿Te gusta comer tacos?'
+hacer_pregunta '¿Te gusta comer burritos?'
+# pero guardamos el valor que es retornado ésta ocasión
+mojaLaCama = hacer_pregunta '¿Aún mojas la cama?'
+hacer_pregunta '¿Te gusta comer chimichangas?'
+hacer_pregunta '¿Te gusta comer sopapillas?'
+hacer_pregunta '¿Te gusta comer tamales?'
+puts 'Sólo unas preguntas más...'
+hacer_pregunta '¿Te gusta beber horchata?'
+hacer_pregunta '¿Te gusta comer flautas?'
+
+puts 
+puts 'EXPLICACIÓN:'
+puts 'Te agradezco por...'
+puts
+puts mojaLaCama
+
+Hola y gracias por...
+
+¿Te gusta comer tacos?
+sí
+¿Te gusta comer burritos?
+sí
+¿Aún mojas la cama?
+¡claro que no!
+Por favor responde «sí» o «no».
+¿Aún mojas la cama?
+NO
+¿Te gusta comer chimichangas?
+sí
+¿Te gusta comer sopapillas?
+sí
+¿Te gusta comer tamales?
+sí
+¿Te gusta beber horchata?
+sí
+¿Te gusta comer flautas?
+sí
+
+EXPLICACIÓN:
+Te agradezco por...
+
+false
+
+Nada mal, ¿eh? Fuimos capaces de agregar más preguntas (y agregar preguntas es fácil ahora), además de que nuestro programa es mucho más corto. ¡Es una gran mejora! – El sueño de un programador flojo.
