@@ -315,3 +315,299 @@ Te agradezco por...
 false
 
 Nada mal, ¿eh? Fuimos capaces de agregar más preguntas (y agregar preguntas es fácil ahora), además de que nuestro programa es mucho más corto. ¡Es una gran mejora! – El sueño de un programador flojo.
+
+Un ejemplo aún más grande
+
+Creo que un método más a manera de ejemplo será de ayuda aquí. Llamaremos a éste numero_en_espanol. Tomará un número, como 22, y retornará su versión en español (en éste caso, la cadena 'veintidós'). Por ahora, hagamos que sólo funcione para números del 0 al 100.
+
+(NOTA: Éste método usa un nuevo truco para retornar un valor de un método antes de llegar al final del mismo, usando la palabra return, e introduce también una variación a la ramificación: elsif. Debería ser claro como funcionan en el contexto.)
+
+def numero_a_espanol numero 
+  # Sólo queremos números del 0 al 100. 
+  if (numero < 0) or (numero > 100) 
+    return 'Por favor, proporciona un número entre 0 y 100.' 
+  end 
+
+  texto = '' # Ésta es la cadena que retornaremos. 
+
+  # Casos especiales: cuando numero es 0 o 100, devolvemos el texto apropiado. 
+  if numero == 0 
+    return 'cero' 
+  end 
+  if numero == 100 
+    return 'cien' 
+  end 
+
+  # "restante" es lo que falta por escribir del número. 
+  # "actual" es la parte que vamos a escribir ahora. 
+  # "restante" y "actual" ¿Está claro? :) 
+  restante = numero  
+  actual   = restante / 10          # ¿Cuantas decenas se van a escribir? 
+  restante = restante - actual * 10 # Sustraer esas decenas 
+
+  if actual > 0 
+    if actual == 1 # Grupo del 10 al 19 
+      if restante < 7 
+        # Como no podemos escribir "diez y uno" en lugar de "once", tenemos que 
+        # establecer un comportamiento especial para éste caso y similares. 
+        if    restante == 0 
+          texto = texto + 'diez' 
+        elsif restante == 1 
+          texto = texto + 'once' 
+        elsif restante == 2 
+          texto = texto + 'doce' 
+        elsif restante == 3 
+          texto = texto + 'trece' 
+        elsif restante == 4 
+          texto = texto + 'catorce' 
+        elsif restante == 5 
+          texto = texto + 'quince' 
+        elsif restante == 6 
+          texto = texto + 'dieciséis' 
+        end 
+
+        # Decenas y unidades listas, no tenemos nada restante por escribir. 
+        restante = 0 
+      else 
+        # Los números mayores a 16 pueden escribirse de una forma regular: 
+        # 'dieci' + unidades 
+        texto = texto + 'dieci' 
+      end 
+    elsif actual == 2 # Grupo del 20 al 29 
+      # Casos especiales 
+      if restante == 0 
+        texto = texto + 'veinte' 
+      elsif restante == 2 
+        texto = texto + 'veintidós' 
+        restante = 0 
+      elsif restante == 3 
+        texto = texto + 'veintitrés' 
+        restante = 0 
+      elsif restante == 6 
+        texto = texto + 'veintiséis' 
+        restante = 0 
+      else 
+        # Los demás números del grupo se pueden escribir de forma regular: 
+        # 'veinti' + unidades 
+        texto = texto + 'veinti' 
+      end 
+    else # Grupo del 30 al 99 
+      # Todos estos números se pueden escribir de forma regular: 
+      # decenas + ' y ' + unidades 
+      if    actual == 3 
+        texto = texto + 'treinta' 
+      elsif actual == 4 
+        texto = texto + 'cuarenta' 
+      elsif actual == 5 
+        texto = texto + 'cincuenta' 
+      elsif actual == 6 
+        texto = texto + 'sesenta' 
+      elsif actual == 7 
+        texto = texto + 'setenta' 
+      elsif actual == 8 
+        texto = texto + 'ochenta' 
+      elsif actual == 9 
+        texto = texto + 'noventa' 
+      end 
+
+      if restante > 0 then texto = texto + ' y ' end 
+    end 
+  end 
+
+  actual   = restante # ¿Cuantas unidades quedan por escribir? 
+  restante = 0        # Sustraemos esas unidades 
+
+  if actual > 0 
+    if    actual == 1 
+      texto = texto + 'uno' 
+    elsif actual == 2 
+      texto = texto + 'dos' 
+    elsif actual == 3 
+      texto = texto + 'tres' 
+    elsif actual == 4 
+      texto = texto + 'cuatro' 
+    elsif actual == 5 
+      texto = texto + 'cinco' 
+    elsif actual == 6 
+      texto = texto + 'seis' 
+    elsif actual == 7 
+      texto = texto + 'siete' 
+    elsif actual == 8 
+      texto = texto + 'ocho' 
+    elsif actual == 9 
+      texto = texto + 'nueve' 
+    end 
+  end 
+
+  # Si llegamos hasta aquí, entonces teníamos algún número entre 0 y 100, así 
+  # que debemos retornar la «texto». 
+  texto 
+end 
+
+puts numero_a_espanol   0 
+puts numero_a_espanol   9 
+puts numero_a_espanol  10 
+puts numero_a_espanol  11 
+puts numero_a_espanol  17 
+puts numero_a_espanol  32 
+puts numero_a_espanol  88 
+puts numero_a_espanol  99 
+puts numero_a_espanol 100 
+
+cero 
+nueve 
+diez 
+once 
+diecisiete 
+treinta y dos 
+ochenta y ocho 
+noventa y nueve 
+cien 
+
+Bueno, ciertamente hay algunas cosas que no me gustan de éste programa. Primero, tiene demasiadas repeticiones. Segundo, no maneja números mayores a 100. Tercero, hay demasiados casos especiales, demasiados return. Usemos algunos arreglos y tratemos de limpiarlo un poco.
+
+def numero_a_espanol numero 
+  if numero < 0  #  No números negativos. 
+    return 'Lo siento, el programa no maneja números negativos.' 
+  end 
+  if numero == 0 
+    return 'cero' 
+  end 
+  
+  texto = ''  #  Ésta es la cadena que vamos a devolver. 
+
+  # Los arreglos nos permiten manejar los casos especiales de forma ordenada. 
+  # ¡No más returns! 
+  
+  unidades = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 
+              'nueve'] 
+
+  decenas  = ['diez', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 
+              'setenta', 'ochenta', 'noventa'] 
+
+  grupo_10 = ['once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 
+              'diecisiete', 'dieciocho', 'diecinueve'] 
+
+  grupo_20 = ['veintiuno', 'veintidós', 'veintitrés', 'veinticuatro', 
+              'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 
+              'veintinueve'] 
+
+  centenas = ['cien', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 
+              'seiscientos', 'setecientos', 'ochocientos', 'novecientos'] 
+  
+  # "restante" es lo que falta por escribir del número. 
+  # "actual" es la parte que vamos a escribir ahora. 
+  # "restante" y "actual" ¿Está claro? :) 
+
+  # Primero obtengamos las centenas... 
+  restante  = numero 
+  actual    = restante / 100          # ¿Cuantas centenas se van a escribir? 
+  restante  = restante - actual * 100 # Sustraemos esas centenas... 
+  
+  if actual > 0 
+    if actual < 10 
+      # Como no se usa escribir 'nueve cientos' en lugar de 'novecientos', 
+      # haremos una excepción para esos casos. 
+      texto = texto + centenas[actual - 1] 
+      # El «-1» es debido a que centenas[3] es 'cuatrocientos', no 'trecientos'. 
+    else 
+      # Aqui hay un truco que requiere habilidad: 
+      texto = texto + numero_a_espanol(actual) + ' cientos' 
+      # Eso es llamado recursión. ¿Qué es lo que acabo de hacer? 
+      # Le dije a éste método que se llame así mismo, pero con la parte «actual» 
+      # en lugar de la «restante». Recuerda que la parte «actual» (en éste 
+      # momento) es el número que tenemos que escribir. 
+      # Después de que agregamos las «centenas» al «texto», le agregamos la 
+      # cadena ' cientos'. Así, por ejemplo, si originalmente llamamos a 
+      # numero_a_espanol con 1999 (de forma que «numero» = 1999), en éste punto 
+      # lo «actual» sería 19 y lo «restante» sería 99. 
+      # Lo que implicaría menos esfuerzo en éste punto es dejar a 
+      # numero_a_espanol escribir 'diecinueve' por nosotros, entonces escribimos 
+      # ' cientos' y, al final, la siguiente parte de numero_a_espanol escribe 
+      # 'noventa y nueve'. 
+    end 
+    
+    if restante > 0 
+      if actual == 1 
+        texto = texto + 'to' 
+      end 
+
+      # Agregamos un espacio para evitar 'doscientoscincuenta y uno'... 
+      texto = texto + ' ' 
+    end 
+  end 
+
+  # Después, obtengamos las decenas...  
+  actual   = restante / 10          # ¿Cuantas decenas se van a escribir? 
+  restante = restante - actual * 10 # Sustraemos esas decenas. 
+  
+  if actual > 0 
+    if (actual <= 2) and (restante > 0) 
+      # Como no se usa escribir 'diez y dos' en lugar de 'once', haremos 
+      # una excepción para esos casos. 
+      if actual == 1 
+        texto = texto + grupo_10[restante - 1] 
+      end 
+      # El «-1» es debido a que grupo_10[3] es 'catorce', no 'trece'. 
+      
+      # Como no se usa escribir 'veinte y dos' en lugar de 'veintidós', haremos 
+      # una excepción para esos casos. 
+      if actual == 2 
+        texto = texto + grupo_20[restante - 1] 
+      end 
+      # El «-1» es debido a que grupo_20[3] es 'veinticuatro', no 'veintitrés'. 
+
+      # Como ya nos encargamos del dígito en lugar de las unidades, ya no hay 
+      # nada «restante». 
+      restante = 0 
+    else 
+      texto = texto + decenas[actual - 1] 
+      # El «-1» es debido a que decenas[3] es 'cuarenta', no 'treinta'. 
+    end 
+    
+    if restante > 0 
+      # Para no escribir 'sesentacuatro'... 
+      texto = texto + ' y ' 
+    end 
+  end 
+  
+  # Por último, si aun queda algo, obtengamos las unidades... 
+  actual   = restante # ¿Cuantas unidades se van a escribir? 
+  restante = 0        # Sustraemos esas unidades. 
+  
+  if actual > 0 
+    texto = texto + unidades[actual - 1] 
+    # El «-1» es debido a que unidades[3] es 'cuatro', no 'tres'. 
+  end 
+  
+  # Ahora sólo retornamos «texto»... 
+  texto 
+end 
+
+puts numero_a_espanol( -1) 
+puts numero_a_espanol(  0) 
+puts numero_a_espanol(  9) 
+puts numero_a_espanol( 10) 
+puts numero_a_espanol( 11) 
+puts numero_a_espanol( 17) 
+puts numero_a_espanol( 32) 
+puts numero_a_espanol( 88) 
+puts numero_a_espanol( 99) 
+puts numero_a_espanol(100) 
+puts numero_a_espanol(101) 
+puts numero_a_espanol(234) 
+puts numero_a_espanol(3211) 
+puts numero_a_espanol(99999) 
+puts numero_a_espanol(1000000000000)
+
+Ahhh... Eso es mucho, mucho mejor. El programa es bastante denso, que es por lo cual puse tantos comentarios. Hasta funciona para números grandes... pero no tan bien como uno esperaría. Por ejemplo, pienso que 'un billón' se vería mejor como el valor retornado para el último número, o aún 'un millón millón'. De hecho, podrías hacerlo ahora mismo...
+
+Algunas cosas para intentar
+Expande numero_a_espanol. Primero, agrega los miles. Debería retornar 'un mil' (o 'mil' o hasta 'uno mil') en lugar de 'diez cientos' y 'diez mil' en lugar de 'cien cientos cientos'.
+Expande numero_a_espanol una vez más. Haz que ahora pueda manejar millones para obtener 'un millón' en lugar de 'un mil mil'. Después intenta agregar millardos, billones, trillones... ¿Hasta dónde puedes llegar?
+¿Qué tal un programa que escriba números en estilo de números de boda? Debería ser casi lo mismo que numero_a_espanol, pero insertando «y» entre los grupos de unidades, retornando cosas como 'diecinueve cientos y setenta y dos' o como se supone que se deben escribir los números en las invitaciones de boda. Te daría más ejemplos, pero yo mismo no lo he terminado de entender. Podrías necesitar contactar a tu organizador de bodas más cercano.
+«Un elefante se balanceaba...» Usando numero_a_espanol y tu viejo programa, escribe la letra de la canción de la forma correcta ésta vez. Castiga a tu computadora: deja que alcance hasta 9,999 elefantes. (Pero tampoco escojas un número muy grande ya que escribir todo eso en la pantalla puede tomar bastante tiempo aún a una computadora; si pones como limite un millón de elefantes, ¡te estarás castigando también a ti mismo!)
+
+¡Felicidades! ¡En éste punto ya eres un verdadero programador! Has aprendido todo lo que necesitas para construir programas enormes desde el fundamento. Si tienes ideas para programas que quisieras escribir para ti mismo, ¡intentalo!
+
+Por supuesto, construir todo desde abajo puede ser un proceso bastante lento. ¿Por qué perder tiempo escribiendo código que alguien más ya escribió? ¿Quisieras qué uno de tus programas envíe un correo electrónico? ¿Quisieras guardar y cargar programas en tu computadora? ¿Qué tal generar las páginas web de un tutorial dónde todo el código de los ejemplos es probado automáticamente? :) Ruby tiene muchos y diferentes tipos de objetos que podemos usar para ayudarnos a escribir mejores programas aún más rápido.
