@@ -1,0 +1,44 @@
+10. Clases
+Hasta ahora, hemos visto diferentes tipos, o clases, de objetos: cadenas, enteros, flotantes, arreglos, y algunos cuantos objetos especiales (true, false y nil) de los cuales hablaremos más adelante. En Ruby, éstas clases siempre inician con mayúscula: String, Integer, Float, Array, etc. En general, si queremos crear un nuevo objeto de alguna clase, usamos new:
+
+a = Array.new + [12345] # Suma de arreglos.
+b = String.new + 'hola' # Suma de cadenas.
+c = Time.new
+
+puts 'a = ' + a.to_s
+puts 'b = ' + b.to_s
+puts 'c = ' + c.to_s
+
+a = 12345
+b = hola
+c = 2013-10-08 02:37:29 -0500
+
+Debido a que podemos crear arreglas y cadenas usando [...] y '...', respectivamente, rara vez los creamos usando new. (Aunque no es realmente obvio en el ejemplo anterior, String.new crea una cadena vacía, mientras que Array.new crea un arreglo vacío.) Los números son excepciones especiales: no puedes crear un entero con Integer.new. Sólo tienes que escribir el entero.
+
+La clase Time
+Así que, ¿cuál es la historia con la clase Time? Los objetos Time representan momentos en el tiempo. Puedes añadir (o sustraer) números a (o desde) tiempos para obtener nuevos tiempos: añadir 1.5 a un tiempo crea un nuevo tiempo con un segundo y medio después...
+
+tiempo1 = Time.new # El momento en que se ejecuta ésta instrucción.
+tiempo2 = tiempo1 + 60 #Un minuto después.
+
+puts tiempo1
+puts tiempo2
+
+2013-10-08 03:02:48 -0500
+2013-10-08 03:03:48 -0500
+
+También puedes crear tiempos para momentos específicos usando Time.mktime:
+
+puts Time.mktime(2000, 1, 1)          # El momento que inició el año 2000. 
+puts Time.mktime(1976, 8, 3, 10, 11)  # El momento en que nací.
+
+2000-01-01 00:00:00 -0600
+1976-08-03 10:11:00 -0600
+
+Nota: Estos tiempos varían dependiendo del uso horario del reloj de la computadora donde se ejecute el código (él último dígito indica ese dato). Los paréntesis son para agrupar los parámetros que pasamos a mktime. Entre más parámetros añadas, más exacto será el tiempo creado.
+
+Puedes comparar tiempos usando los métodos de comparación (un tiempo es menor que un tiempo posterior), y si sustraes un tiempo de otro, obtendrás el número de segundos entre ellos. ¡Juega con ello!
+
+Algunas cosas para intentar
+* Un billón de segundos... Encuentra el segundo exacto en el que naciste (si es que puedes). Intenta averiguar el segundo exacto en el que tendrás (¿o en el que cumpliste, quizá?) un billón de segundos de edad. Cuando lo averigües, marca la fecha en tu calendario.
+* ¡Feliz cumpleaños! Pregunta en qué año nació una persona, después el mes y por último el día. Averigua su edad, y dales una ¡NALGADA! Por cada cumpleaños que han tenido.
