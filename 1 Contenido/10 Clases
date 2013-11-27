@@ -42,3 +42,100 @@ Puedes comparar tiempos usando los métodos de comparación (un tiempo es menor 
 Algunas cosas para intentar
 * Un billón de segundos... Encuentra el segundo exacto en el que naciste (si es que puedes). Intenta averiguar el segundo exacto en el que tendrás (¿o en el que cumpliste, quizá?) un billón de segundos de edad. Cuando lo averigües, marca la fecha en tu calendario.
 * ¡Feliz cumpleaños! Pregunta en qué año nació una persona, después el mes y por último el día. Averigua su edad, y dales una ¡NALGADA! Por cada cumpleaños que han tenido.
+
+La clase Hash
+Otra clase útil es Hash. Los hashes son muy parecidos a los arreglos, tienen un montón de casillas que pueden apuntar a varios objetos. Sin embargo, en un arreglo, las casillas están alineadas en una fila y cada una de ellas está numerada (comenzando de cero). En un hash, las casillas no están en una fila (sólo están algo así como juntas en un montón), y puedes usar cualquier objeto para referirte a esa casilla, no sólo números. Es bueno utilizar hashes cuando quieres tener un registro de un montón de cosas, pero no es necesario tenerlas en una lista ordenada. Por ejemplo, los colores que uso para las diferentes partes de éste tutorial:
+
+arregloDeColores = [] # lo mismo que Array.new
+hashDeColores = {} # lo mismo que Hash.new
+
+arregloDeColores[0] = 'rojo'
+arregloDeColores[1] = 'verde'
+arregloDeColores[2] = 'azul'
+hashDeColores['cadenas'] = 'rojo'
+hashDeColores['números'] = 'verde'
+hashDeColores['reservadas'] = 'azul'
+
+arregloDeColores.each do |color|
+  puts color
+end
+hashDeColores.each do |tipoDeCodigo, color|
+  puts tipoDeCodigo + ': ' + color
+end
+
+rojo
+verde
+azul
+cadenas: rojo
+reservadas: azul
+números: verde
+
+Si uso un arreglo, tengo que recordar que la casilla 0 es para cadenas, la casilla 1 para números, etc. Pero si uso un hash, ¡es fácil! La casilla 'cadenas' contiene el color de las cadenas de caracteres, claro. Nada que recordar. Te puedes haber dado cuenta que cuando use each, los objetos del hash no aparecieron en el mismo orden en el que los colocamos dentro. Los arreglos son para mantener cosas en orden, los hashes no.
+
+Aunque muchas personas usualmente usan cadenas para nombrar las casillas en un hash, podrías usar cualquier tipo de objeto, aún arreglos u otros hashes (aunque no puedo pensar en porque alguien quisiera hacer esto...):
+
+hashRaro = Hash.new
+
+hashRaro[12] = 'monos'
+hashRaro[[]] = 'vacío'
+hashRaro[Time.new] = 'no hay momento como el presente'
+
+Los hashes y arreglos son buenos para diferentes cosas, depende de ti el decidir cual es mejor para un problema en particular.
+
+Extendiendo clases
+Al final del capítulo anterior, escribiste un método para devolver una frase en español cuando recibe un entero, aunque, fue sólo un método genérico de «programa». ¿No sería mucho mejor si pudieras escribir algo cómo 22.to_esp en lugar de numero_a_espanol 22? Podrías hacerlo de forma parecida a esto:
+
+class Integer
+
+  def to_esp
+    if self == 5
+      espanol = 'cinco'
+    else
+      espanol = 'cincuenta y ocho'
+    end
+  end
+
+end
+
+# Será mejor que lo pruebe en un par de números...
+puts 5.to_esp
+puts 58.to_esp
+
+cinco
+cincuenta y ocho
+
+Bueno, por la prueba, parece funcionar. :)
+
+Saltamos dentro de la clase Integer, definiendo el método ahí, y saltamos de regreso afuera. Ahora todos los enteros tienen éste método (aunque algo incompleto). De hecho, si no te gustó la forma en que funciona un método pre-construido como to_s,  podrías redefinirlo de la misma forma... pero no te lo recomiendo. Es mejor dejar a los métodos viejos en paz y crear nuevos cuando necesites hacer algo nuevo.
+
+¿Te encuentras confundido? Revisemos un poco más ese último programa. Hasta ahora, cuando ejecutamos cualquier código o definimos cualquier método, lo hicimos dentro del objeto «programa» por defecto. En el programa anterior, dejamos ese objeto por primera vez y nos adentramos en la clase Integer. Definimos el método ahí (convirtiéndolo en un método de enteros) y todos los enteros pudieron usarlo. Dentro de ese método usamos self para referirnos al objeto (el entero) que usa el método.
+
+Creando clases
+Hemos visto una variedad de diferentes clases de objetos. Sin embargo, es fácil notar los tipos de objetos con los que Ruby no cuenta. Afortunadamente, crear una clase nueva es tan fácil como extender una vieja. Digamos que queremos crear algunos dados en Ruby. Así es como podemos crear la clase Dado:
+
+class Dado
+
+  def rodar
+    1 + rand(6)
+  end
+
+end
+
+# Creemos un par de dados...
+dados = [Dado.new, Dado.new]
+
+# ...y probemos una tirada.
+dados.each do |dado|
+  puts dado.rodar
+end
+
+3
+4
+
+(Si te saltaste la sección sobre números aleatorios, rand(6) nos da un número al azar entre 0 y 5.)
+
+¡Y eso es! Tus propios objetos.
+
+Podemos escribir todo tipo de métodos para nuestros objetos... pero falta algo. Trabajar con estos objetos se siente mucho como programar antes de que aprendiéramos sobre las variables. Observa nuestro dado, por ejemplo. Podemos hacer que ruede y cada vez nos dará un número diferente, pero si quisiéramos mantener ese número tendríamos que crear una variable que apunte a ese número. Pareciera que cualquier dado decente debería ser capaz de tener un número y que rodar el dado debería cambiar ese número. Si guardamos un registro del dado, ¿no deberíamos tener que guardar un registro del número que está mostrando¿
+
+Sin embargo, si tratamos de almacenar el número obtenido al rodar el dado en la variable local rodada, desaparecerá en cuanto haya terminado. Debemos almacenar el número en un tipo diferente de variable:
