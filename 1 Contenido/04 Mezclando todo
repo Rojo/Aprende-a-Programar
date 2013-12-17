@@ -24,8 +24,8 @@ puts var1.to_s + var2
 
 De forma similar, to_i da la versión en número entero de un objeto, y to_f da la versión en número flotante. Veamos un poco más de cerca lo que estos tres métodos hacen (y no hacen):
 
-var = 2
-var = '5'
+var1 = 2
+var2 = '5'
 
 puts var1.to_s + var2
 puts var1 + var2.to_i
