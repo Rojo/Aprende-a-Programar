@@ -1,0 +1,170 @@
+11. Bloques y procs
+Ésta es sin duda una de las características más interesantes de Ruby. Algunos otros lenguajes tienen ésta propiedad, aunque pueden llamarla de otra forma (como clausuras), pero lamentablemente, la mayoría de los lenguajes populares no la tienen.
+
+¿Qué es ésta cosa nueva tan interesante? Es la habilidad de tomar un bloque de código (código entre do y end), envolverlo en un objeto (llamado proc), guardarlo en una variable o pasarlo a un método, y ejecutar el código en el bloque cuando lo desees (y más de una vez si así lo deseas). Por si mismo, es más como un método, excepto que no está ligado a ningún objeto (es un objeto), y puedes almacenarlo o manejarlo como harías con cualquier otro objeto. Creo que es hora de un ejemplo:
+
+brindis = Proc.new do
+  puts '¡Salud!'
+end
+
+brindis.call
+brindis.call
+brindis.call
+
+¡Salud!
+¡Salud!
+¡Salud!
+
+Así, creé un proc (creo que se supone es una abreviación para «procedimiento», pero aún más importante, rima con block[28]) que contiene el bloque de código, entonces llamé el proc tres veces. Como puedes ver, es muy parecido a un método.
+
+De hecho, se parece más a un método de lo que te he mostrado, porque los bloques pueden recibir parámetros.
+
+teGusta = Proc.new do | algoBueno |
+  puts '¡Realmente me *gusta* ' + algoBueno + '!'
+end
+
+teGusta.call 'el chocolate'
+teGusta.call 'Ruby'
+
+¡Realmente me *gusta* el chocolate!
+¡Realmente me *gusta* Ruby!
+
+Bien, ahora vemos lo que son los bloques y procs, y como podemos usarlos, pero ¿cuál es el punto? Bueno, es porque hay algunas cosas que simplemente no puedes hacer con métodos. Particularmente, no puedes pasar métodos a otros métodos (pero puedes pasar procs a métodos), y los métodos no pueden devolver otros métodos (pero sí pueden devolver procs). Esto es debido a que los procs son objetos y los métodos no.
+
+(Por cierto, ¿algo de esto te parece familiar? Sí, has visto bloques antes... cuando aprendiste sobre iteradores, pero hablemos sobre eso un poco más adelante.)
+Métodos que reciben procs
+
+Cuando pasamos un proc a un método, podemos controlar como y cuantas veces se llama al proc. Por ejemplo, digamos que hay algo que queremos hacer antes o después de que algún código sea ejecutado:
+
+def algoImportante algunProc
+  puts '¡Todos DETÉNGANSE! Tengo que hacer algo...'
+  algunProc.call
+  puts 'Muy bien todos, he terminado. Continúen con lo que estaban haciendo.'
+end
+
+diHola = Proc.new do
+  puts 'hola'
+end
+
+diAdios = Proc.new do
+  puts 'adiós'
+end
+
+algoImportante diHola
+algoImportante diAdios
+
+¡Todos DETÉNGANSE! Tengo que hacer algo...
+hola
+Muy bien todos, he terminado. Continúen con lo que estaban haciendo.
+¡Todos DETÉNGANSE! Tengo que hacer algo...
+adiós
+Muy bien todos, he terminado. Continúen con lo que estaban haciendo.
+
+Tal vez eso no parezca especialmente impresionante... ¡pero lo es! :-) Es demasiado común en el mundo de la programación el tener requerimientos estrictos acerca de qué y cuándo debe ser hecho algo. Si guardas un archivo, por ejemplo, tienes que abrir el archivo, escribir la información que quieres que tenga y entonces cerrar el archivo. Si olvidas cerrar el archivo Cosas Malas™ pueden pasar. Pero cada vez que quieres guardar o cargar un archivo, tienes que hacer las mismas cosas: abrir el archivo, hacer lo que realmente quieres hacer y entonces cerrar el archivo. Es tedioso y fácil de olvidar. En Ruby, salvar (o cargar) archivos funciona de forma similar al código de arriba, así que no te tienes que preocupar acerca de nada excepto por lo que quieres guardar (o cargar). (En el siguiente capítulo te mostraré donde puedes encontrar como hacer cosas como guardar o cargar archivos.)
+
+También puedes escribir métodos que determinarán cuántas veces llamar a un proc o aún si acaso deben llamarlo. Aquí hay un método que llamará al proc que recibe cerca de la mitad del tiempo y otro método que lo llamará dos veces:
+
+def talVez algunProc
+  if rand(2) == 0
+    algunProc.call
+  end
+end
+
+def dosVeces algunProc
+  algunProc.call
+  algunProc.call
+end
+
+guino = Proc.new do
+  puts '<guiño>'
+end
+
+mirada = Proc.new do
+  puts '<mirada>'
+end
+
+talVez guino
+talVez mirada
+dosVeces guino
+dosVeces mirada
+
+<mirada>
+<guiño>
+<guiño>
+<mirada>
+<mirada>
+
+Estos son algunos de los usos más comunes de los procs que nos permiten hacer cosas que no podríamos haber hecho usando sólo métodos. Claro, podrías escribir un método para hacer un guiño dos veces, ¡pero no podrías escribir uno para hacer algo dos veces!
+
+Antes de seguir, veamos un último ejemplo. Hasta ahora los procs que hemos pasado han sido bastante similares unos de otros. Ésta vez serán bastante diferentes, así podrás ver como el método depende de los métodos que se le pasan. Nuestro método recibirá algún objeto y un proc, y llamará al proc sobre ese objeto. Si el proc retorna false, terminamos; de otra forma, llamamos a proc con el objeto retornado. Continuaremos haciendo esto hasta que el proc retorne false (lo cual será mejor que haga eventualmente, o el programa podría fallar). El programa retornará el último valor no falso retornado por el proc.
+
+def mientrasNoSeaFalso primeraEntrada, algunProc
+  entrada = primeraEntrada
+  salida  = primeraEntrada
+
+  while salida
+    entrada = salida
+    salida  = algunProc.call entrada
+  end
+
+  entrada
+end
+
+construirArregloDeCuadrados = Proc.new do | arreglo |
+  ultimoNumero = arreglo.last
+ 
+  if ultimoNumero <= 0
+    false
+  else
+    # Remueve el último numero...
+    arreglo.pop
+    # ...y reemplazalo con su cuadrado...
+    arreglo.push ultimoNumero * ultimoNumero
+    # ...seguido por el siguiente número más pequeño.
+    arreglo.push ultimoNumero - 1
+  end
+end
+
+siempreFalso = Proc.new do | soloIgnorame |
+    false
+end
+
+puts mientrasNoSeaFalso([5], construirArregloDeCuadrados).inspect
+puts mientrasNoSeaFalso('Estoy escribiendo esto a las 3:00 am; ¡alguien que me de un golpe!', siempreFalso)
+
+[25, 16, 9, 4, 1, 0]
+Estoy escribiendo esto a las 3:00 am; ¡alguien que me de un golpe!
+
+Está bien, ese fue un ejemplo bastante raro, lo admito. Pero muestra que tan diferente actúa nuestro método con diferentes procs.
+
+El método inspect es muy parecido a to_s, excepto que la cadena que retorna trata de mostrarte el código en Ruby para construir el objeto que recibe. Aquí muestra el arreglo completo retornado por nuestra primera llamada a mientrasNoSeaFalso. También, te puedes dar cuenta que nunca obtuvimos el cuadrado de ese 0 al final del arreglo, pero como el cuadrado de 0 es aún 0, no tuvimos que. Y como siempreFalso fue, tu sabes, siempre false, mientrasNoSeaFalso no hizo en realidad nada la segunda vez que lo llamamos; sólo retornó lo que le pasamos.
+
+Métodos que devuelven procs
+Otra de las cosas bonitas que puedes hacer con procs es crearlos dentro de métodos y retornarlos. Esto permite todo tipo de locas prácticas de programación (cosas con nombres impresionantes, como evaluación perezosa, estructuras de datos infinitas, y currificación), pero el hecho es que casi nunca lo utilizamos en la práctica, ni puedo recordar haber visto a alguien utilizarlo en su código. Creo que es el tipo de cosas que no tienes que terminar haciendo en Ruby, o tal vez Ruby simplemente alienta a encontrar otras soluciones; no lo sé. En mi caso, sólo hablaré de esto brevemente,
+
+En éste ejemplo, componer toma dos procs y retorna un nuevo proc que, cuando es llamado, llama al primer proc y pasa el resultado al segundo proc.
+
+def componer proc1, proc2
+  Proc.new do | x |
+    proc2.call(proc1.call(x))
+  end
+end
+
+alCuadrado = Proc.new do | x |
+  x * x
+end
+
+alDoble = Proc.new do | x |
+  x + x
+end
+
+alDobleYalCuadrado = componer alDoble, alCuadrado
+alCuadradoYalDoble = componer alCuadrado, alDoble
+
+puts alDobleYalCuadrado.call(5)
+puts alCuadradoYalDoble.call(5)
+
+100
+50
+
+Observa que la llamada a proc1 tuvo que ser dentro de paréntesis al llamar a proc2, para que proc1 fuera llamado primero.
