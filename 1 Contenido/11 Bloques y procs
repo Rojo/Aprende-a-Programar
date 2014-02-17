@@ -168,3 +168,106 @@ puts alCuadradoYalDoble.call(5)
 50
 
 Observa que la llamada a proc1 tuvo que ser dentro de paréntesis al llamar a proc2, para que proc1 fuera llamado primero.
+
+Pasando bloques (no procs) a métodos
+Bien, esto ha sido algo más o menos interesante desde un punto de vista académico, pero es algo poco práctico para usar. Mucho del problema consiste en que hay tres pasos por los que tienes pasar (definir el método, hacer el proc, y llamar el método con el proc), cuando se tiene la sensación de que sólo debería haber dos (definir el método y pasar el bloque dentro del método sin tener que usar un proc para nada), ya que la mayor parte del tiempo no querrás usar el bloque/proc después de que lo pases al método. Bueno, podrías no saberlo, ¡pero Ruby tiene todo pensado por nosotros! De hecho, ya lo has estado haciendo cada vez que usas iteradores.
+
+Primero te mostraré un ejemplo y luego hablaremos sobre ello.
+
+class Array
+  def cadaPar(&eraUnBloque_ahoraUnProc)
+    # Comenzamos con «true» porque los arreglos comienzan con 0,
+    # que es par.
+    esPar = true
+
+    self.each do | objeto |
+      if esPar
+         eraUnBloque_ahoraUnProc.call objeto
+      end
+
+      esPar = (not esPar) # Cambiamos de par a impar, o de impar a par.
+    end
+  end
+end
+
+['manzana', 'manzana podrida', 'cereza', 'durian'].cadaPar do | fruta |
+  puts '¡Qué rico! Amo el pay de ' + fruta + '. ¿Tú no?'
+end
+
+# Recuerda, estamos obteniendo los elementos pares del arreglo, los que
+# resultan ser números impares, sólo porque me gustan problemas así.
+[1, 2, 3, 4, 5].cadaPar do | bolaImpar |
+  puts '¡' + bolaImpar.to_s + ' NO es un número par!'
+end
+
+¡Qué rico! Amo el pay de manzana. ¿Tú no?
+¡Qué rico! Amo el pay de cereza. ¿Tú no?
+¡1 NO es un número par!
+¡3 NO es un número par!
+¡5 NO es un número par!
+
+Entonces, para pasar un bloque a cadaPar, todo lo que tuvimos que hacer fue meter el bloque después del método. Puedes pasar un bloque a cualquier método, aunque muchos métodos simplemente ignorarán el bloque. Para hacer que tu método no ignore el bloque, sino que lo tome y lo transforme en un proc, pon el nombre del proc al final de la lista de argumentos del método, precedido por un et (&). Ésta parte tiene su truco, pero no es tan difícil, y sólo tienes que hacer eso una vez (cuando defines el método). Después, puedes usar el método una y otra vez, justo como los métodos pre-construidos que aceptan bloques, como each y times. (¿Recuerdas 5.times do...?)
+
+Si estás confundido, sólo recuerda lo que cadaPar se supone que hace: llamar el bloque que le fue pasado sobre cada tercer elemento alternado del arreglo. Una vez que lo has escrito y funciona, no tienes que pensar acerca de lo que está pasando por debajo («¿qué bloque es llamado cuándo?»); de hecho, eso es exactamente el porque escribimos métodos como éste: para nunca tener que volver a pensar en como funcionan. Sólo los usamos.
+
+Recuerdo que una vez quise ser capaz de tomar la cantidad de tiempo que estaban tomando las diferentes secciones de un programa. (A esto también se le conoce como análisis de rendimiento del código o perfilar el código.) Así que escribí un método que toma el tiempo antes de ejecutar el código, lo ejecuta, toma el tiempo de nuevo al final y encuentra la diferencia. No puedo encontrar el código ahora mismo, pero lo no necesito; seguramente fue algo como esto:
+
+def perfilar descripcionDelBloque, &bloque
+  tiempoInicial = Time.now
+
+  bloque.call
+
+  duracion = Time.now - tiempoInicial
+
+  puts descripcionDelBloque + ': ' + duracion.to_s + ' segundos.'
+end
+
+perfilar 'Doblar el valor 25000 veces' do
+  numero = 1
+
+  25000.times do
+    numero = numero + numero
+  end
+
+  # Total de dígitos en éste ENORME número.
+  puts numero.to_s.length.to_s + ' dígitos'
+end
+
+perfilar 'Contar hasta un millón' do
+  numero = 0
+
+  1000000.times do
+    numero = numero + 1
+  end
+end
+
+752 dígitos
+Doblar el valor 25000 veces: 0.246768 segundos
+Contar hasta un millón: 0.90245 segundos
+
+¡Qué sencillo! ¡Qué elegante! Con ese pequeño método, ahora puedo con facilidad medir el tiempo de cualquier sección en cualquier programa que quiera hacer; sólo aventaré el programa en un bloque y se lo pasaré a perfilar. ¿Qué podría ser más simple? En la mayoría de los lenguajes, tendría que añadir explícitamente el código para tomar el tiempo (las cosas en perfilar) alrededor de cada sección de código que quisiera analizar. En cambio, en Ruby puedo tenerlo todo en un solo lugar y (más importante) ¡fuera de mi camino!
+
+Algunas cosas para intentar
+* El reloj del abuelo: Escribe un método que reciba un bloque y lo llame por cada hora que ha pasado el día de hoy. De esa forma, si yo le pasara el bloque do puts '¡DONG!' end, repicaría como un reloj de péndulo. Prueba tu método con unos cuantos bloques diferentes (incluyendo el que acabo de darte). Pista: Puedes usar Time.now.hour para obtener la hora actual. Pero esto devuelve un número entre 0 y 23, así que tienes que alterar esos números para obtener números comunes en la carátula de un reloj (del 1 a 12).
+
+* Registro de programas. Escribe un método llamado registro, que toma una cadena como descripción de un bloque y, por supuesto, un bloque, además de otra cadena al final, diciendo que ha terminado el bloque. De forma similar a algoImportante, debe poner una cadena diciendo que ha comenzado el bloque y otra cadena al final indicando que ha terminado el bloque, indicando lo que el bloque retornó. Prueba tu método enviándole un bloque de código. Dentro de ese bloque, coloca otra llamada a registro, pasando otro bloque. (Esto es llamado anidar.) En otras palabras, tu salida debe verse de forma similar a ésta:
+
+Comenzando «bloque exterior»...
+Comenzando «algún pequeño bloque»...
+...«algún pequeño bloque» terminó, retornando: 5
+Comenzando «un bloque más»...
+...«un bloque más» terminó, retornando: ¡Me gusta la comida tailandesa!
+...«bloque exterior» terminó, retornando: false
+
+* Un mejor registro de programas. La salida del último registro fue un poco difícil de leer y sería peor entre más métodos anidados recibiera. Sería mucho más fácil de leer si sangrara las líneas en los bloques internos. Para hacerlo, necesitarás llevar un registro de que tan profundamente anidado te encuentras cada vez que el registro quiera escribir algo. Para hacerlo, utiliza una variable global, una variable que puedes ver desde cualquier parte de tu código. Para crear una variable global, sólo precede el nombre de su variable con $, como éstas: $global, $profundidadDeAnidado y $chapulinColorado. Al final, tu registro debe presentar algo como esto:
+
+Comenzando «bloque exterior»...
+    Comenzando «algún pequeño bloque»...
+        Comenzando «bloque pequeñito»...
+        ...«bloque pequeñito» terminó, retornando: mucho amor
+    ...«algún pequeño bloque» terminó, retornando: 42
+    Comenzando «un bloque más»...
+    ...«un bloque más» terminó, retornando: ¡Me gusta la comida hindú!
+...«bloque exterior» terminó, retornando: false
+
+Bueno, eso es todo lo que aprenderás en éste tutorial. ¡Felicidades! ¡Has aprendido muchisimo! Tal vez no sientes que puedes recordar todo, o te saltaste algunas partes... la verdad, está bien. La programación no es acerca de lo que sabes, es acerca de lo que puedes deducir. Mientras conozcas donde encontrar las cosas que olvidaste, lo harás bien. ¡Espero no creas que escribí todo esto sin buscar cosas a cada minuto! Porque lo hice. También recibí mucha ayuda con el código de los ejemplos en éste tutorial. Pero, ¿dónde estaba buscando cosas y dónde estaba yo pidiendo ayuda? Déjame mostrarte…
