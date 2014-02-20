@@ -30,10 +30,11 @@ Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pul
 * 6 Matemáticas avanzadas
 * 7 Control de flujo
 * 8 Arreglos e iteradores
-
+* 9 Escribiendo tus propios métodos
 * 10 Clases
 * 11 Bloques y procs
 * 12 Más allá de éste tutorial
+
 ___
 ## Información legal
 El contenido *original* de éste tutorial está protegido por derechos de autor a favor de Chris Pine (© 2003-2009). La traducción, adaptación y distribución son realizados bajo su consentimiento.
