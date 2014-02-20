@@ -2,16 +2,18 @@
 _ _ _
 Ésta es una traducción al español de [«Learn to Pogram»][learn], un excelente tutorial escrito por Chris Pine para aquellas personas que deseen adentrarse al mundo de la programación, utilizando el sencillo y elegante lenguaje de programación Ruby.
 
-De momento, el repositorio sólo contiene las versiones en texto plano de los capítulos ya traducidos, tanto en español como en ingles (para su referencia), así como soluciones propuestas a los ejercicios que ahí se encuentran. En un futuro, espero se agreguen versiones en markdown.
+De momento, el repositorio sólo contiene las versiones en texto plano de los capítulos ya traducidos, tanto en español (y páginas HTML comprimidas del tutorial original como referencia) En un futuro, espero se agreguen versiones en markdown o DocBook. Las respuestas a los ejercicios fueron movidas a [otro repositorio][ex] para mantener el del tutorial mejor organizado.
 
-Los avances más recientes pueden ser consultados [*en éste archivo de Google Docs*][tut], donde además podrás descargar el tutorial como archivo PDF.
+Los avances más recientes pueden ser consultados [*en éste archivo de Google Docs*][tut], donde además podrás descargar el tutorial como archivo PDF, DOCX, HTML o texto plano.
 
 [learn]: http://http://pine.fm/LearnToProgram/
+[ex]: https://github.com/Rojo/TR-ISBN-0-9766940-4-2/tree/master/Es
 [tut]: https://docs.google.com/document/d/1XdLEszOeBHzvAEcmARu7feTy0q4zqms0Ej76Atit8zM/edit
 ___
 ## Como participar
 
-Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pull request» con la sección que has traducido. En caso de que encuentres  algún error ortográfico o gramatical puedes crear un «issue». También puedes enviar tus soluciones a los ejercicios o sugerencias de como resolverlos de una forma más sencilla.
+Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pull request» con la modificación que consideras debe ser realizada para mejorarlo. En caso de que encuentres  algún error ortográfico o gramatical puedes crear un «issue».
+
 ## Capítulos y secciones completadas
 
 * Sobre la versión en español
@@ -19,7 +21,7 @@ Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pul
     * Ideas para maestros
     * Acerca del tutorial original
     * Agradecimientos
-* 0 Preparandose
+* 0 Preparándose
 * 1 Números
 * 2 Letras
 * 3 Variables y asignación
@@ -29,6 +31,9 @@ Si deseas ayudar con la traducción, puedes clonar el proyecto y enviar un «pul
 * 7 Control de flujo
 * 8 Arreglos e iteradores
 
+* 10 Clases
+* 11 Bloques y procs
+* 12 Más allá de éste tutorial
 ___
 ## Información legal
-El contenido de éste tutorial está protegido por derechos de autor a favor de Chris Pine (© 2003-2009 Chris Pine). Éste tu tutorial es traducido y distribuido bajo su consentimiento por escrito.
+El contenido *original* de éste tutorial está protegido por derechos de autor a favor de Chris Pine (© 2003-2009). La traducción, adaptación y distribución son realizados bajo su consentimiento.
