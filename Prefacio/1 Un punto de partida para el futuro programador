@@ -11,7 +11,7 @@ Un par de años después, se estaba volviendo bastante bueno. :-) Muy bueno, de 
 
 Me tomó otro año, pero ahora creo que es realmente bueno, sobre todo debido a los cientos de valientes almas que me ayudaron a escribirlo.
 
-Lo que está en este sitio es el tutorial original, más o menos sin cambios desde el 2004. Para leer la versión mejorada y más amplia, seguramente te gustaría revisar el libro.
+Lo que está en este sitio es el tutorial original, más o menos sin cambios desde el 2004. Para leer la versión mejorada y más amplia, seguramente te gustaría revisar [el libro] (http://www.pragprog.com/titles/ltp2/learn-to-program-2nd-edition).
 
 Ideas para maestros
 Hubo algunos pocos principios a los que traté de adherirme. Creo que hicieron el proceso de aprendizaje mucho más fluido; aprender a programar ya es suficientemente difícil. Si estás enseñando o guiando a alguien sobre el camino hacia el reino del hacking, estas ideas podrían ayudarte también.
@@ -27,7 +27,7 @@ Aunque yo deseaba evitar el uso de jerga orientada a objetos innecesaria, querí
 En cuanto a los ejercicios, creo que ideé unos muy buenos, pero nunca tienes demasiados. Honestamente, apostaría que gaste la mitad de mi tiempo tratando de formular ejercicios divertidos e interesantes. Ejercicios aburridos matarán absolutamente cualquier deseo de programar, mientras que el ejercicio perfecto crea esa comezón que el nuevo programador no puede más que rascar. Resumiendo, el tiempo gastado en formular buenos ejercicios no es demasiado.
 
 Acerca del tutorial original
-Las páginas de éste tutorial (aun ésta), son generadas por un programa en Ruby, claro está. :-) Todos los códigos de ejemplo son automáticamente ejecutados y sus resultados son mostrados como han sido generados. Creo que es la mejor, más fácil y genial manera de asegurarme que todo el código que presento funciona exactamente como yo digo que lo hace. No tienes que preocuparte por el que yo haya copiado mal la salida de alguno de los ejemplos, o no haya probado algún código; todo ha sido probado.
+Las páginas de éste tutorial (aun ésta), son generadas por [un programa en Ruby] (http://pine.fm/LearnToProgram/?ShowTutorialCode=true), claro está. :-) Todos los códigos de ejemplo son automáticamente ejecutados y sus resultados son mostrados como han sido generados. Creo que es la mejor, más fácil y genial manera de asegurarme que todo el código que presento funciona exactamente como yo digo que lo hace. No tienes que preocuparte por el que yo haya copiado mal la salida de alguno de los ejemplos, o no haya probado algún código; todo ha sido probado.
 
 Agradecimientos
 Finalmente, quiero agradecer a todos en la lista de correo ruby-talk por sus comentarios y el ánimo que me dieron. A todos los magníficos correctores que me ayudaron a hacer el libro mucho mejor de lo que pudiera haber hecho yo solo. A mi querida esposa, especialmente por ser mi principal corrector-conejillo-de-indias-musa. A Matz por crear éste fabuloso lenguaje, y a los Programadores Pragmáticos por decirme acerca de él – ¡Y por supuesto publicar mi libro!
