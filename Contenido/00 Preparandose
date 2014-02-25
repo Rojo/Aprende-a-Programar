@@ -5,16 +5,20 @@ Además de ser mi favorito, Ruby es también el lenguaje de programación más s
 
 Cuando escribes algo en un lenguaje humano, lo que escribes es llamado texto. Cuando escribes algo en un lenguaje de computadora, lo que escribes es llamado código. He incluido muchos ejemplos de código en Ruby a través de éste tutorial, la mayoría de ellos son programas completos que puedes ejecutar en tu computadora. Para hacer el código más fácil de leer, he coloreado las partes en código con diferentes colores. (Por ejemplo, los números siempre son verdes). Cualquier cosa que necesites escribir estará en una caja gris, y cualquier cosa que un programa imprima estará en una caja azul.
 
-Si te cruzas con algo que no entiendes o si tienes una pregunta que no ha sido respondida, toma nota y continúa leyendo. Es muy posible que la respuesta aparezca en un capítulo más adelante. Sin embargo, si tu pregunta no fue respondida ya, en el último capítulo te diré donde puedes preguntar. Hay muchas maravillosas personas haya afuera deseando ayudar; sólo necesitas saber donde están.
+Caja gris: El código que escribes.
 
-Pero primero necesitamos descargar e instalar Ruby en tu computadora.
+Caja azul: Lo que la computadora presenta en pantalla.
+
+Si te cruzas con algo que no entiendes o si tienes una pregunta que no ha sido respondida, toma nota y continúa leyendo. Es muy posible que la respuesta aparezca en un capítulo más adelante. Sin embargo, si tu pregunta no fue respondida ya, en el último capítulo te diré donde puedes preguntar. Hay muchas maravillosas personas haya afuera deseando ayudar; sólo necesitas saber dónde están.
+
+Pero primero necesitamos descargar e instalar Ruby en tu computadora.[2]
 
 Instalación en Windows
-La instalación de Ruby en Windows es fácil. Primero necesitas descargar Ruby Installer. Podría haber un par de versiones de las cuales escoger; éste tutorial usará la versión 1.8.4, así que asegúrate de que tu descarga sea una versión superior o al menos igual. (Yo obtendría la versión más reciente disponible). Después, simplemente inicia el programa de instalación. Éste te preguntará donde quieres instalar Ruby. A menos que tengas una buena razón para cambiar el lugar, deja la ruta por defecto.
+La instalación de Ruby en Windows es fácil. Primero necesitas descargar [Ruby Installer] (http://rubyinstaller.org/). Podría haber un par de versiones de las cuales escoger; éste tutorial usará la versión 1.8.4, así que asegúrate de que tu descarga sea una versión superior o al menos igual. (Yo obtendría la versión más reciente disponible). Después, simplemente inicia el programa de instalación. Éste te preguntará donde quieres instalar Ruby. A menos que tengas una buena razón para cambiar el lugar, deja la ruta por defecto.
 
 Al programar necesitarás ser capaz de escribir y ejecutar los programas. Para hacer esto necesitarás un editor de textos y la línea de comandos.
 
-En la red se encuentra el excelente editor de textos Notepad++, que colorea la sintaxis de muchos lenguajes, incluyendo Ruby (y que además es gratuito).
+En la red se encuentra el excelente editor de textos [Notepad++] (http://notepad-plus-plus.org/), que colorea la sintaxis de muchos lenguajes, incluyendo Ruby (y que además es gratuito).
 
 También es una buena idea crear una carpeta en algún lugar para guardar todos tus programas. Asegúrate de que cuando guardes un programa lo hagas en esa carpeta.
 
@@ -32,16 +36,19 @@ Como editor de texto, puedes usar cualquiera que te sea familiar o con el que es
 ¡Y eso es todo! Estás listo para comenzar a programar.
 
 Instalación en sistemas basados en Linux y Unix
-Las distribuciones recientes de sistemas basados en Linux permiten la instalación de Ruby de una manera muy fácil a través de sus administradores de paquetes. Pero antes de eso, debes cerciorarte que no hay una versión instalada en tu sistema que puedas utilizar. 
+Las distribuciones recientes de sistemas basados en Linux permiten la instalación de Ruby de una manera muy fácil a través de sus administradores de paquetes. Pero antes de eso, debes cerciorarte que no hay una versión instalada en tu sistema que puedas utilizar.
 
 Simplemente escribiendo el comando ruby -v en una terminal, se desplegará un mensaje parecido a ruby 2.0.0p247 (2013-06-27 revision 41674) [i686-linux]. De no ser así, instala el intérprete de Ruby con el comando correspondiente a tu distribución:
 
-Ubuntu/Mint/Debian: sudo apt-get install ruby 
-Fedora/Red Hat: sudo yum install ruby 
-Arch: sudo pacman -S ruby 
-Gentoo/Sabayon/Funtoo: emerge ruby 
-OpenIndiana: pkg install runtime/ruby-18 
+Ubuntu/Mint/Debian: sudo apt-get install ruby
+Fedora/Red Hat: sudo yum install ruby
+Arch: sudo pacman -S ruby
+Gentoo/Sabayon/Funtoo: emerge ruby
+OpenIndiana: pkg install runtime/ruby-18
 
-En la mayoría de las distribuciones de Linux puedes utilizar gedit o leafpad para escribir tus programas, además de que seguramente están disponibles vi, vim, pico o nano desde la línea de comandos de casí todas los sistemas basados en Unix.
+En la mayoría de las distribuciones de Linux puedes utilizar gedit o leafpad para escribir tus programas, además de que seguramente están disponibles vi, vim, pico o nano desde la línea de comandos de casi todas los sistemas basados en Unix.
 
-¡Y eso es todo! Estás listo para aprender a programar.
+¡Y eso es todo! Estás listo para aprender a programar.[3]
+
+[2] Puedes encontrar otras formas recomendadas y alternativas de instalar (o actualizar) Ruby en tu computadora en la siguiente dirección: http://www.ruby-lang.org/es/downloads/
+[3] También está disponible en la red un editor para Linux, con características más avanzadas, llamado [Geany] (http://www.geany.org/).

@@ -5,10 +5,9 @@ Vimos que si queremos que un programa imprima 25, lo siguiente no funciona, porq
 
 var1 = 2
 var2 = '5'
-
 puts var1 + var2
 
-Parte del problema es que tu computadora no sabe si tú estás intentando obtener 7 (2 + 5), o si estás intentando obtener 25 ('2' + '5').
+Parte del problema es que tu computadora no sabe si tú estás intentando obtener 7(2 + 5), o si estás intentando obtener 25('2' + '5').
 
 Antes de que podamos sumarlos, necesitamos una forma de obtener la versión en cadena de caracteres de var1, u obtener la versión en número entero de var2.
 
@@ -17,7 +16,6 @@ Para obtener la versión en cadena de caracteres de un objeto simplemente le agr
 
 var1 = 2
 var2 = '5'
-
 puts var1.to_s + var2
 
 25
@@ -26,7 +24,6 @@ De forma similar, to_i da la versión en número entero de un objeto, y to_f da 
 
 var1 = 2
 var2 = '5'
-
 puts var1.to_s + var2
 puts var1 + var2.to_i
 
@@ -51,22 +48,20 @@ puts 3.to_i
 15.0
 99.999
 99
-
 5
 0
 0.0
-
 cadenita
 3
 
 Esto probablemente te dio algunas sorpresas. El primer resultado es muy común, imprime 15.0. Después de eso, convertimos la cadena '99.999' a su versión en número flotante y entero. El flotante se apareció como esperábamos, mientras que el entero fue, como siempre, redondeado hacia abajo.
 
-En la siguiente parte, tenemos algunos ejemplos de cadenas un poco... inusuales siendo convertidas en números. to_i ignora lo primero que no entiende y el resto de la cadena desde ese punto en adelante. Así que la primera fue convertida en 5, pero las otras, como comienzan con letras, fueron ignoradas completamente... por lo que la computadora simplemente eligió cero.
+En la siguiente parte, tenemos algunos ejemplos de cadenas un poco… inusuales siendo convertidas en números. to_i ignora lo primero que no entiende y el resto de la cadena desde ese punto en adelante. Así que la primera fue convertida en 5, pero las otras, como comienzan con letras, fueron ignoradas completamente… por lo que la computadora simplemente eligió cero.
 
 Finalmente, vimos que las dos últimas conversiones no hicieron absolutamente nada, justo como lo esperaríamos.
 
 Otra mirada a puts
-Hay algo extraño acerca de nuestro método favorito... Observa esto:
+Hay algo extraño acerca de nuestro método favorito… Observa esto:
 
 puts 20
 puts 20.to_s
@@ -76,23 +71,22 @@ puts '20'
 20
 20
 
-¿Por qué estos tres imprimen la misma cosa? Bueno, los últimos dos deberían, ya que 20.to_s es '20' Pero, ¿qué hay del primero, el entero 20? Para esto, ¿qué significa escribir el entero 20? Cuando escribes un 2 y luego un 0 en un pedazo de papel, estás escribiendo una cadena de caracteres, no un entero. El entero 20 es el número de dedos que tengo en manos y pies; no es un 2 seguido de un 0.
+¿Por qué estos tres imprimen la misma cosa? Pues, los últimos dos deberían, ya que 20.to_s es '20' Pero, ¿qué hay del primero, el entero 20? Para esto, ¿qué significa escribir el entero 20? Cuando escribes un 2 y luego un 0 en un pedazo de papel, estás escribiendo una cadena de caracteres, no un entero. El entero 20 es el número de dedos que tengo en manos y pies; no es un 2 seguido de un 0.
 
-Bueno, aquí está el gran secreto detrás de nuestro amigo puts: antes de que puts intente escribir un objeto, usa to_s para obtener la versión en cadena de caracteres de ese objeto. De hecho, la s en puts se refiere a cadena; puts realmente significa colocar cadena.
+Bueno, aquí está el gran secreto detrás de nuestro amigo puts: antes de que puts intente escribir un objeto, usa to_s para obtener la versión en cadena de caracteres de ese objeto. De hecho, la s en puts se refiere a cadena[10]; puts realmente significa colocar cadena.
 
-Esto no puede parecer muy emocionante ahora, pero hay muchos, muchos tipos de objetos en Ruby (¡hasta aprenderás a crear los tuyos!), y es bueno conocer que pasará si intentas usar puts en un objeto realmente raro, como una fotografía de la abuela, un archivo de música o algo. Pero eso vendrá después...
+Esto no puede parecer muy emocionante ahora, pero hay muchos, muchos tipos de objetos en Ruby (¡hasta aprenderás a crear los tuyos!), y es bueno conocer que pasará si intentas usar puts en un objeto realmente raro, como una fotografía de la abuela, un archivo de música o algo. Pero eso vendrá después…
 
-Mientras tanto, hay un par de métodos más para ti, y ellos te permiten escribir todo tipo de programas divertidos...
+Mientras tanto, hay un par de métodos más para ti, y ellos te permiten escribir todo tipo de programas divertidos…
 
 Los métodos gets y chomp
 Si puts significa colocar cadena, estoy seguro de que adivinas que significa gets. Y justo como puts siempre escupe cadenas de caracteres, gets sólo las atrapa. Y, ¿de dónde las obtiene?
 
-¡De ti! Bueno, de tu teclado, al menos. Como tu teclado sólo produce cadenas de caracteres, funciona de maravilla. Lo que realmente pasa es que gets simplemente se sienta ahí, leyendo lo que escribes hasta que presionas Enter.
+¡De ti! Bueno, de tu teclado, al menos. Como tu teclado sólo produce cadenas de caracteres, funciona de maravilla. Lo que realmente pasa es que gets simplemente se sienta ahí, leyendo lo que escribes hasta que presionas Intro.
 
 Vamos a intentarlo:
 
 puts gets
-
 ¿Hay eco aquí?
 ¿Hay eco aquí?
 
@@ -105,16 +99,16 @@ nombre = gets
 puts '¿Tu nombre es ' + nombre + '? ¡Qué nombre tan hermoso!'
 puts 'Gusto en conocerte ' + nombre + '.   :)'
 
-¡Ah! Justo lo ejecute —Escribí mi nombre, y esto es lo que paso:
+¡Ah! Justo lo ejecute —Escribí mi nombre, y esto es lo que pasó:
 
-Hola... y, ¿cúal es tu nombre?
+Hola... y, ¿cuál es tu nombre?
 Chris
 ¿Tu nombre es Chris
 ? ¡Qué nombre tan hermoso!
 Gusto en conocerte, Chris
 .   :)
 
-Hmmm... parece que cuando teclee las letras C, h, r, i, s, y entonces presione Enter, ¡gets tomó todas las letras de mi nombre y el Enter! Por suerte, hay un método justo para este tipo de cosas: chomp. El cual remueve cualquier Enter que esté colgando al final de tu cadena de caracteres. Intentemos el programa de nuevo, pero con chomp para ayudarnos ésta vez:
+Hmmm… parece que cuando teclee las letras C, h, r, i, s, y entonces presione Intro, ¡gets tomó todas las letras de mi nombre y el Intro! Por suerte, hay un método justo para este tipo de cosas: chomp. El cual remueve cualquier Intro que esté colgando al final de tu cadena de caracteres. Intentemos el programa de nuevo, pero con chomp para ayudarnos ésta vez:
 
 puts 'Hola... y, ¿cuál es tu nombre?'
 nombre = gets.chomp
@@ -126,10 +120,16 @@ Chris
 ¿Tu nombre es Chris? ¡Qué nombre tan hermoso!
 Gusto en conocerte, Chris.   :)
 
-¡Mucho mejor! Nota que como nombre está apuntando a gets.chomp, nunca tenemos que decir nombre.chomp: el nombre ya ha sido masticado.
+¡Mucho mejor! Nota que como nombre está apuntando a gets.chomp, nunca tenemos que decir nombre.chomp: el nombre ya ha sido masticado.[11]
 
 Algunas cosas para intentar
 * Escribe un programa que pregunte por el nombre y apellidos de una persona. Al final, debe saludar a la persona usando su nombre completo.
 * Escribe un programa que pregunta por el número favorito de una persona. Haz que tu programa le sume 1 al número y entonces sugiera el resultado como un más grande y mejor número favorito. (Pero hazlo con tacto.)
 
-Una vez que hayas terminado esos dos programas (y cualquier otro que quisieras intentar), aprendamos algo más (y un poco más) acerca de los métodos.
+Una vez que hayas terminado esos dos programas[12] (y cualquier otro que quisieras intentar), aprendamos algo más (y un poco más) acerca de los métodos.
+
+[10] De la palabra en idioma inglés, string.
+[11] El verbo en inglés «chomp» puede traducirse como «masticar».
+[12] Aquí puedes ver un par de soluciones a los ejercicios propuestos. Recuerda que es mejor que intentes resolverlos primero por tu propia cuenta:
+* [Saludar a la persona usando el nombre completo] (https://github.com/Rojo/TR-ISBN-0-9766940-4-2/blob/master/Es/04%20Mezclando%20todo/4.1_saludo_nombre_completo.rb).
+* [Número favorito] (https://github.com/Rojo/TR-ISBN-0-9766940-4-2/blob/master/Es/04%20Mezclando%20todo/4.2_numero_favorito.rb).

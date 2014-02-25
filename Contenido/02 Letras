@@ -1,14 +1,16 @@
 2. Letras
+
 Así que hemos aprendido todo sobre los números pero, ¿qué hay de acerca de las letras? ¿Palabras? ¿Texto?
 
-Nos referimos a grupos de letras en un programa como cadenas de caracteres –puedes pensar en letras impresas que están juntas en un banner—. Para hacer más fácil el ver que parte del código es una cadena, las colorearé de rojo.
+Nos referimos a grupos de letras en un programa como cadenas de caracteres –puedes pensar en letras impresas que están juntas en un banner[6]—. Para hacer más fácil el ver que parte del código es una cadena, las colorearé de rojo.
 
-Aquí hay algunas cadenas:
+Aquí hay algunas cadenas[7]:
+
 'Hola.'
 '¡Ruby rockea!'
-'El 5 es mi número favorito… ¿cuál es el tuyo?'
+'El 5 es mi número favorito... ¿cuál es el tuyo?'
 'Snoopy dice #%^&*@! cuando se golpea un pie.'
-'       '
+'              '
 ''
 
 Como puedes ver, las cadenas pueden tener signos de puntuación, dígitos, símbolos y espacios en ellas… más que sólo letras. La última cadena no tiene nada dentro, así que la llamamos cadena vacía.
@@ -26,13 +28,13 @@ Adiós.
 Eso salió bien. Ahora intenta tus propias cadenas.
 
 Aritmética de cadenas
-Justo cómo puedes realizar operaciones aritméticas en números, ¡también puedes hacerlo en cadenas! Bueno, algo así... de cualquier manera, puedes sumar cadenas. Intentemos sumar dos cadenas y veamos que hace puts con eso.
+Justo cómo puedes realizar operaciones aritméticas en números, ¡también puedes hacerlo en cadenas! Bueno, algo así… de cualquier manera, puedes sumar cadenas. Intentemos sumar dos cadenas y veamos que hace puts con eso.
 
 puts 'Me gusta' + 'la tarta de manzana.'
 
 Me gustala tarta de manzana.
 
-¡Uuups! Olvidé colocar un espacio entre 'Me gusta' y 'la tarta de manzana.' Los espacios usualmente no importan, pero lo hacen dentro de las cadenas. (Es cierto lo que dicen: las computadoras no hacen lo que quieres que hagan, sólo hacen lo que les dices que hagan.) Intentemos eso otra vez:
+¡Uuups! Olvide colocar un espacio entre 'Me gusta' y 'la tarta de manzana.' Los espacios usualmente no importan, pero lo hacen dentro de las cadenas. (Es cierto lo que dicen: las computadoras no hacen lo que quieres que hagan, sólo hacen lo que les dices que hagan.) Intentemos eso otra vez:
 
 puts 'Me gusta ' + 'la tarta de manzana.'
 puts 'Me gusta' + ' la tarta de manzana.'
@@ -47,7 +49,7 @@ puts 'parpadea ' * 4
 
 La computadora te hace ojitos.
 
-Sólo bromeo... en realidad hace esto:
+Sólo bromeo… en realidad hace esto:
 
 parpadea parpadea parpadea parpadea
 
@@ -65,7 +67,6 @@ puts '12 + 12'
 12 + 12
 
 Ahora esto:
-
 puts 2 * 5
 puts '2' * 5
 puts '2 * 5'
@@ -74,7 +75,7 @@ puts '2 * 5'
 22222
 2 * 5
 
-Los ejemplos son bastante directos. Sin embargo, si no tienes cuidado en como mezclas tus cadenas y números puede que te metas en...
+Los ejemplos son bastante directos. Sin embargo, si no tienes cuidado en como mezclas tus cadenas y números puede que te metas en…
 
 Problemas
 En éste punto, puedes haber intentado algunas cosas que no funcionaron. Si no, aquí hay una pequeña muestra:
@@ -82,7 +83,7 @@ En éste punto, puedes haber intentado algunas cosas que no funcionaron. Si no, 
 puts '12' + 12
 puts '2' * '5'
 
-#<TypeError: can't convert Fixnum into string>
+#<TypeError: can't convert Fixnum into string>[8]
 
 Mmm... un mensaje de error. El problema es que realmente no puedes sumar un número a una cadena, o multiplicar una cadena por otra cadena. No tiene más sentido que hacer esto:
 
@@ -90,6 +91,7 @@ puts 'Beatriz' + 12
 puts 'Alfredo' * 'Juan'
 
 Algo más que debes tomar en cuenta: puedes escribir 'puerco' * 5 en un programa, dado que eso sólo significa 5 conjuntos de la cadena 'puerco' sumados juntos. Sin embargo, no puedes escribir 5 * 'puerco', ya que eso significa 'puerco' conjuntos del número 5, lo que es un poco tonto.
+
 Finalmente, ¿qué tal si quisieras imprimir '2° 57' 32"'? Podemos intentar esto:
 
 puts '2° 57' 32"'
@@ -100,7 +102,7 @@ puts '2° 57\' 32"'
 
 2° 57' 32"
 
-La diagonal invertida es el carácter de escape. En otras palabras, si tienes una diagonal invertida y otro carácter, a veces son transformados en un nuevo carácter. Sin embargo, la diagonal invertida sólo escapa los apostrofes y así misma. (Si piensas acerca de ello, los caracteres de escape siempre deben escaparse a si mismos), Aquí hay algunos pocos ejemplos en orden (creo):
+La diagonal invertida es el carácter de escape. En otras palabras, si tienes una diagonal invertida y otro carácter, a veces son transformados en un nuevo carácter. Sin embargo, la diagonal invertida sólo escapa los apostrofes y a sí misma. (Si piensas acerca de ello, los caracteres de escape siempre deben escaparse a sí mismos). Aquí hay algunos pocos ejemplos en orden (creo):
 
 puts 'diagonal invertida al final de una cadena: \\'
 puts 'arriba\\abajo'
@@ -110,6 +112,10 @@ diagonal invertida al final de una cadena: \
 arriba\abajo
 arriba\abajo
 
-Como la diagonal invertida no escapa una «a», pero se escapa a sí misma, las dos últimas cadenas son idénticas. No parecen lo mismo en código, pero para tu computadora realmente son lo mismo.
+Como la diagonal invertida no escapa una «a», pero sí se escapa a sí misma, las dos últimas cadenas son idénticas. No parecen lo mismo en código, pero para tu computadora realmente son lo mismo.
 
 Si tienes otras preguntas, ¡sigue leyendo! Después de todo, no puedo responder todas dudas sólo en ésta página.
+
+[6] En español se les conoce con el término «banderola».
+[7] Hay que señalar que dentro del código de los programas sólo se utilizan la prima (') y la doble prima (")  en lugar de los apóstrofos (‘’ y “”) tanto para indicar el inicio y como para el cierre de una cadena de texto. Los editores de texto plano y otros programas enfocados a la programación las utilizan por defecto.
+[8] El mensaje de error dice de forma literal que no se puede convertir un número en una cadena. Se requiere de una operación especial para poder realizarlo.
