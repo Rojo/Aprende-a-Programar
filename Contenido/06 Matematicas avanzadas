@@ -1,12 +1,12 @@
-Matemáticas avanzadas
-(Éste capítulo es totalmente opcionale. Asume un grado moderado de conocimiento matemático. Si no estás interesado, puedes continuar directamente al capítulo sobre control de flujo sin ningún problema. Sin embargo, un repaso rápido sobre la sección de números aleatorios podría ser de utilidad.)
+6. Matemáticas avanzadas
+(Éste capítulo es totalmente opcional. Asume un grado moderado de conocimiento matemático. Si no estás interesado, puedes continuar directamente al capítulo sobre control de flujo sin ningún problema. Sin embargo, un repaso rápido sobre la sección de números aleatorios podría ser de utilidad.)
 
-No hay tantos métodos para números como los hay para cadenas de caracteres (aún así, no los tengo todos en la memoria). Aquí veremos al resto de los métodos aritméticos, un generador de números aleatorios y el objeto Math con sus métodos trigonométricos y trascendentales.
+No hay tantos métodos para números como los hay para cadenas de caracteres (aun así, no los tengo todos en la memoria). Aquí veremos al resto de los métodos aritméticos, un generador de números aleatorios y el objeto Math con sus métodos trigonométricos y trascendentales.
 
 Más aritmética
 Los otros dos métodos aritméticos son ** (potenciación) y % (módulo). Así que si quieres escribir «cinco al cuadrado» en Ruby, lo escribirías como 5 ** 2. También puedes usar números reales como exponente, si quieres la raíz cuadrada de 5, puedes escribirlo como 5 ** 0.5. El método modulo te da el remanente de una división. Así que, por ejemplo, si divido 7 entre 3, obtengo 2 con un remanente de 1.
 
-Veamos como funcionan en un programa:
+Veamos cómo funcionan en un programa:
 
 puts 5 ** 2
 puts 5 ** 0.5
@@ -31,20 +31,24 @@ puts (2 - 5).abs
 3
 
 Números aleatorios
-Ruby incluye un bonito generador de números aleatorios. El método para obtener un número elegido al azar es rand. Si llamas a rand sólo así, obtendrás un número real igual o mayor que 0 y menor que 1.0. Si le das a rand un entero (5, por ejemplo), te devolverá un entero mayor o igual que 0 y menor que 5 (cinco posibles números del 0 al 4).
+Ruby incluye un bonito generador de números aleatorios. El método para obtener un número elegido al azar es rand. Si llamas a rand simplemente así, obtendrás un número fraccionario igual o mayor que 0 y menor que 1.0. Si le das a rand un entero (5, por ejemplo), te devolverá un entero mayor o igual que 0 y menor que 5 (cinco posibles números del 0 al 4).
 
 Vemos a rand en acción.
 
 puts rand
 puts rand
 puts rand
+
 puts rand(100)
 puts rand(100)
 puts rand(100)
+
 puts rand(1)
 puts rand(1)
 puts rand(1)
+
 puts rand(99999999999999999999999999999999999999999999999999999999999)
+
 puts 'El hombre del clima dijo que hay '+rand(101).to_s+'% de probabilidad'
 puts 'de lluvia, pero nunca debes de confiar en el hombre del clima.'
 
@@ -61,17 +65,19 @@ puts 'de lluvia, pero nunca debes de confiar en el hombre del clima.'
 El hombre del clima dijo que hay 47% d probabilidad
 de lluvia, pero nunca debes de confiar en el hombre del clima.
 
-Nota que he usado rand(101) para obtener números entre 0 y 100, y que rand(1) siempre regresa 0. No comprender el rango de posibles valores devueltos es el error más grande que he visto a otras personas realizar con rand; aun programadores profesionales; aun en productos terminados que puedes comprar en una tienda. Una vez tuve un reproductor de CDs que al ser colocado en modo de «reproducción aleatoria», reproducía todas las pistas excepto la última... (Me pregunto, ¿qué hubiera pasado su hubiera colocado con un CD con sólo una pista en él?)
+Nota que he usado rand(101) para obtener números entre 0 y 100, y que rand(1) siempre regresa 0. No comprender el rango de posibles valores devueltos es el error más grande que he visto a otras personas realizar con rand; aun programadores profesionales; aun en productos terminados que puedes comprar en una tienda. Una vez tuve un reproductor de CDs que al ser colocado en modo de «reproducción aleatoria», tocaba todas las pistas excepto la última… (Me pregunto, ¿qué hubiera pasado si hubiera colocado con un CD con sólo una pista en él?)
 
-Algunas veces podrías querer que rand devuelva los mismos números aleatorios en la misma secuencia en dos diferentes ejecuciones de tu programa. (Por ejemplo, una vez utilice un generador de números aleatorios para crear un mundo generado automáticamente para un juego de computadora. Si encontraba un mundo que realmente me gustara, tal vez me gustaría jugar en el de nuevo, o enviarlo a un amigo.) Para lograr esto, necesitas configurar un valor semilla, lo cual puedes hacer con srand. Algo así:
+Algunas veces podrías querer que rand regrese los mismos números aleatorios en la misma secuencia en dos diferentes ejecuciones de tu programa. (Por ejemplo, una vez utilice un generador de números aleatorios para crear un mundo generado automáticamente para un juego de computadora. Si encontraba un mundo que realmente me gustara, tal vez me gustaría jugar en el de nuevo, o enviarlo a un amigo.) Para lograr esto, necesitas configurar un valor semilla, lo cual puedes hacer con srand. Algo así:
 
 srand 1776
+
 puts rand(100)
 puts rand(100)
 puts rand(100)
 puts rand(100)
 puts rand(100)
 puts ''
+
 srand 1776
 puts rand(100)
 puts rand(100)
@@ -93,7 +99,6 @@ puts rand(100)
 
 Hará lo mismo cada vez que utilices el mismo número como semilla. Si quieres volver a obtener diferentes números otra vez (como si nunca hubieras usado srand), entonces llama srand 0. Esto le da como semilla un número realmente raro, usando (entre otras cosas) la hora actual de tu computadora, con precisión de milisegundos.
 
-
 El objeto Math
 Por último, veamos el objeto Math. También podríamos saltar directamente dentro de él:
 
@@ -111,8 +116,8 @@ puts (1 + Math.sqrt(5)) / 2
 2.0
 1.61803398874989
 
-Lo primero que tal vez notaste fue la notación ::. Explicar el operador de alcance (que es lo eso es) está realmente más allá del, eh... del alcance de éste tutorial. No es broma. Lo juro. Es suficiente decir que puedes usar Math::Pi justo como lo esperarías.
+Lo primero que tal vez notaste fue la notación ::. Explicar el operador de alcance (que es lo eso es) está realmente más allá del, eh… del alcance de éste tutorial. No es broma. Lo juro. Es suficiente decir que puedes usar Math::Pi justo como lo esperarías.
 
-Como puedes ver, Math tiene todas las cosas que podrías esperar de una calculadora científica decente. Y como siempre, los números reales están realmente cerca de ser las respuestas correctas.
+Como puedes ver, Math tiene todas las cosas que podrías esperar de una calculadora científica decente. Y como siempre, los números fraccionarios están realmente cerca de ser las respuestas correctas.
 
 Así que ahora, ¡fluyamos!
