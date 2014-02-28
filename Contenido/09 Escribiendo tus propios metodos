@@ -1,22 +1,20 @@
-Escribiendo tus propios métodos
-
+9. Escribiendo tus propios métodos
 Como hemos visto, los ciclos e iteradores nos permiten hacer lo mismo (ejecutar el mismo código) una y otra vez. Sin embargo, puede pasar que deseemos hacer algo cierto número de veces desde diferentes partes del programa.
 
 Por ejemplo, digamos que escribíamos un programa de cuestionarios para un estudiante de psicología. De los estudiantes de psicología que he conocido y los cuestionarios que me han dado, seguramente sería algo como esto:
 
 puts 'Hola y gracias por tomar un tipo de tiempo para ayudarme con éste'
-puts 'experimento. Mi experimento trata de como se sienten las personas en'
+puts 'experimento. Mi experimento trata de cómo se sienten las personas en'
 puts 'relación con la comida mexicana. Sólo ten presente en tu mente la comida'
 puts 'mexicana e intenta responder cada pregunta honestamente con un «sí» o un'
 puts '«no». El experimento no tiene nada que ver con mojar la cama.'
 
 # Hacemos éstas preguntas, pero ignoramos las respuestas.
-
 buenaRespuesta = false
+
 while (not buenaRespuesta)
   puts '¿Te gusta comer tacos?'
   respuesta = gets.chomp.downcase
-
   if (respuesta == 'sí' or respuesta == 'no')
     buenaRespuesta = true
   else
@@ -28,7 +26,6 @@ buenaRespuesta = false
 while (not buenaRespuesta)
   puts '¿Te gusta comer burritos?'
   respuesta = gets.chomp.downcase
-
   if (respuesta == 'sí' or respuesta == 'no')
     buenaRespuesta = true
   else
@@ -37,15 +34,13 @@ while (not buenaRespuesta)
 end
 
 # Pero sí ponemos atención a *ésta* respuesta.
-
 buenaRespuesta = false
 while (not buenaRespuesta)
   puts '¿Aún mojas la cama?'
   respuesta = gets.chomp.downcase
-
   if (respuesta == 'sí' or respuesta == 'no')
     buenaRespuesta = true
-    
+   
     if respuesta == 'sí'
       mojaLaCama = true
     else
@@ -60,21 +55,18 @@ buenaRespuesta = false
 while (not buenaRespuesta)
   puts '¿Te gusta comer chimichangas?'
   respuesta = gets.chomp.downcase
-
   if (respuesta == 'sí' or respuesta == 'no')
     buenaRespuesta = true
   else
     puts 'Por favor, responde «sí» o «no».'
   end 
 end
-
 puts 'Sólo unas cuantas preguntas más...'
 
 buenaRespuesta = false
 while (not buenaRespuesta)
   puts '¿Te gusta comer sopapillas?'
   respuesta = gets.chomp.downcase
-
   if (respuesta == 'sí' or respuesta == 'no')
     buenaRespuesta = true
   else
@@ -83,7 +75,6 @@ while (not buenaRespuesta)
 end
 
 # Hace un montón de otras preguntas sobre comida mexicana.
-
 puts
 puts 'EXPLICACIÓN:'
 puts 'Gracias por tomar tiempo para ayudarme con éste experimento. En realidad,'
@@ -94,7 +85,7 @@ puts 'responderías con más honestidad. Gracias de nuevo.'
 puts
 puts mojaLaCama
 
-Hola y gracias por tomar un tipo de tiempo para ayudarme con éste experimento. Mi experimento trata de como se sienten las personas en relación con la comida mexicana. Sólo ten presente en tu mente la comida mexicana e intenta responder cada pregunta honestamente con un «sí» o un «no». El experimento no tiene nada que ver con mojar la cama.
+Hola y gracias por tomar un tipo de tiempo para ayudarme con éste experimento. Mi experimento trata de cómo se sienten las personas en relación con la comida mexicana. Sólo ten presente en tu mente la comida mexicana e intenta responder cada pregunta honestamente con un «sí» o un «no». El experimento no tiene nada que ver con mojar la cama.
 
 ¿Te gusta comer tacos?
 sí
@@ -124,7 +115,7 @@ def muge
   puts 'muuuuuu...'
 end
 
-Uh... Nuestro programa no mugió. ¿Por qué no? Porque no le indicamos que lo hiciera. Le indicamos como mugir, pero nunca le dijimos que lo hiciera. Intentemos de nuevo:
+Uh… Nuestro programa no mugió. ¿Por qué no? Porque no le indicamos que lo hiciera. Le indicamos cómo mugir, pero nunca le dijimos que lo hiciera. Intentemos de nuevo:
 
 def muge
   puts 'muuuuuu...'
@@ -143,12 +134,10 @@ muuuuuu...
 muuuuuu...
 
 ¡Ahhh, mucho mejor! (Sólo en caso de que no hables francés, ese fue un pato francés a mitad del programa. En Francia, los patos dicen «coin-coin».)
-
-Definimos el método muge. (Se usa que los nombres de métodos, como los nombres de variables, comiencen con una letra minúscula. Aunque, hay algunas excepciones como + o ==.) Pero, ¿no tienen los métodos que estar siempre asociados con objetos? Bueno, sí, lo están, y en éste caso (al igual que puts y gets), el método está asociado con el objeto que representa el programa completo. En el siguiente capítulo veremos como agregar métodos a otros objetos. Pero primero...
-
+Definimos el método muge. (Se usa que los nombres de métodos, como los nombres de variables, comiencen con una letra minúscula. Aunque, hay algunas excepciones como + o ==.) Pero, ¿no tienen los métodos que estar siempre asociados con objetos? Bueno, sí, lo están, y en éste caso (al igual que puts y gets), el método está asociado con el objeto que representa el programa completo. En el siguiente capítulo veremos cómo agregar métodos a otros objetos. Pero primero…
 Parámetros en los métodos
-Tal vez hayas notado que algunos métodos (como gets, to_s, reverse...) pueden ser simplemente llamados sobre un objeto. Sin embargo, otros métodos (cómo +, -, puts...) toman parámetros para indicarle al objeto cómo realizar el método. Por ejemplo, no dirías simplemente 5+, ¿verdad? Porque le estarías diciendo a 5 que sume, pero no le estarías diciendo qué sumar.
 
+Tal vez hayas notado que algunos métodos (como gets, to_s, reverse…) pueden ser simplemente llamados sobre un objeto. Sin embargo, otros métodos (cómo +, -, puts...) toman parámetros para indicarle al objeto cómo realizar el método. Por ejemplo, no dirías simplemente 5+, ¿verdad? Porque le estarías diciendo a 5 que sume, pero no le estarías diciendo que sumar.
 Para añadir un parámetro a muge (digamos, el número de veces que debe mugir), hacemos esto:
 
 def muge numeroDeVeces
@@ -161,13 +150,14 @@ muge # Provocará un error porque falta un parámetro
 
 muuuuuuu...muuuuuuu...muuuuuuu...
 oinc, oinc
-#<ArgumentError: wrong number of arguments (0 for 1)>
+#<ArgumentError: wrong number of arguments (0 for 1)>[25]
+
 
 numeroDeVeces es una variable que apunta al parámetro pasado al método. Lo diré de nuevo ya que es un poco confuso: numeroDeVeces es una variable que apunta al parámetro pasado al método. Así que, si escribo muge 3, el parámetro es 3 y la variable numeroDeVeces apunta a 3.
 
 Como puedes ver, el parámetro es ahora requerido. Después de todo, ¿cómo puede muge multiplicar 'muuuuuuu...' si no le das ningún parámetro? Tu pobre computadora no tiene idea.
 
-Si los objetos en Ruby son como los sustantivos en español, y los métodos son como los verbos, entonces puedes pensar en los parámetros como adverbios (como en muge, donde el parámetro le dice como debe mugir) u otras veces como objetos directos (como con puts, donde el parámetro es lo que se imprime).
+Si los objetos en Ruby son como los sustantivos en español, y los métodos son como los verbos, entonces puedes pensar en los parámetros como adverbios (como en muge, donde el parámetro le dice cómo debe mugir) u otras veces como objetos directos (como con puts, donde el parámetro es lo que se imprime).
 
 Variables locales
 En el siguiente programa hay dos variables:
@@ -181,7 +171,7 @@ duplicaEsto 44
 
 44 al doble es 88
 
-Las variables son numero y numeroPor2. Ambas se encuentran dentro del método duplicaEsto. Estás (y todas las variables que has visto hasta ahora) son variables locales. Esto significa que viven dentro del método y no pueden salir. Si intentas llamarlas afuera, obtendrás un error:
+Las variables son numero y numeroPor2. Ambas se encuentran dentro del método duplicaEsto. Éstas (y todas las variables que has visto hasta ahora) son variables locales. Esto significa que viven dentro del método y no pueden salir. Si intentas llamarlas afuera, obtendrás un error:
 
 def duplicaEsto numero
   numeroPor2 = numero * 2
@@ -192,11 +182,11 @@ duplicaEsto 44
 puts numeroPor2.to_s
 
 44 al doble es 88
-#<NameError: undefined local variable or method `numTimes2' for #<StringIO:0x82ba21c>>
+#<NameError: undefined local variable or method `numeroPor2' for #<StringIO:0x82ba21c>>[26]
 
-Variable local indefinida... De hecho, sí definimos esa variable local, pero no es local desde donde intentamos usarla; es local al método.
+Variable local indefinida… De hecho, sí definimos esa variable local, pero no es local desde donde intentamos usarla; es local al método.
 
-Esto podría parecer un inconveniente, pero en realidad es bastante bueno. Mientras que eso significa que no puedes acceder a variables dentro de los métodos, también significa que ellos no tienen acceso a tus variables, y por lo tanto, no las pueden afectar.
+Esto podría parecer un inconveniente, pero en realidad es bastante bueno. Mientras que eso significa que no puedes acceder a variables dentro de los métodos, también significa que ellos no tienen acceso a tus variables, y por lo tanto, no las pueden afectar:
 
 def pestecilla var
   var = nil
@@ -210,12 +200,13 @@ puts var
 Pestecilla: ¡Ja, ja! ¡He arruinado tu variable!
 Programa: ¡No puedes ni tocar mi variable!
 
-En realidad hay dos variables llamadas var en ese pequeño programa: una dentro de la pequeñaPeste, y la otra fuera de ella. Cuando llamamos a pequeñaPeste var, en realidad sólo hicimos que ambas variables apuntaran a la misma cadena. Después, la pequeñaPeste apunto su propia var local hacia nil, pero no hizo nada a la var fuera del método.
+En realidad hay dos variables llamadas var en ese pequeño programa: una dentro de la pestecilla, y la otra fuera de ella. Cuando llamamos a pestecilla var, en realidad sólo hicimos que ambas variables apuntaran a la misma cadena. Después, la pestecilla apunto su propia var local hacia nil, pero no hizo nada a la var fuera del método.
 
 Retorno de valores
 Probablemente te has dado cuenta que algunos métodos regresan algo cuando los llamas. Por ejemplo, gets retorna una cadena de caracteres (la cadena que escribiste con el teclado), y el método + en 5 + 3 (que es en realidad 5.+(3)), retorna 8. Los métodos aritméticos para números retornan números, y los métodos aritméticos para cadenas retornan cadenas.
 
 Es importante entender la diferencia entre métodos retornando un valor a la parte del programa donde fueron llamados y la presentación de información en pantalla, como lo hace puts. Así, 5 + 3 retorna 8, no imprime 8 en pantalla.
+
 Entonces, ¿qué retorna puts? No nos habíamos preocupado por eso, veamos ahora:
 
 valorRetornado = puts 'Esto retorno puts:'
@@ -223,6 +214,7 @@ puts valorRetornado
 
 Esto es lo que retorno puts:
 nil
+
 
 Así que el primer puts retornó nil. Aunque no lo probamos directamente, el segundo puts también lo hizo; puts siempre retorna nil. Todos los métodos devuelven algo, aún si sólo es nil.
 
@@ -241,7 +233,7 @@ puts x
 muuuuuuu...muuuuuuu...
 submarino amarillo
 
-Entonces, intentemos ese experimento de psicología de nuevo, pero ésta vez escribiremos un método para hacer las preguntas por nosotros. Necesitará recibir la pregunta como parámetro, retornando como resultado true si es respondida con sí, mientras que retorna como resultado false si es respondida con no. (Aun cuando la mayor parte del tiempo ignoraremos la respuesta, es una buena idea que el método retorne el resultado. Así también podremos usar la pregunta sobre mojar la cama.) Además, acortaré la bienvenida y la explicación, para que sea más fácil de leer:
+Entonces, intentemos ese experimento de psicología de nuevo, pero ésta vez escribiremos un método para hacer las preguntas por nosotros. Necesitará recibir la pregunta como parámetro, retornando como resultado true si es respondida con sí, mientras que retorna como resultado false si es respondida con no. (Aun cuando la mayor parte del tiempo ignoraremos la respuesta, es una buena idea que el método retorne el resultado. Así también podremos usar la pregunta sobre mojar la cama.) Además, haré más cortas la bienvenida y la explicación, para que sea más fácil de leer:
 
 def hacer_pregunta pregunta
   buenaRespuesta = false
@@ -272,8 +264,10 @@ puts
 # ignoramos los valores retornados...
 hacer_pregunta '¿Te gusta comer tacos?'
 hacer_pregunta '¿Te gusta comer burritos?'
+
 # pero guardamos el valor que es retornado ésta ocasión
 mojaLaCama = hacer_pregunta '¿Aún mojas la cama?'
+
 hacer_pregunta '¿Te gusta comer chimichangas?'
 hacer_pregunta '¿Te gusta comer sopapillas?'
 hacer_pregunta '¿Te gusta comer tamales?'
@@ -281,7 +275,7 @@ puts 'Sólo unas preguntas más...'
 hacer_pregunta '¿Te gusta beber horchata?'
 hacer_pregunta '¿Te gusta comer flautas?'
 
-puts 
+puts
 puts 'EXPLICACIÓN:'
 puts 'Te agradezco por...'
 puts
@@ -317,131 +311,137 @@ false
 Nada mal, ¿eh? Fuimos capaces de agregar más preguntas (y agregar preguntas es fácil ahora), además de que nuestro programa es mucho más corto. ¡Es una gran mejora! – El sueño de un programador flojo.
 
 Un ejemplo aún más grande
-
 Creo que un método más a manera de ejemplo será de ayuda aquí. Llamaremos a éste numero_en_espanol. Tomará un número, como 22, y retornará su versión en español (en éste caso, la cadena 'veintidós'). Por ahora, hagamos que sólo funcione para números del 0 al 100.
 
-(NOTA: Éste método usa un nuevo truco para retornar un valor de un método antes de llegar al final del mismo, usando la palabra return, e introduce también una variación a la ramificación: elsif. Debería ser claro como funcionan en el contexto.)
+(NOTA: Éste método usa un nuevo truco para retornar un valor de un método antes de llegar al final del mismo, usando la palabra return, e introduce también una variación a la ramificación: elsif. Debería ser claro cómo funcionan en el contexto.)
 
-def numero_a_espanol numero 
+def numero_a_espanol numero
   # Sólo queremos números del 0 al 100. 
-  if (numero < 0) or (numero > 100) 
-    return 'Por favor, proporciona un número entre 0 y 100.' 
-  end 
+  if (numero < 0) or (numero > 100)
+    return 'Por favor, proporciona un número entre 0 y 100.'
+  end
+  
+  texto = '' # Ésta es la cadena que retornaremos.
 
-  texto = '' # Ésta es la cadena que retornaremos. 
-
-  # Casos especiales: cuando numero es 0 o 100, devolvemos el texto apropiado. 
+  # Casos especiales: cuando numero es 0 o 100, devolvemos el texto apropiado.
   if numero == 0 
-    return 'cero' 
+    return 'cero'
   end 
   if numero == 100 
-    return 'cien' 
-  end 
+    return 'cien'
+  end
 
-  # "restante" es lo que falta por escribir del número. 
-  # "actual" es la parte que vamos a escribir ahora. 
-  # "restante" y "actual" ¿Está claro? :) 
+  # "restante" es lo que falta por escribir del número.
+  # "actual" es la parte que vamos a escribir ahora.
+  # "restante" y "actual" ¿Está claro? :)
   restante = numero  
   actual   = restante / 10          # ¿Cuantas decenas se van a escribir? 
   restante = restante - actual * 10 # Sustraer esas decenas 
-
+  
   if actual > 0 
+  
     if actual == 1 # Grupo del 10 al 19 
+   
       if restante < 7 
-        # Como no podemos escribir "diez y uno" en lugar de "once", tenemos que 
-        # establecer un comportamiento especial para éste caso y similares. 
+        # Como no podemos escribir "diez y uno" en lugar de "once", tenemos que
+        # establecer un comportamiento especial para éste caso y similares.
         if    restante == 0 
-          texto = texto + 'diez' 
+          texto = texto + 'diez'
         elsif restante == 1 
-          texto = texto + 'once' 
+          texto = texto + 'once'
         elsif restante == 2 
-          texto = texto + 'doce' 
+          texto = texto + 'doce'
         elsif restante == 3 
-          texto = texto + 'trece' 
+          texto = texto + 'trece'
         elsif restante == 4 
-          texto = texto + 'catorce' 
+          texto = texto + 'catorce'
         elsif restante == 5 
-          texto = texto + 'quince' 
+          texto = texto + 'quince'
         elsif restante == 6 
-          texto = texto + 'dieciséis' 
+          texto = texto + 'dieciséis'
         end 
-
         # Decenas y unidades listas, no tenemos nada restante por escribir. 
         restante = 0 
+  
       else 
-        # Los números mayores a 16 pueden escribirse de una forma regular: 
+        # Los números mayores a 16 pueden escribirse de una forma regular:
         # 'dieci' + unidades 
-        texto = texto + 'dieci' 
+        texto = texto + 'dieci'
       end 
     elsif actual == 2 # Grupo del 20 al 29 
+   
       # Casos especiales 
       if restante == 0 
-        texto = texto + 'veinte' 
+        texto = texto + 'veinte'
       elsif restante == 2 
-        texto = texto + 'veintidós' 
+        texto = texto + 'veintidós'
         restante = 0 
       elsif restante == 3 
-        texto = texto + 'veintitrés' 
+        texto = texto + 'veintitrés'
         restante = 0 
       elsif restante == 6 
-        texto = texto + 'veintiséis' 
+        texto = texto + 'veintiséis'
         restante = 0 
       else 
-        # Los demás números del grupo se pueden escribir de forma regular: 
+        # Los demás números del grupo se pueden escribir de forma regular:
         # 'veinti' + unidades 
-        texto = texto + 'veinti' 
+        texto = texto + 'veinti'
       end 
+   
     else # Grupo del 30 al 99 
-      # Todos estos números se pueden escribir de forma regular: 
+   
+      # Todos estos números se pueden escribir de forma regular:
       # decenas + ' y ' + unidades 
       if    actual == 3 
-        texto = texto + 'treinta' 
+        texto = texto + 'treinta'
       elsif actual == 4 
-        texto = texto + 'cuarenta' 
+        texto = texto + 'cuarenta'
       elsif actual == 5 
-        texto = texto + 'cincuenta' 
+        texto = texto + 'cincuenta'
       elsif actual == 6 
-        texto = texto + 'sesenta' 
+        texto = texto + 'sesenta'
       elsif actual == 7 
-        texto = texto + 'setenta' 
+        texto = texto + 'setenta'
       elsif actual == 8 
-        texto = texto + 'ochenta' 
+        texto = texto + 'ochenta'
       elsif actual == 9 
-        texto = texto + 'noventa' 
+        texto = texto + 'noventa'
       end 
-
-      if restante > 0 then texto = texto + ' y ' end 
+      if restante > 0
+        texto = texto + ' y '
+      end 
     end 
+  
   end 
-
+  
   actual   = restante # ¿Cuantas unidades quedan por escribir? 
   restante = 0        # Sustraemos esas unidades 
-
+  
   if actual > 0 
     if    actual == 1 
-      texto = texto + 'uno' 
+      texto = texto + 'uno'
     elsif actual == 2 
-      texto = texto + 'dos' 
+      texto = texto + 'dos'
     elsif actual == 3 
-      texto = texto + 'tres' 
+      texto = texto + 'tres'
     elsif actual == 4 
-      texto = texto + 'cuatro' 
+      texto = texto + 'cuatro'
     elsif actual == 5 
-      texto = texto + 'cinco' 
+      texto = texto + 'cinco'
     elsif actual == 6 
-      texto = texto + 'seis' 
+      texto = texto + 'seis'
     elsif actual == 7 
-      texto = texto + 'siete' 
+      texto = texto + 'siete'
     elsif actual == 8 
-      texto = texto + 'ocho' 
+      texto = texto + 'ocho'
     elsif actual == 9 
-      texto = texto + 'nueve' 
+      texto = texto + 'nueve'
     end 
   end 
-
-  # Si llegamos hasta aquí, entonces teníamos algún número entre 0 y 100, así 
+  
+  # Si llegamos hasta aquí, entonces teníamos algún número entre 0 y 100, así
   # que debemos retornar la «texto». 
-  texto 
+  texto
 end 
 
 puts numero_a_espanol   0 
@@ -454,160 +454,177 @@ puts numero_a_espanol  88
 puts numero_a_espanol  99 
 puts numero_a_espanol 100 
 
-cero 
-nueve 
-diez 
-once 
-diecisiete 
-treinta y dos 
-ochenta y ocho 
-noventa y nueve 
-cien 
+cero
+nueve
+diez
+once
+diecisiete
+treinta y dos
+ochenta y ocho
+noventa y nueve
+cien
 
 Bueno, ciertamente hay algunas cosas que no me gustan de éste programa. Primero, tiene demasiadas repeticiones. Segundo, no maneja números mayores a 100. Tercero, hay demasiados casos especiales, demasiados return. Usemos algunos arreglos y tratemos de limpiarlo un poco.
 
-def numero_a_espanol numero 
-  if numero < 0  #  No números negativos. 
-    return 'Lo siento, el programa no maneja números negativos.' 
-  end 
-  if numero == 0 
-    return 'cero' 
-  end 
+def numero_a_espanol numero
+  if numero < 0  # No aceptamos números negativos.
+    return 'Lo siento, el programa no maneja números negativos.'
+  end
+  if numero == 0
+    return 'cero'
+  end
+ 
+  texto = '' # Ésta es la cadena que vamos a devolver.
+  # Los arreglos nos permiten manejar los casos especiales de forma ordenada.
+  # ¡No más returns!
+ 
+  unidades = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho',
+              'nueve']
+  decenas  = ['diez', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta',
+              'setenta', 'ochenta', 'noventa']
+  grupo_10 = ['once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis',
+              'diecisiete', 'dieciocho', 'diecinueve']
+  grupo_20 = ['veintiuno', 'veintidós', 'veintitrés', 'veinticuatro',
+              'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho',
+              'veintinueve']
+  centenas = ['cien', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos',
+              'seiscientos', 'setecientos', 'ochocientos', 'novecientos']
+ 
+  # "restante" es lo que nos falta por escribir del número.
+  # "actual" es la parte que vamos a escribir ahora.
+  # "restante" y "actual" ¿Está claro? :)
+  # Primero obtengamos las centenas...
+  restante  = numero
+  actual    = restante / 100          # ¿Cuantas centenas se van a escribir?
+  restante  = restante - actual * 100 # Sustraemos esas centenas...
+ 
+  if actual > 0
+    if actual < 10
+      # Como no se usa escribir 'nueve cientos' en lugar de 'novecientos',
+      # haremos una excepción para esos casos.
+      texto = texto + centenas[actual - 1]
+      # El «-1» es debido a que centenas[3] es 'cuatrocientos', no 'trecientos'.
+    else
+      # Aqui hay un truco que requiere habilidad:
+      texto = texto + numero_a_espanol(actual) + ' cientos'
+      # Eso es llamado recursión. ¿Qué es lo que acabo de hacer?
+      # Le dije a éste método que se llame así mismo, pero con la parte «actual»
+      # en lugar de la «restante». Recuerda que la parte «actual» (en éste
+      # momento) es el número que tenemos que escribir.
+      # Después de que agregamos las «centenas» al «texto», le agregamos la
+      # cadena ' cientos'. Así, por ejemplo, si originalmente llamamos a
+      # numero_a_espanol con 1999 (de forma que «numero» = 1999), en éste punto
+      # lo «actual» sería 19 y lo «restante» sería 99.
+      # Lo que implicaría menos esfuerzo en éste punto es dejar a
+      # numero_a_espanol escribir 'diecinueve' por nosotros, entonces escribimos
+      # ' cientos' y, al final, la siguiente parte de numero_a_espanol escribe
+      # 'noventa y nueve'.
+    end
+   
+    if restante > 0
+      # Agregamos «to» a «cien» en caso de que haya más por escribir para los
+      # casos donde hay decenas o unidades por escribir, como «ciento cincuenta»
+      # y no «cien cincuenta», etc.
+      if actual == 1
+        texto = texto + 'to'
+      end
+      # Agregamos un espacio para evitar 'doscientoscincuenta y uno'...
+      texto = texto + ' '
+    end
+  end
   
-  texto = ''  #  Ésta es la cadena que vamos a devolver. 
-
-  # Los arreglos nos permiten manejar los casos especiales de forma ordenada. 
-  # ¡No más returns! 
-  
-  unidades = ['uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 
-              'nueve'] 
-
-  decenas  = ['diez', 'veinte', 'treinta', 'cuarenta', 'cincuenta', 'sesenta', 
-              'setenta', 'ochenta', 'noventa'] 
-
-  grupo_10 = ['once', 'doce', 'trece', 'catorce', 'quince', 'dieciséis', 
-              'diecisiete', 'dieciocho', 'diecinueve'] 
-
-  grupo_20 = ['veintiuno', 'veintidós', 'veintitrés', 'veinticuatro', 
-              'veinticinco', 'veintiséis', 'veintisiete', 'veintiocho', 
-              'veintinueve'] 
-
-  centenas = ['cien', 'doscientos', 'trescientos', 'cuatrocientos', 'quinientos', 
-              'seiscientos', 'setecientos', 'ochocientos', 'novecientos'] 
-  
-  # "restante" es lo que falta por escribir del número. 
-  # "actual" es la parte que vamos a escribir ahora. 
-  # "restante" y "actual" ¿Está claro? :) 
-
-  # Primero obtengamos las centenas... 
-  restante  = numero 
-  actual    = restante / 100          # ¿Cuantas centenas se van a escribir? 
-  restante  = restante - actual * 100 # Sustraemos esas centenas... 
-  
-  if actual > 0 
-    if actual < 10 
-      # Como no se usa escribir 'nueve cientos' en lugar de 'novecientos', 
-      # haremos una excepción para esos casos. 
-      texto = texto + centenas[actual - 1] 
-      # El «-1» es debido a que centenas[3] es 'cuatrocientos', no 'trecientos'. 
-    else 
-      # Aqui hay un truco que requiere habilidad: 
-      texto = texto + numero_a_espanol(actual) + ' cientos' 
-      # Eso es llamado recursión. ¿Qué es lo que acabo de hacer? 
-      # Le dije a éste método que se llame así mismo, pero con la parte «actual» 
-      # en lugar de la «restante». Recuerda que la parte «actual» (en éste 
-      # momento) es el número que tenemos que escribir. 
-      # Después de que agregamos las «centenas» al «texto», le agregamos la 
-      # cadena ' cientos'. Así, por ejemplo, si originalmente llamamos a 
-      # numero_a_espanol con 1999 (de forma que «numero» = 1999), en éste punto 
-      # lo «actual» sería 19 y lo «restante» sería 99. 
-      # Lo que implicaría menos esfuerzo en éste punto es dejar a 
-      # numero_a_espanol escribir 'diecinueve' por nosotros, entonces escribimos 
-      # ' cientos' y, al final, la siguiente parte de numero_a_espanol escribe 
-      # 'noventa y nueve'. 
-    end 
-    
-    if restante > 0 
-      if actual == 1 
-        texto = texto + 'to' 
-      end 
-
-      # Agregamos un espacio para evitar 'doscientoscincuenta y uno'... 
-      texto = texto + ' ' 
-    end 
-  end 
-
-  # Después, obtengamos las decenas...  
-  actual   = restante / 10          # ¿Cuantas decenas se van a escribir? 
-  restante = restante - actual * 10 # Sustraemos esas decenas. 
-  
-  if actual > 0 
-    if (actual <= 2) and (restante > 0) 
-      # Como no se usa escribir 'diez y dos' en lugar de 'once', haremos 
-      # una excepción para esos casos. 
-      if actual == 1 
-        texto = texto + grupo_10[restante - 1] 
-      end 
-      # El «-1» es debido a que grupo_10[3] es 'catorce', no 'trece'. 
+  # Después, obtengamos las decenas... 
+  actual   = restante / 10          # ¿Cuantas decenas se van a escribir?
+  restante = restante - actual * 10 # Sustraemos esas decenas.
+ 
+  if actual > 0
+    if (actual <= 2) and (restante > 0)
       
-      # Como no se usa escribir 'veinte y dos' en lugar de 'veintidós', haremos 
-      # una excepción para esos casos. 
-      if actual == 2 
-        texto = texto + grupo_20[restante - 1] 
-      end 
-      # El «-1» es debido a que grupo_20[3] es 'veinticuatro', no 'veintitrés'. 
+      # Como no se usa escribir 'diez y dos' en lugar de 'doce', haremos
+      # una excepción para esos casos.
+      if actual == 1
+        texto = texto + grupo_10[restante - 1]
+      end
+      # El «-1» es debido a que grupo_10[3] es 'catorce', no 'trece'.
+     
+      # Como no se usa escribir 'veinte y dos' en lugar de 'veintidos', haremos
+      # una excepción para esos casos.
+      if actual == 2
+        texto = texto + grupo_20[restante - 1]
+      end
+      # El «-1» es debido a que grupo_20[3] es 'veinticuatro', no 'veintitrés'.
+      # Como ya nos encargamos del digito en lugar de las unidades, ya no hay
+      # nada «restante».
+      
+      restante = 0
+    else
+      texto = texto + decenas[actual - 1]
+      # El «-1» es debido a que decenas[3] es 'cuarenta', no 'treinta'.
+    end
+   
+    if restante > 0
+      # Para no escribir 'sesentacuatro'...
+      texto = texto + ' y '
+    end
+  end
+ 
+  # Por último, si aún queda algo, obtengamos las unidades...
+  actual   = restante # ¿Cuantas unidades se van a escribir?
+  restante = 0        # Sustraemos esas unidades.
+ 
+  if actual > 0
+    texto = texto + unidades[actual - 1]
+    # El «-1» es debido a que unidades[3] es 'cuatro', no 'tres'.
+  end
+ 
+  # Ahora sólo retornamos «texto»...
+  texto
+end
 
-      # Como ya nos encargamos del dígito en lugar de las unidades, ya no hay 
-      # nada «restante». 
-      restante = 0 
-    else 
-      texto = texto + decenas[actual - 1] 
-      # El «-1» es debido a que decenas[3] es 'cuarenta', no 'treinta'. 
-    end 
-    
-    if restante > 0 
-      # Para no escribir 'sesentacuatro'... 
-      texto = texto + ' y ' 
-    end 
-  end 
-  
-  # Por último, si aun queda algo, obtengamos las unidades... 
-  actual   = restante # ¿Cuantas unidades se van a escribir? 
-  restante = 0        # Sustraemos esas unidades. 
-  
-  if actual > 0 
-    texto = texto + unidades[actual - 1] 
-    # El «-1» es debido a que unidades[3] es 'cuatro', no 'tres'. 
-  end 
-  
-  # Ahora sólo retornamos «texto»... 
-  texto 
-end 
-
-puts numero_a_espanol( -1) 
-puts numero_a_espanol(  0) 
-puts numero_a_espanol(  9) 
-puts numero_a_espanol( 10) 
-puts numero_a_espanol( 11) 
-puts numero_a_espanol( 17) 
-puts numero_a_espanol( 32) 
-puts numero_a_espanol( 88) 
-puts numero_a_espanol( 99) 
-puts numero_a_espanol(100) 
-puts numero_a_espanol(101) 
-puts numero_a_espanol(234) 
-puts numero_a_espanol(3211) 
-puts numero_a_espanol(99999) 
+puts numero_a_espanol(  0)
+puts numero_a_espanol(  9)
+puts numero_a_espanol( 10)
+puts numero_a_espanol( 11)
+puts numero_a_espanol( 17)
+puts numero_a_espanol( 32)
+puts numero_a_espanol( 88)
+puts numero_a_espanol( 99)
+puts numero_a_espanol(100)
+puts numero_a_espanol(101)
+puts numero_a_espanol(234)
+puts numero_a_espanol(32111)
+puts numero_a_espanol(99009)
 puts numero_a_espanol(1000000000000)
 
-Ahhh... Eso es mucho, mucho mejor. El programa es bastante denso, que es por lo cual puse tantos comentarios. Hasta funciona para números grandes... pero no tan bien como uno esperaría. Por ejemplo, pienso que 'un billón' se vería mejor como el valor retornado para el último número, o aún 'un millón millón'. De hecho, podrías hacerlo ahora mismo...
+cero
+nueve
+diez
+once
+diecisiete
+treinta y dos
+ochenta y ocho
+noventa y nueve
+cien
+ciento uno
+doscientos treinta y cuatro
+trescientos veintiuno cientos once
+novecientos noventa cientos nueve
+cien cientos cientos cientos cientos cientos
+
+Ahhh… Eso es mucho, mucho mejor. El programa es bastante denso, que es por lo cual puse tantos comentarios. Hasta funciona para números grandes… pero no tan bien como uno esperaría. Por ejemplo, pienso que 'un billón' se vería mejor como el valor retornado para el último número, o hasta 'un millón millón'. De hecho, podrías hacerlo ahora mismo…
 
 Algunas cosas para intentar
 Expande numero_a_espanol. Primero, agrega los miles. Debería retornar 'un mil' (o 'mil' o hasta 'uno mil') en lugar de 'diez cientos' y 'diez mil' en lugar de 'cien cientos cientos'.
-Expande numero_a_espanol una vez más. Haz que ahora pueda manejar millones para obtener 'un millón' en lugar de 'un mil mil'. Después intenta agregar millardos, billones, trillones... ¿Hasta dónde puedes llegar?
+
+Expande numero_a_espanol una vez más. Haz que ahora pueda manejar millones para obtener 'un millón' en lugar de 'un mil mil'. Después intenta agregar millardos, billones, trillones… ¿Hasta dónde puedes llegar?
+
 ¿Qué tal un programa que escriba números en estilo de números de boda? Debería ser casi lo mismo que numero_a_espanol, pero insertando «y» entre los grupos de unidades, retornando cosas como 'diecinueve cientos y setenta y dos' o como se supone que se deben escribir los números en las invitaciones de boda. Te daría más ejemplos, pero yo mismo no lo he terminado de entender. Podrías necesitar contactar a tu organizador de bodas más cercano.
-«Un elefante se balanceaba...» Usando numero_a_espanol y tu viejo programa, escribe la letra de la canción de la forma correcta ésta vez. Castiga a tu computadora: deja que alcance hasta 9,999 elefantes. (Pero tampoco escojas un número muy grande ya que escribir todo eso en la pantalla puede tomar bastante tiempo aún a una computadora; si pones como limite un millón de elefantes, ¡te estarás castigando también a ti mismo!)
+
+«Un elefante se balanceaba…» Usando numero_a_espanol y tu viejo programa, escribe la letra de la canción de la forma correcta ésta vez. Castiga a tu computadora: deja que alcance hasta 9,999 elefantes. (Pero tampoco escojas un número muy grande ya que escribir todo eso en la pantalla puede tomar bastante tiempo aún a una computadora; si pones como límite un millón de elefantes, ¡te estarás castigando también a ti mismo!)
 
 ¡Felicidades! ¡En éste punto ya eres un verdadero programador! Has aprendido todo lo que necesitas para construir programas enormes desde el fundamento. Si tienes ideas para programas que quisieras escribir para ti mismo, ¡intentalo!
 
-Por supuesto, construir todo desde abajo puede ser un proceso bastante lento. ¿Por qué perder tiempo escribiendo código que alguien más ya escribió? ¿Quisieras qué uno de tus programas envíe un correo electrónico? ¿Quisieras guardar y cargar programas en tu computadora? ¿Qué tal generar las páginas web de un tutorial dónde todo el código de los ejemplos es probado automáticamente? :) Ruby tiene muchos y diferentes tipos de objetos que podemos usar para ayudarnos a escribir mejores programas aún más rápido.
+Por supuesto, construir todo desde abajo puede ser un proceso bastante lento. ¿Por qué perder tiempo escribiendo código que alguien más ya escribió? ¿Quisieras que uno de tus programas envíe un correo electrónico? ¿Quisieras guardar y cargar programas en tu computadora? ¿Qué tal generar las páginas web de un tutorial donde todo el código de los ejemplos es probado automáticamente? :) Ruby tiene muchos y diferentes tipos de objetos que podemos usar para ayudarnos a escribir mejores programas aún más rápido.
+
+[25] Literalmente: ErrorDeArgumento: número equivocado de argumentos (0 de 1).
+[26] Literalmente: ErrorDeNombre: variable local o método «numeroPor2» no definido.

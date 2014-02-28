@@ -16,10 +16,10 @@ c = 2013-10-08 02:37:29 -0500
 Debido a que podemos crear arreglas y cadenas usando [...] y '...', respectivamente, rara vez los creamos usando new. (Aunque no es realmente obvio en el ejemplo anterior, String.new crea una cadena vacía, mientras que Array.new crea un arreglo vacío.) Los números son excepciones especiales: no puedes crear un entero con Integer.new. Sólo tienes que escribir el entero.
 
 La clase Time
-Así que, ¿cuál es la historia con la clase Time? Los objetos Time representan momentos en el tiempo. Puedes añadir (o sustraer) números a (o desde) tiempos para obtener nuevos tiempos: añadir 1.5 a un tiempo crea un nuevo tiempo con un segundo y medio después...
+Así que, ¿cuál es la historia con la clase Time? Los objetos Time representan momentos en el tiempo. Puedes añadir (o sustraer) números a (o desde) tiempos para obtener nuevos tiempos: añadir 1.5 a un tiempo crea un nuevo tiempo con un segundo y medio después…
 
-tiempo1 = Time.new # El momento en que se ejecuta ésta instrucción.
-tiempo2 = tiempo1 + 60 #Un minuto después.
+tiempo1 = Time.new     # El momento en que se ejecuta ésta instrucción.
+tiempo2 = tiempo1 + 60 # Un minuto después.
 
 puts tiempo1
 puts tiempo2
@@ -29,36 +29,40 @@ puts tiempo2
 
 También puedes crear tiempos para momentos específicos usando Time.mktime:
 
-puts Time.mktime(2000, 1, 1)          # El momento que inició el año 2000. 
-puts Time.mktime(1976, 8, 3, 10, 11)  # El momento en que nací.
+puts Time.mktime(2000, 1, 1)         # El momento que inició el año 2000. 
+puts Time.mktime(1976, 8, 3, 10, 11) # El momento en que nací.
 
 2000-01-01 00:00:00 -0600
 1976-08-03 10:11:00 -0600
 
-Nota: Estos tiempos varían dependiendo del uso horario del reloj de la computadora donde se ejecute el código (él último dígito indica ese dato). Los paréntesis son para agrupar los parámetros que pasamos a mktime. Entre más parámetros añadas, más exacto será el tiempo creado.
+
+Nota: Estos tiempos varían dependiendo del tiempo configurado en el reloj de la computadora donde se ejecute el código (él último dígito indica el huso horario que está utilizando). Los paréntesis son para agrupar los parámetros que pasamos a mktime. Entre más parámetros añadas, más exacto será el tiempo creado.
 
 Puedes comparar tiempos usando los métodos de comparación (un tiempo es menor que un tiempo posterior), y si sustraes un tiempo de otro, obtendrás el número de segundos entre ellos. ¡Juega con ello!
 
 Algunas cosas para intentar
-* Un billón de segundos... Encuentra el segundo exacto en el que naciste (si es que puedes). Intenta averiguar el segundo exacto en el que tendrás (¿o en el que cumpliste, quizá?) un billón de segundos de edad. Cuando lo averigües, marca la fecha en tu calendario.
-* ¡Feliz cumpleaños! Pregunta en qué año nació una persona, después el mes y por último el día. Averigua su edad, y dales una ¡NALGADA! Por cada cumpleaños que han tenido.
+Un billón de segundos… Encuentra el segundo exacto en el que naciste (si es que puedes). Intenta averiguar el segundo exacto en el que tendrás (¿o en el que cumpliste, quizá?) un billón de segundos de edad. Cuando lo averigües, marca la fecha en tu calendario.
+
+¡Feliz cumpleaños! Pregunta en qué año nació una persona, después el mes y por último el día. Averigua su edad y dales una ¡NALGADA! Por cada cumpleaños que han tenido.
 
 La clase Hash
-Otra clase útil es Hash. Los hashes son muy parecidos a los arreglos, tienen un montón de casillas que pueden apuntar a varios objetos. Sin embargo, en un arreglo, las casillas están alineadas en una fila y cada una de ellas está numerada (comenzando de cero). En un hash, las casillas no están en una fila (sólo están algo así como juntas en un montón), y puedes usar cualquier objeto para referirte a esa casilla, no sólo números. Es bueno utilizar hashes cuando quieres tener un registro de un montón de cosas, pero no es necesario tenerlas en una lista ordenada. Por ejemplo, los colores que uso para las diferentes partes de éste tutorial:
+Otra clase útil es Hash. Los hashes son muy parecidos a los arreglos, tienen un montón de casillas que pueden apuntar a varios objetos. Sin embargo, en un arreglo, las casillas están alineadas en una fila y cada una de ellas está numerada (comenzando de cero). En un hash, las casillas no están en una fila (sólo están algo así como juntas en un montón), y puedes usar cualquier objeto para hacer referencia a una casilla, no sólo números. Es bueno utilizar hashes cuando quieres tener un registro de un montón de cosas, pero no es necesario tenerlas en una lista ordenada. Por ejemplo, los colores que uso para las diferentes partes de éste tutorial:
 
 arregloDeColores = [] # lo mismo que Array.new
-hashDeColores = {} # lo mismo que Hash.new
+hashDeColores    = {} # lo mismo que Hash.new
 
 arregloDeColores[0] = 'rojo'
 arregloDeColores[1] = 'verde'
 arregloDeColores[2] = 'azul'
-hashDeColores['cadenas'] = 'rojo'
-hashDeColores['números'] = 'verde'
+
+hashDeColores['cadenas']    = 'rojo'
+hashDeColores['números']    = 'verde'
 hashDeColores['reservadas'] = 'azul'
 
 arregloDeColores.each do |color|
   puts color
 end
+
 hashDeColores.each do |tipoDeCodigo, color|
   puts tipoDeCodigo + ': ' + color
 end
@@ -66,35 +70,35 @@ end
 rojo
 verde
 azul
+
 cadenas: rojo
 reservadas: azul
 números: verde
 
-Si uso un arreglo, tengo que recordar que la casilla 0 es para cadenas, la casilla 1 para números, etc. Pero si uso un hash, ¡es fácil! La casilla 'cadenas' contiene el color de las cadenas de caracteres, claro. Nada que recordar. Te puedes haber dado cuenta que cuando use each, los objetos del hash no aparecieron en el mismo orden en el que los colocamos dentro. Los arreglos son para mantener cosas en orden, los hashes no.
+Si utilizo un arreglo, tengo que recordar que la casilla 0 es para cadenas, la casilla 1 para números, etc. Pero si uso un hash, ¡es fácil! La casilla 'cadenas' contiene el color de las cadenas de caracteres, claro. Nada que recordar. Te puedes haber dado cuenta que cuando usé each, los objetos del hash no aparecieron en el mismo orden en el que los colocamos dentro. Los arreglos son para mantener cosas en orden, los hashes no.
 
-Aunque muchas personas usualmente usan cadenas para nombrar las casillas en un hash, podrías usar cualquier tipo de objeto, aún arreglos u otros hashes (aunque no puedo pensar en porque alguien quisiera hacer esto...):
+Aunque muchas personas usualmente usan cadenas para nombrar las casillas en un hash, podrías usar cualquier tipo de objeto, aún arreglos u otros hashes (aunque no puedo pensar en porque alguien quisiera hacer esto…):
 
 hashRaro = Hash.new
-
 hashRaro[12] = 'monos'
 hashRaro[[]] = 'vacío'
 hashRaro[Time.new] = 'no hay momento como el presente'
 
-Los hashes y arreglos son buenos para diferentes cosas, depende de ti el decidir cual es mejor para un problema en particular.
+Los hashes y arreglos son buenos para diferentes cosas, depende de ti el decidir cuál es mejor para un problema en particular.
 
 Extendiendo clases
-Al final del capítulo anterior, escribiste un método para devolver una frase en español cuando recibe un entero, aunque, fue sólo un método genérico de «programa». ¿No sería mucho mejor si pudieras escribir algo cómo 22.to_esp en lugar de numero_a_espanol 22? Podrías hacerlo de forma parecida a esto:
+Al final del capítulo anterior, escribiste un método para devolver una frase en español cuando recibe un entero, aunque, fue sólo un método genérico de «programa». ¿No sería mucho mejor si pudieras escribir algo como 22.to_esp en lugar de numero_a_espanol 22? Podrías hacerlo de forma parecida a esto:
 
 class Integer
-
   def to_esp
     if self == 5
       espanol = 'cinco'
     else
       espanol = 'cincuenta y ocho'
     end
+   
+    espanol
   end
-
 end
 
 # Será mejor que lo pruebe en un par de números...
@@ -106,7 +110,7 @@ cincuenta y ocho
 
 Bueno, por la prueba, parece funcionar. :)
 
-Saltamos dentro de la clase Integer, definiendo el método ahí, y saltamos de regreso afuera. Ahora todos los enteros tienen éste método (aunque algo incompleto). De hecho, si no te gustó la forma en que funciona un método pre-construido como to_s,  podrías redefinirlo de la misma forma... pero no te lo recomiendo. Es mejor dejar a los métodos viejos en paz y crear nuevos cuando necesites hacer algo nuevo.
+Saltamos dentro de la clase Integer, definiendo el método ahí, y saltamos de regreso afuera. Ahora todos los enteros tienen éste método (aunque algo incompleto). De hecho, si no te gustó la forma en que funciona un método pre-construido como to_s,  podrías redefinirlo de la misma forma… pero no te lo recomiendo. Es mejor dejar a los métodos viejos en paz y crear nuevos cuando necesites hacer algo nuevo.
 
 ¿Te encuentras confundido? Revisemos un poco más ese último programa. Hasta ahora, cuando ejecutamos cualquier código o definimos cualquier método, lo hicimos dentro del objeto «programa» por defecto. En el programa anterior, dejamos ese objeto por primera vez y nos adentramos en la clase Integer. Definimos el método ahí (convirtiéndolo en un método de enteros) y todos los enteros pudieron usarlo. Dentro de ese método usamos self para referirnos al objeto (el entero) que usa el método.
 
@@ -114,16 +118,13 @@ Creando clases
 Hemos visto una variedad de diferentes clases de objetos. Sin embargo, es fácil notar los tipos de objetos con los que Ruby no cuenta. Afortunadamente, crear una clase nueva es tan fácil como extender una vieja. Digamos que queremos crear algunos dados en Ruby. Así es como podemos crear la clase Dado:
 
 class Dado
-
   def rodar
     1 + rand(6)
   end
-
 end
 
 # Creemos un par de dados...
 dados = [Dado.new, Dado.new]
-
 # ...y probemos una tirada.
 dados.each do |dado|
   puts dado.rodar
@@ -136,25 +137,22 @@ end
 
 ¡Y eso es! Tus propios objetos.
 
-Podemos escribir todo tipo de métodos para nuestros objetos... pero falta algo. Trabajar con estos objetos se siente mucho como programar antes de que aprendiéramos sobre las variables. Observa nuestro dado, por ejemplo. Podemos hacer que ruede y cada vez nos dará un número diferente, pero si quisiéramos mantener ese número tendríamos que crear una variable que apunte a ese número. Pareciera que cualquier dado decente debería ser capaz de tener un número y que rodar el dado debería cambiar ese número. Si guardamos un registro del dado, ¿no deberíamos tener que guardar un registro del número que está mostrando¿
+Podemos escribir todo tipo de métodos para nuestros objetos… pero falta algo. Trabajar con estos objetos se siente mucho como programar antes de que aprendiéramos sobre las variables. Observa nuestro dado, por ejemplo. Podemos hacer que ruede y cada vez nos dará un número diferente, pero si quisiéramos mantener ese número tendríamos que crear una variable que apunte a ese número. Pareciera que cualquier dado decente debería ser capaz de tener un número y que rodar el dado debería cambiar ese número. Si guardamos un registro del dado, ¿no deberíamos tener que guardar un registro del número que está mostrando?
 
-Sin embargo, si tratamos de almacenar el número obtenido al rodar el dado en la variable local rodada, desaparecerá en cuanto haya terminado. Debemos almacenar el número en un tipo diferente de variable:
+Sin embargo, si tratamos de almacenar el número obtenido al rodar el dado en la variable local dentro de rodar, desaparecerá en cuanto rodar haya terminado. Debemos almacenar el número en un tipo diferente de variable:
 
 Variables de instancia
 Normalmente, cuando queremos hablar sobre una cadena de caracteres, simplemente la llamamos una cadena. Sin embargo, también podemos llamarla un objeto cadena. Algunas veces los programadores pueden llamarla una instancia de la clase String, pero es sólo una manera formal (y con muchas palabras) de decir que se trata de una cadena. Una instancia de una clase, es sólo un objeto de esa clase.
 
-Así que las variables de instancia son sólo las variables de un objeto en particular. Las variables locales de un método viven hasta que el método termina. En cambio, las variable de instancia de un objeto, tendrán la misma vida que el objeto (desaparecerán hasta que el objeto desaparezca). Para diferenciar las variables de instancia de las variables locales, las precedemos con una @ frente a sus nombres:
+Así que las variables de instancia son sólo las variables de un objeto en particular. Las variables locales de un método viven hasta que el método termina. En cambio, las variable de instancia de un objeto, tendrán la misma vida que el objeto (desaparecerán hasta que el objeto desaparezca). Para diferenciar las variables de instancia de las variables locales, las precedemos con @ frente a sus nombres:
 
 class Dado
-
   def rodar
     @numeroMostrado = 1 + rand(6)
   end
-
   def cara
     @numeroMostrado
   end
-
 end
 
 dado = Dado.new
@@ -170,125 +168,108 @@ puts dado.cara
 5
 5
 
-¡Muy bien! Entonces tiramos el dado con rodar y cara nos dice que número está mostrando. Sin embargo, ¿qué pasa si tratamos de ver que número está mostrando antes de rodar el dado (antes de asignar algún valor a @numeroMostrado)?
+¡Muy bien! Entonces tiramos el dado con rodar, mientras que cara nos dice que número está mostrando. Sin embargo, ¿qué pasa si tratamos de ver qué número está mostrando antes de rodar el dado (antes de asignar algún valor a @numeroMostrado)?
 
 class Dado
-
   def rodar
     @numeroMostrado = 1 + rand(6)
   end
-
   def cara
     @numeroMostrado
   end
-
 end
 
 # Como no voy a volver a usar éste dado otra vez,
 # no necesito guardarlo en una variable.
-Dado.new.cara
-
+puts Dado.new.cara
 nil
 
-Hmmm... bueno, al menos no produjo un error. Aún así, no tiene mucho sentido que un dado esté «sin rodar» o lo que sea que nil signifique aquí. Sería genial si pudiéramos configurar nuestro nuevo dado justo en el momento en que es creado. Y eso es para lo que sirve initialize:
+Hmmm… bueno, al menos no produjo un error. Aun así, no tiene mucho sentido que un dado esté «sin rodar» o lo que sea que nil signifique aquí. Sería genial si pudiéramos configurar nuestro nuevo dado justo en el momento en que es creado. Y eso es para lo que sirve initialize:
 
 class Dado
-
   def initialize
     # Sólo tiraré el dado, aunque también podríamos hacer
     # otra cosa si quisiéramos, como hacer que el dado muestre 6
     rodar
   end
-
   def rodar
     @numeroMostrado = 1 + rand(6)
   end
-
   def cara
     @numeroMostrado
   end
-
 end
-
-# Como no voy a volver a usar éste dado otra vez,
-# no necesito guardarlo en una variable.
-Dado.new.cara
+puts Dado.new.cara
 
 6
 
 Cuando un objeto es creado, el método initialize (si ha sido definido) siempre es llamado.
 
-Nuestro dado es casi perfecto. La única cosa que podría faltar es una forma de ajustar que cara mostrar... ¿por qué no escribes un método trampa que haga justo eso? Regresa cuando hayas terminado (y que hayas probado que funciona, claro). ¡Asegúrate de que nadie pueda hacer que el dado muestre un 7!
+Nuestro dado es casi perfecto. La única cosa que podría faltar es una forma de ajustar que cara mostrar… ¿por qué no escribes un método trampa que haga justo eso? Regresa cuando hayas terminado (y que hayas probado que funciona, claro). ¡Asegúrate de que nadie pueda hacer que el dado muestre un 7!
 
-Hemos cubierto cosas muy interesantes. Aunque tiene su maña, así que permite que dé un ejemplo más interesante. Digamos que queremos crear una mascota virtual sencilla, un pequeño dragón. Como la mayoría de los pequeños, debe ser capaz de comer, dormir y... dejar uno que otro regalo por ahí, lo cual significa que necesitará que seamos capaces de alimentarlo, llevarlo a la cama y sacarlo a pasear. Internamente, nuestro dragón necesitará llevar un registro de si está hambriento, cansado o debe hacer sus necesidades, pero no seremos capaces de ver eso cuándo interaccionemos con nuestro dragón, justo como cuando le preguntamos a un bebé humano «¿Tienes hambre?». También añadiremos algunas otras divertidas formas de interaccionar con nuestro pequeño dragón y cuando haya nacido, le daremos un nombre. (Cualquier cosa que pases al método new será pasada al método initialize por ti.) Muy bien, vamos a intentarlo:
+Hemos cubierto cosas muy interesantes. Aunque tiene su maña, así que permite que dé un ejemplo más interesante. Digamos que queremos crear una mascota virtual sencilla, un pequeño dragón. Como la mayoría de los pequeños, debe ser capaz de comer, dormir y… dejar uno que otro regalo por ahí, lo cual significa que necesitará que seamos capaces de alimentarlo, llevarlo a la cama y sacarlo a pasear. Internamente, nuestro dragón necesitará llevar un registro de si está hambriento, cansado o debe hacer sus necesidades, pero no seremos capaces de ver eso cuando interactuamos con nuestro dragón, justo como cuando le preguntamos a un bebé humano «¿Tienes hambre?». También añadiremos algunas otras divertidas formas de interaccionar con nuestro pequeño dragón y cuando haya nacido, le daremos un nombre. (Cualquier cosa que pases al método new será pasada al método initialize por ti.) Muy bien, vamos a intentarlo:
 
 class Dragon 
 
-  def initialize nombre 
-    @nombre          = nombre 
+  def initialize nombre
+    @nombre          = nombre
     @durmiendo       = false 
     @nivel_estomago  = 10 # Ésta lleno. 
     @nivel_intestino =  0 # No necesita ir al baño. 
-
-    puts @nombre + ' ha nacido.' 
+    puts '¡' + @nombre + ' ha nacido!'
   end 
 
   def alimentar 
-    puts 'Alimentas a ' + @nombre + '.' 
-    @nivel_estomago = 10 # A quedado bien relleno. 
-    paso_del_tiempo 
+    puts 'Alimentas a ' + @nombre + '.'
+    @nivel_estomago = 10 # A quedado bien relleno.
+    paso_del_tiempo
   end 
 
   def pasear 
-    puts 'Sacas a ' + @nombre + ' a pasear.' 
-    @nivel_intestino = 0 # No dejará regalos en la casa. 
-    paso_del_tiempo 
+    puts 'Sacas a ' + @nombre + ' a pasear.'
+    @nivel_intestino = 0 # No dejará «sorpresas» en la casa.
+    paso_del_tiempo
   end 
 
   def acostar 
-    puts 'Llevas a ' + @nombre + ' a la cama.' 
+    puts 'Llevas a ' + @nombre + ' a la cama.'
     @durmiendo = true 
-
     3.times do 
-      if @durmiendo 
-        puts @nombre + ' ronca, llenando la habitación con humo.' 
-        paso_del_tiempo 
+      if @durmiendo
+        puts @nombre + ' ronca, llenando la habitación con humo.'
+        paso_del_tiempo
       end 
     end 
-
-    if @durmiendo 
+    if @durmiendo
       @durmiendo = false 
-      @nombre + ' despierta con calma.' 
+      @nombre + ' despierta con calma.'
     end 
-
   end 
 
   def alzar 
-    puts 'Alzas a ' + @nombre + ', subiendolo en brazos a lo alto.' 
-    puts 'Él ríe, quemando tus pestañas.' 
-    paso_del_tiempo 
+    puts 'Cargas a ' + @nombre + ' en brazos, alzandolo a lo alto.'
+    puts 'Él ríe, quemando tus pestañas.'
+    paso_del_tiempo
   end 
 
   def mecer 
-    puts 'Meces a ' + @nombre + ' con gentileza.' 
+    puts 'Meces a ' + @nombre + ' con gentileza.'
     @durmiendo = true 
-    puts 'Él cierra los ojos un momento...' 
-    paso_del_tiempo 
-
-    if @durmiendo 
-      puts '...pero despierta en cuanto te detienes.' 
+    puts 'Él cierra los ojos un momento...'
+    paso_del_tiempo
+    if @durmiendo
+      puts '...pero despierta en cuanto te detienes.'
     end 
   end 
 
-  private 
-
-  # «private» significa que los métodos definidos aquí son métodos para uso 
-  # interno del objeto. (Puedes alimentar a tu dragón, pero no puedes 
+  private
+  # «private» significa que los métodos definidos aquí son métodos para uso
+  # interno del objeto. (Puedes alimentar a tu dragón, pero no puedes
   # preguntarle si tiene hambre.) 
 
   def hambriento? 
-    # Los nombres de los métodos pueden terminar con «?». 
-    # Usualmente sólo se nombran así cuando los métodos sólo retornan true o 
+    # Los nombres de los métodos pueden terminar con «?».
+    # Usualmente sólo se nombran así cuando los métodos sólo retornan true o
     # false. De ésta forma: 
     @nivel_estomago  <= 2 
   end 
@@ -298,61 +279,55 @@ class Dragon
   end 
 
   def paso_del_tiempo 
-
     if @nivel_estomago > 0 
-      # Mover comida del estomago al intestino. 
+      # Mover comida del estómago al intestino. 
       @nivel_estomago  = @nivel_estomago  - 1 
       @nivel_intestino = @nivel_intestino + 1 
     else 
       # ¡Nuestro dragón muere de hambre! 
-      if @durmiendo 
+      if @durmiendo
         @durmiendo = false 
-        puts '¡' + @nombre + ' se levanta repentinamente!' 
+        puts '¡' + @nombre + ' se levanta repentinamente!'
       end 
-      puts '¡' + @nombre + ' muere de hambre! ¡Desesperado, TE DEVORA!' 
+      puts '¡' + @nombre + ' muere de hambre! ¡Desesperado, TE DEVORA!'
       exit # Esto termina el programa. 
-    end 
-
+    end
     if @nivel_intestino >= 10 
-      puts '¡Ooops! ' + @nombre + ' tuvo un accidente...' 
+      puts '¡Ooops! ' + @nombre + ' tuvo un accidente...'
       @nivel_intestino = 0 
     end 
-
-    if hambriento? 
-      if @durmiendo 
+    if hambriento?
+      if @durmiendo
         @durmiendo = false 
-        puts '¡' + @nombre + ' se levanta repentinamente!' 
+        puts '¡' + @nombre + ' se levanta repentinamente!'
       end 
-      puts 'A ' + @nombre + ' le gruñe el estomago...' 
+      puts 'A ' + @nombre + ' le gruñe el estómago...'
     end 
-
-    if incomodo? 
-      if @durmiendo 
+    if incomodo?
+      if @durmiendo
         @durmiendo = false 
-        puts '¡' + @nombre + ' se levanta repentinamente!' 
+        puts '¡' + @nombre + ' se levanta repentinamente!'
       end 
-      puts @nombre + ' se mueve incomodo de un lado a otro.' 
-      puts 'Sería buena idea sacarlo a pasear...' 
+      puts @nombre + ' se mueve incómodo de un lado a otro.'
+      puts 'Sería buena idea sacarlo a pasear...'
     end 
-
   end 
-
 end 
 
-mascota = Dragon.new 'Norberto' 
-mascota.alimentar 
-mascota.alzar 
-mascota.pasear 
-mascota.acostar 
-mascota.mecer 
-mascota.acostar 
-mascota.acostar 
-mascota.acostar 
+mascota = Dragon.new 'Norberto'
+mascota.alimentar
+mascota.alzar
+mascota.pasear
+mascota.acostar
+mascota.mecer
+mascota.acostar
+mascota.acostar
+mascota.acostar
 mascota.acostar
 
 Norberto ha nacido.
 Alimentas a Norberto.
-Alzas a Norberto, subiendolo en brazos a lo alto.
+Cargas a Norberto en brazos, levantandolo a lo alto.
 Él ríe, quemando tus pestañas.
 Sacas a Norberto a pasear.
 Llevas a Norberto a la cama.
@@ -365,7 +340,7 @@ Meces a Norberto con gentileza.
 Llevas a Norberto a la cama.
 Norberto ronca, llenando la habitación con humo.
 ¡Norberto se levanta repentinamente!
-A Norberto le gruñe el estomago...
+A Norberto le gruñe el estómago...
 Llevas a Norberto a la cama.
 Norberto ronca, llenando la habitación con humo.
 ¡Norberto se levanta repentinamente!
@@ -374,23 +349,24 @@ Llevas a Norberto a la cama.
 Norberto ronca, llenando la habitación con humo.
 ¡Norberto se levanta repentinamente!
 A Norberto le gruñe el estomago...
-Norberto se mueve incomodo de un lado a otro.
+Norberto se mueve incómodo de un lado a otro.
 Sería buena idea sacarlo a pasear...
 Llevas a Norberto a la cama.
 Norberto ronca, llenando la habitación con humo.
 ¡Norberto se levanta repentinamente!
 ¡Norberto muere de hambre! ¡Desesperado, TE DEVORA!
 
-¡Ufff! Por supuesto, sería mejor si fuera un programa interactivo, pero puedes encargarte de eso después. Sólo estaba tratando de mostrar las partes directamente relacionadas con creas una nueva clase dragón.
+¡Ufff! Por supuesto, sería mejor si fuera un programa interactivo, pero puedes encargarte de eso después. Sólo estaba tratando de mostrar las partes directamente relacionadas con crear una nueva clase dragón.
 
-Observamos algunas cosas en éste ejemplo. La primera es simple: exit termina el programa justo ahí y en ese momento. La segunda es la palabra private con la que nos topamos justo a la mitad de la definición de nuestra clase. Pude haberla dejado fuera, pero quería reforzar la idea de que ciertos métodos son cosas que puedes hacer al dragón y otros son cosas que pasan dentro del dragón mismo. Puedes pensar en ello como lo que está debajo del cofre de un auto: a menos que seas un mecánico de autos,  todo lo que necesitas conocer es donde está el volante, el acelerador y el freno. Un programador podría llamar a eso la interfaz  pública de tu auto. El como la bolsa de aire sabe cuando debe activarse, sin embargo, es interno al auto; el usuario típico (conductor) no necesita saberlo.
+Observamos algunas cosas nuevas en éste ejemplo. La primera es simple: exit termina el programa justo ahí y en ese momento. La segunda es la palabra private con la que nos topamos justo a la mitad de la definición de nuestra clase. Pude haberla dejado fuera, pero quería reforzar la idea de que ciertos métodos son cosas que puedes hacer al dragón y otros son cosas que pasan dentro del dragón mismo. Puedes pensar en ello como lo que está «debajo del cofre» de un auto: a menos que seas un mecánico de autos,  todo lo que necesitas conocer es donde está el volante, el acelerador y el freno. Un programador podría llamar a eso la interfaz  pública de tu auto. El cómo la bolsa de aire sabe cuando debe activarse, sin embargo, es interno al auto; el usuario típico (conductor) no necesita saberlo.
 
-De hecho, para un ejemplo un poco más concreto dentro de esa línea, hablemos de como podemos representar un auto en un juego de vídeo (en lo cual estoy trabajando de momento). Primero, deberías decidir como quisieras que luzca tu interfaz pública; en otras palabras, ¿cuáles métodos de tus objetos-auto deberían ser capaces de llamar las personas? Bueno, ellos deberían ser capaces de presionar los pedales del acelerador y el freno, pero también deberían poder especificar con que fuerza lo hacen. (Hay una gran diferencia entre presionarlo suavemente y pisarlo hasta el fondo.) También deberían ser capaces de girar el volante, y de nuevo, de indicar con que fuerza y en que dirección están girando el volante. Supongo que podríamos ir aún más lejos y agregar el clutch, las luces direccionales, un lanzador de cohetes, un post-quemador, un condensador de flujo, etc... eso depende el tipo de juego que estés haciendo.
+De hecho, para un ejemplo un poco más concreto dentro de esa línea, hablemos de cómo podemos representar un auto en un juego de vídeo (en lo cual estoy trabajando de momento). Primero, deberías decidir cómo quisieras que luzca tu interfaz pública; en otras palabras, ¿cuáles métodos de tus objetos-auto deberían ser capaces de llamar las personas? Bueno, ellos deberían ser capaces de presionar los pedales del acelerador y el freno, pero también deberían poder especificar con que fuerza lo hacen. (Hay una gran diferencia entre presionarlo suavemente y pisarlo hasta el fondo.) También deberían ser capaces de girar el volante, y de nuevo, de indicar con qué fuerza y en qué dirección están girando el volante. Supongo que podríamos ir aún más lejos y agregar el clutch, las luces direccionales, un lanzador de cohetes, un post-quemador, un condensador de flujo, etc… eso depende el tipo de juego que estés haciendo.
 
 Sin embargo, internamente en el objeto-auto necesita pasar mucho más; otras cosas que el auto necesitaría son velocidad, dirección y posición (siendo lo más básico). Esos atributos podrían ser modificados al presionar el acelerador o el freno y dando vuelta al volante, pero el usuario no debería ser capaz de cambiar la posición del auto directamente (eso sería como teleportarse). También podrías querer llevar un registro del desgaste y el daño al vehículo, si tiene aire en el sistema, y así por el estilo. Todo eso sería al interior de tu objeto-auto.
 
 Algunas cosas para intentar
-* Crea la clase Naranjo. Debe tener el método altura que retorna su altura, y el método doceMesesDespues, el cuál, cuando es llamado, incrementa la edad del árbol por un año. Cada año, el árbol debe crecer a lo alto (lo que tú consideres que debe crecer un naranjo en un año), y después de cierto número de años (de nuevo, a tu criterio) el árbol debe morir. En los primeros años no debe producir naranjas, pero después de un poco debe hacerlo, y creo que los árboles viejos producen más cada año que los árboles jóvenes... conforme tu creas que tiene más sentido. Por supuesto, debes ser capaz de contarLasNaranjas (retornando el número de naranjas en el árbol), y cortarUnaNaranja (que reduce el número de @naranjas en uno y retorna una cadena diciendo que tan deliciosa estaba esa naranja o que no hay más naranjas para cortar éste año). Asegúrate de que todas las naranjas que no sean cortadas en un año, caigan del árbol antes del siguiente año.
-* Escribe un programa con el que puedas interactuar con tu pequeño dragón. Debes ser capaz de introducir comandos como alimentar y pasear, y que los métodos correspondientes en tu dragón sean llamados. Claro, como lo que tú escribirás será sólo texto, necesitarás tener algún tipo de despachador de métodos, donde tu programa revise el texto que ha sido introducido y llame el método apropiado.
+Crea la clase Naranjo. Debe tener el método altura que retorna su altura, y el método doceMesesDespues, el cual, cuando es llamado, incrementa la edad del árbol por un año. Cada año, el árbol debe crecer a lo alto (lo que tú consideres que debe crecer un naranjo en un año), y después de cierto número de años (de nuevo, a tu criterio) el árbol debe morir. En los primeros años no debe producir naranjas, pero después de un poco debe hacerlo, y creo que los árboles viejos producen más cada año que los árboles jóvenes… conforme tú creas que tiene más sentido. Por supuesto, debes ser capaz de contarLasNaranjas (retornando el número de naranjas en el árbol), y cortarNaranja (que reduce el número de @naranjas en uno y retorna una cadena diciendo que tan deliciosa estaba esa naranja o que no hay más naranjas para cortar éste año). Asegúrate de que todas las naranjas que no sean cortadas en un año, caigan del árbol antes del siguiente año.
 
-¡Y eso es todo! Aunque, espera un segundo...  Aún no te he contado sobre ninguna de las clases para hacer cosas como mandar correos, o guardar y cargar archivos desde tu computadora, o crear ventanas y botones, o mundos en 3D... ¡nada! Bueno, es que hay tantas clases que podrías usar que no podría mostrártelas todas; ¡ni si quiera conozco cuales son la mayoría de ellas! Lo que puedo decirte es donde encontraras más acerca de aquellas con las que quieres programar. Pero antes de despedirte, hay una característica más de Ruby sobre la que debes conocer, algo que la mayoría de los lenguajes no tiene, pero sin lo cual yo ya no podría vivir: bloques y procs.
+Escribe un programa con el que puedas interactuar con tu pequeño dragón. Debes ser capaz de introducir comandos como alimentar y pasear, y que los métodos correspondientes en tu dragón sean llamados. Claro, como lo que tú escribirás será sólo texto, necesitarás tener algún tipo de despachador de métodos, donde tu programa revise el texto que ha sido introducido y llame el método apropiado.
+
+¡Y eso es todo! Aunque, espera un segundo…  Aún no te he contado sobre ninguna de las clases para hacer cosas como mandar correos, o guardar y cargar archivos desde tu computadora, o crear ventanas y botones, o mundos en 3D… ¡nada! Bueno, es que hay tantas clases que podrías usar que no podría mostrártelas todas; ¡ni siquiera conozco cuales son la mayoría de ellas! Lo que sí puedo decirte es donde encontrarás más acerca de aquellas con las que quieres programar. Pero antes de despedirme, hay una característica más de Ruby sobre la que debes conocer, algo que la mayoría de los lenguajes no tiene, pero sin lo cual yo ya no podría vivir: bloques y procs.

@@ -1,88 +1,92 @@
-12 Más allá de éste tutorial
-A continuación, Chris Pine nos presenta tres grandes fuentes de consulta para resolver las dudas sobre Ruby. El único pequeño inconveniente, es que éstas fuentes se encuentran en el idioma inglés (lo cual podría ser una buena motivación para aprenderlo), sin embargo, he recopilado algunas fuentes de consulta disponibles en español que pueden ser de ayuda para quienes no dominen el inglés. Ésta información se encuentra un poco más adelante.
+12. Más allá de éste tutorial
+Nota del traductor: A continuación, Chris Pine nos presenta tres grandes fuentes de consulta para resolver las dudas sobre Ruby. El único pequeño inconveniente, es que éstas fuentes se encuentran en el idioma inglés (lo cual podría ser una buena motivación para aprenderlo), sin embargo, he recopilado algunas fuentes de consulta disponibles en español que pueden ser de ayuda para quienes no dominen el inglés. Ésta información se encuentra un poco más adelante.
 
-Así que, ¿a dónde vamos ahora? Si tienes una pregunta, ¿a quién le puedes preguntar? ¿Qué hay si quieres que uno de tus programas abra una página web, envíe un correo o cambie el tamaño de una fotografía digital? Bueno, hay muchos, muchos lugares para encontrar ayuda sobre Ruby. Pero decirte sólo eso no es de mucha ayuda, ¿verdad? :-)
+Así que, ¿a dónde vamos ahora? Si tienes una pregunta, ¿a quién le puedes preguntar? ¿Qué hay si quieres que uno de tus programas abra una página web, envíe un correo o cambie el tamaño de una fotografía digital? Bueno, hay muchos, muchos lugares para encontrar ayuda sobre Ruby. Pero decir sólo eso no es de mucha ayuda, ¿verdad? :-)
 
-Para mí, en realidad sólo hay tres lugares en donde busco por ayuda sobre Ruby. Si se trata de una pequeña pregunta y creo que puedo experimentar por mi cuenta para encontrar la respuesta, uso irb. Si es una pregunta más grande, busco dentro de mi pickaxe. Y si no puedo encontrar la respuesta por mí mismo, pido ayuda en rubytalk.
+Para mí, en realidad sólo hay tres lugares en donde busco por ayuda sobre Ruby. Si se trata de una pequeña pregunta y creo que puedo experimentar por mi cuenta para encontrar la respuesta, uso irb. Si es una pregunta más compleja, busco dentro de mi pickaxe. Y si no puedo encontrar la respuesta por mí mismo, pido ayuda en ruby-talk.
 
-IRB: Ruby Interactivo
-Si instalaste Ruby, entonces también instalaste irb. Para usarlo, sólo abre tu línea de comandos y escribe irb. Cuando estás en irb, puedes escribir cualquier expresión de Ruby que desees y te dirá el valor de la misma. Escribe 1 + 2 y te dirá 3. (Observa que no tienes que usar puts.) Es como una calculadora gigante de Ruby. Cuando hayas terminado, sólo escribe exit.
+* IRB: Ruby Interactivo
+  Si instalaste Ruby, entonces también instalaste irb. Para usarlo, sólo abre tu línea de comandos y escribe irb. Cuando estás en irb, puedes escribir cualquier expresión de Ruby que desees y te dirá el valor de la misma. Escribe 1 + 2 y te dirá 3. (Observa que no tienes que usar puts.) Es como una calculadora gigante de Ruby. Cuando hayas terminado, sólo escribe exit.
 
-Hay mucho más sobre irb que esto, pero puedes aprender sobre ello en «The Pickaxe».
+  Hay mucho más sobre irb que esto, pero puedes aprender sobre ello en el «pickaxe».
 
-El «pickaxe»: Programando en Ruby
-Absolutamente, el libro de Ruby a obtener es «Programming Ruby, The Pragmatic Programmer's Guide», por David Thomas y Andrew Hunt (Los Programadores Pragmáticos). Aunque recomiendo ampliamente conseguir la edición más reciente de éste excelente libro, también puedes conseguir una un poco vieja (pero aun muy relevante) versión gratuita en línea. (De hecho, si instalaste la versión para Windows de Ruby, ya cuentas con la versión gratuita del libro.)
+* El «pickaxe»: Programando en Ruby
+  Absolutamente, el libro de Ruby a obtener es «Programming Ruby, The Pragmatic Programmer's Guide», por David Thomas y Andrew Hunt (Los Programadores Pragmáticos). Aunque recomiendo ampliamente conseguir [la edición más reciente] (http://www.google.com/url?q=http%3A%2F%2Fpragprog.com%2Fbook%2Fruby4%2Fprogramming-ruby-1-9-2-0&sa=D&sntz=1&usg=AFQjCNG8twe0wycOLn25HHiQxykocuZU3Q) de éste excelente libro, también puedes conseguir una un poco vieja (pero aún muy relevante) [versión gratuita en línea] (http://www.google.com/url?q=http%3A%2F%2Fruby-doc.com%2Fdocs%2FProgrammingRuby%2F&sa=D&sntz=1&usg=AFQjCNH6Qu8JcxdwlFj9kR6UOf_9a0LPFg). (De hecho, si instalaste la versión para Windows de Ruby, ya cuentas con la versión gratuita del libro.)
 
-Puedes encontrar casi todo sobre Ruby, desde lo básico a lo avanzado, en éste libro. Es fácil de leer; es detallado; es casi perfecto. Desearía que todos los lenguajes tuvieran un libro de ésta calidad. En la parte trasera del libro, encontrarás una enorme sección detallando cada método en cada clase, explicándolo y dando ejemplos. ¡Simplemente amo éste libro!
+  Puedes encontrar casi todo sobre Ruby, desde lo básico a lo avanzado, en éste libro. Es fácil de leer; es detallado; es casi perfecto. Desearía que todos los lenguajes tuvieran un libro de ésta calidad. En la parte trasera del libro, encontrarás una enorme sección detallando cada método en cada clase, explicándolo y dando ejemplos. ¡Simplemente amo éste libro!
 
-Hay varios lugares donde puedes obtenerlo (incluyendo el propio sitio de los Programadores Pragmáticos), pero mi lugar favorito es ruby-doc.org. Esa versión tiene una bonita tabla de contenidos a un lado, como también un indice. (ruby-doc.org cuenta también con mucho más documentación, como la del API central y de la Librería Estándar... básicamente, documenta todo lo trae Ruby consigo al sacarlo de la caja. Revisalo.)
+  Hay varios lugares donde puedes obtenerlo (incluyendo el propio sitio de los Programadores Pragmáticos), pero mi lugar favorito es ruby-doc.org. Esa versión tiene una bonita tabla de contenidos a un lado, como también un índice. (ruby-doc.org cuenta también con mucho más documentación, como la del API central y de la Librería Estándar... básicamente, documenta todo lo trae Ruby consigo al sacarlo de la caja. [Revísalo] (http://www.google.com/url?q=http%3A%2F%2Fruby-doc.org%2F&sa=D&sntz=1&usg=AFQjCNGnVAlIQc-wMc2YwAY36qylxKuiHQ).)
 
-Y, ¿por qué es llamado «pickaxe»? Bueno, hay una imagen de un zapapico en la portada el libro. Es un nombre tonto, me imagino, pero es el que se quedo.
+  Y, ¿por qué es llamado «pickaxe»? Bueno, hay una imagen de un zapapico en la portada el libro. Es un nombre tonto, me imagino, pero es el que se quedó.
 
-Ruby-Talk: La lista de correo sobre Ruby
-Aún con irb y el «pickaxe», algunas veces no puedes encontrar la respuesta. O tal vez quieres averiguar si alguien ya hizo lo que sea que es en lo que estás trabajando, para ver si puedes optar por usarlo. En esos casos, el lugar para hacerlo es ruby-talk, la lista de correo sobre Ruby. Está llena de personas amigables, inteligentes y dispuestas a ayudar.  Para aprender más o suscribirte, ve aquí.
+* Ruby-Talk: La lista de correo sobre Ruby
+  Aún con irb y el «pickaxe», algunas veces no puedes encontrar la respuesta. O tal vez quieres averiguar si alguien ya hizo lo que sea que es en lo que estás trabajando, para ver si puedes optar por usarlo. En esos casos, el lugar para hacerlo es ruby-talk, la lista de correo sobre Ruby. Está llena de personas amigables, inteligentes y dispuestas a ayudar.  Para aprender más o suscribirte, [visita éste enlace] (https://www.google.com/url?q=https%3A%2F%2Fwww.ruby-lang.org%2Fes%2Fcommunity%2Fmailing-lists%2F&sa=D&sntz=1&usg=AFQjCNEkaxArGkq2qGtsDUP-w6bwPgVp0w).
 
-ADVERTENCIA: Hay muchos mensajes al día en la lista. Yo tengo mi correo configurado para que los mensajes de ruby-talk se ordenen automáticamente en una carpeta para que no se mezcle con otros mensajes. Si simplemente no deseas lidiar con tanto correo, ¡no tienes porque hacerlo! La lista de correo ruby-talk es duplicada al grupo de noticias comp.lang.ruby y viceversa, así que puedes leer los mismos mensajes ahí, sólo que en un formato ligeramente diferente.
+  ADVERTENCIA: Hay muchos mensajes al día en la lista. Yo tengo mi correo configurado para que los mensajes de ruby-talk se ordenen automáticamente en una carpeta para que no se mezcle con otros mensajes. Si simplemente no deseas lidiar con tanto correo, ¡no tienes por qué hacerlo! La lista de correo ruby-talk es duplicada al grupo de noticias [comp.lang.ruby] (https://groups.google.com/forum/#!forum/comp.lang.ruby) y viceversa, así que puedes leer los mismos mensajes ahí, sólo que en un formato ligeramente diferente.
 
 Recursos en español
 Lamentablemente, aún no hay una fuente de documentación oficial para Ruby en español. Sin embargo, te presento enlaces a material disponible en la red donde espero puedas resolver la mayoría tus dudas.
 
-Un par de textos
-En primer lugar tenemos la «Guía del usuario de Ruby». Ésta guía fue escrita en japones por el mismísimo creador del lenguaje, Yukihiro Matzumoto, y después traducida y adaptada al inglés por Kentaro y Slagell. Al parecer, un hispanohablante sólo conocido como Paco González realizó la traducción al español. Puedes descargar el archivo, que contiene una presentación general de las funciones del lenguaje, aquí. También puedes encontrar en la red, el texto «Ruby Fácil». Contiene los aspectos básicos del lenguaje, llega a tocar los temas de desarrollo con librerías para web, trabajo con interfaces gráficas, conexiones a bases de datos, etc. No es gratuito, pero es de lo poco que se puede conseguir en español por el momento.
+* Un par de textos
+  En primer lugar tenemos la «Guía del usuario de Ruby». Ésta guía fue escrita en japonés por el mismísimo creador del lenguaje, Yukihiro Matzumoto, y después traducida y adaptada al inglés por Kentaro y Slagell. Al parecer, un hispanohablante sólo conocido como Paco González realizó la traducción al español. Puedes [descargar el archivo] (http://www.google.com/url?q=http%3A%2F%2Fes.tldp.org%2FManuales-LuCAS%2Fdoc-guia-usuario-ruby%2Fguia-usuario-ruby.pdf&sa=D&sntz=1&usg=AFQjCNHhSj5noiXDTRE0jOzY8aYve0pyUQ), que contiene una presentación general de las funciones del lenguaje.
 
-Ruby en español (Google+ y Facebook)
-Son dos comunidades de hispanohablantes que se han reunido en torno a estás redes sociales. Usualmente se comparten enlaces a artículos sobre Ruby y seguramente te ayudarán si tienes alguna duda (aunque la respuesta puede tardar un poco). Sólo asegurate de leer las reglas de los grupos antes de publicar algo, así evitaras molestar a los moderadores y será más fácil que te proporcionen ayuda. Aquí encontrarás el grupo de Google+, y aquí encontrarás el grupo de Facebook. (Aunque ambos comparten el mismo nombre, son grupos diferentes.)
+  También puedes encontrar en la red, el texto «Ruby Fácil», de Diego Guillén. Contiene los aspectos básicos del lenguaje, llega a tocar los temas de desarrollo con librerías para web, trabajo con interfaces gráficas, conexiones a bases de datos, etc. Puedes encontrar una [versión antigua] (https://www.google.com/url?q=https%3A%2F%2Fs3.amazonaws.com%2Fakitaonrails%2Ffiles%2FRubyFacil_071105.pdf&sa=D&sntz=1&usg=AFQjCNEnErGl2T2zHaJvhKHtFK7OgS7giA) en la red, aunque en su [versión más reciente] (http://www.google.com/url?q=http%3A%2F%2Fwww.lulu.com%2Fshop%2Fdiego-guillen%2Fruby-facil-3ra-edicion%2Fpaperback%2Fproduct-21178088.html&sa=D&sntz=1&usg=AFQjCNE_hhYO1x7qK20MPOr4pXgDST3ooA) y de contenido ampliado no es gratuito, pero es de lo poco que se puede conseguir en español por el momento.
 
-Para reforzar lo aprendido
-Aunque el siguiente par de recursos no es para consulta, sí te pueden ayudar a reforzar lo que has aprendido en éste tutorial (y muy posiblemente aprender una cosa nueva o dos). El primero en el curso en línea de Ruby de CodeAcademy. Por medio de ejemplos y ejercicios donde tienes que ejecutar y comprender lo que hace el código para poder avanzar, te muestran las características generales del lenguaje. Es bastante recomendable, ya que te otorgará bastante practica escribiendo código. El último recurso del que te hablaré aquí es el vídeo-tutorial de introducción a Ruby de DEVCODE.LA. Aquí podrás repasar varios de los conceptos del tutorial viendo como funcionan los ejemplos durante la explicación, lo cual podría esclarecer algunos puntos oscuros.
+* Ruby en español (Google+ y Facebook)
+  Son dos comunidades de hispanohablantes que se han reunido en torno a éstas redes sociales. Usualmente se comparten enlaces a artículos sobre Ruby y seguramente te ayudarán si tienes alguna duda (aunque la respuesta puede tardar un poco). Sólo asegúrate de leer las reglas de los grupos antes de publicar algo, así evitaras molestar a los moderadores y será más fácil que te proporcionen ayuda. [Aquí encontrarás el grupo de Google+] (https://plus.google.com/communities/105997869317703052277), y [aquí encontrarás el grupo de Facebook] (https://www.google.com/url?q=https%3A%2F%2Fwww.facebook.com%2Fgroups%2Fruby.es%2F&sa=D&sntz=1&usg=AFQjCNGiAbOPS1CuWbUcrJQflYOt23hhzQ). (Aunque ambos comparten el mismo nombre, son grupos diferentes.)
+
+* Para reforzar lo aprendido
+  Aunque el siguiente par de recursos no es para consulta, sí te pueden ayudar a reforzar lo que has aprendido en éste tutorial (y muy posiblemente aprender una cosa nueva o dos). El primero en el [curso en línea de Ruby de CodeAcademy] (http://www.google.com/url?q=http%3A%2F%2Fwww.codecademy.com%2Ftracks%2Fruby-latinamerica&sa=D&sntz=1&usg=AFQjCNEThUB4tn60H7MVzU9MLM6IXC5kcQ). Por medio de ejemplos y ejercicios donde tienes que ejecutar y comprender lo que hace el código para poder avanzar, te muestran las características generales del lenguaje. Es bastante recomendable, ya que te otorgará bastante práctica escribiendo código.
+
+  El último recurso del que te hablaré aquí es el vídeo-tutorial de [introducción a Ruby de DevCode.la] (https://www.youtube.com/playlist?list=PLQCgNGUqLK4loqS6mVamB_yRUvA2sMcF2). Aquí podrás repasar varios de los conceptos del tutorial viendo cómo funcionan los ejemplos durante la explicación, lo cual podría esclarecer algunos puntos oscuros.
 
 Tim Toady
-Algo de lo que he tratado de protegerte, pero con lo que seguramente te encontraras pronto, es el concepto de TMTOWTDI (pronunciado en inglés «Tim Toady»): hay más de una manera de hacerlo.
+Algo de lo que he tratado de protegerte, pero con lo que seguramente te encontrarás pronto, es el concepto de TMTOWTDI[29] (pronunciado en inglés «Tim Toady»): hay más de una manera de hacerlo.
 
-Algunas personas te dirán que TMTOWTDI es algo genial, mientras que otros lo ven de una forma distinta. En general no tengo una opinión en contra o a favor, pero si pienso qué es una terrible forma de enseñarle a alguien como programar. (¡Cómo si aprender una forma de hacer algo no fuera lo suficientemente retador y confuso!)
+Algunas personas te dirán que TMTOWTDI es algo genial, mientras que otros lo ven de una forma distinta. En general no tengo una opinión en contra o a favor, pero si pienso que es una terrible forma de enseñarle a alguien como programar. (¡Cómo si aprender una forma de hacer algo no fuera lo suficientemente retador y confuso!)
 
-Sin embargo, ahora que te mueves más allá de éste tutorial, veras código mucho más diverso. Por ejemplo, puedo pensar en por lo menos otras cinco formas de crear una cadena de texto (además de rodear el texto con comillas rectas sencillas), y cada una funciona de una forma ligeramente diferente. Sólo te mostré la más sencilla de las seis. 
+Sin embargo, ahora que te mueves más allá de éste tutorial, verás código mucho más diverso. Por ejemplo, puedo pensar en por lo menos otras cinco formas de crear una cadena de texto (además de rodear el texto con comillas rectas sencillas), y cada una funciona de una forma ligeramente diferente. Sólo te mostré la más sencilla de las seis.
 
-Y cuando hablamos sobre ramificación, te mostré if, pero no te mostré unless. Dejaré que averigües como funciona usando irb.
+Y cuando hablamos sobre ramificación, te mostré if, pero no te mostré unless. Dejaré que averigües cómo funciona usando irb.
 
 Otro pequeño y atajo que puedes usar con if, unless y while, es la bonita versión de una línea:
-
 # Éstas líneas son de un programa que escribí para generar balbuceos
 # parecidos al inglés. Cool, ¿verdad?
-puts 'grobably combergearl kitatently thememberate' if 5 == 2**2 + 1**1 
-puts 'enlestrationshifter supposine follutify blace' unless 'Chris'.length == 5 
+puts 'grobably combergearl kitatently thememberate' if 5 == 2**2 + 1**1
+puts 'enlestrationshifter supposine follutify blace' unless 'Chris'.length == 5
 
 grobably combergearl kitatently thememberate
 
-Y finalmente, hay otra forma de escribir métodos que reciben bloques (no procs). Vimos la cosa donde tomamos el bloque y lo volvimos un proc usando el truco &bloque en la lista de parámetros cuando defines la función. Entonces, para llamar el bloque, simplemente usas bloque.call. Bueno, hay una forma más corta (aunque personalmente la encuentro más confusa). En lugar de esto:
+Y finalmente, hay otra forma de escribir métodos que reciben bloques (no procs). Vimos la cosa donde tomamos el bloque y lo volvimos un proc usando el truco de &bloque en la lista de parámetros cuando defines la función. Entonces, para llamar el bloque, simplemente usas bloque.call. Bueno, hay una forma más corta (aunque personalmente la encuentro más confusa). En lugar de esto:
 
-def dosVeces(&bloque) 
-  bloque.call 
-  bloque.call 
-end 
+def dosVeces(&bloque)
+  bloque.call
+  bloque.call
+end
 
-dosVeces do 
-  puts 'murditivent flavitemphan siresent litics' 
-end 
+dosVeces do
+  puts 'murditivent flavitemphan siresent litics'
+end
 
-murditivent flavitemphan siresent litics 
-murditivent flavitemphan siresent litics 
+murditivent flavitemphan siresent litics
+murditivent flavitemphan siresent litics
+…haces esto:
+def dosVeces
+  yield
+  yield
+end
 
-...haces esto: 
+dosVeces do
+  puts 'buritiate mustripe lablic acticise'
+end
 
-def dosVeces 
-  yield 
-  yield 
-end 
+buritiate mustripe lablic acticise
+buritiate mustripe lablic acticise
 
-dosVeces do 
-  puts 'buritiate mustripe lablic acticise' 
-end 
-
-buritiate mustripe lablic acticise 
-buritiate mustripe lablic acticise 
-
-No sé... ¿tú qué piensas? Tal vez soy sólo yo, pero... ¡¿yield?! Si fuera algo como llamar_bloque_oculto o algo, eso tendría más sentido para mí. Mucha gente dice que yield tiene sentido para ellos. Pero me imagino que eso es de lo que se trata TMTOWTDI: ellos lo hacen a su manera y yo lo hago en la mía.
+No sé… ¿tú qué piensas? Tal vez soy sólo yo, pero… ¡¿yield?! Si fuera algo como llamar_bloque_oculto o algo similar, eso tendría más sentido para mí. Mucha gente dice que yield tiene sentido para ellos. Pero me imagino que eso es de lo que se trata TMTOWTDI: ellos lo hacen a su manera y yo lo hago en la mía.
 
 El fin
-Tal vez te puedes preguntar, ¿en qué puedes usar Ruby y todo lo que has aprendido? Ve el siguiente vídeo y deja volar tu imaginación, pero recuerda, usalo para el bien y no para el mal. :-) Y, si encontraste éste tutorial útil (o confuso, o encontraste algún error), ¡déjame saber! Además, no dudes en compartirlo con todos a quien creas que les puede interesar aprender a programar en un bonito lenguaje.
+Tal vez te puedes preguntar, ¿en qué puedes usar Ruby y todo lo que has aprendido? Ve [el siguiente vídeo] (http://www.youtube.com/watch?v=frWLVBjZHZ4%E2%80%8E) donde Mario Chavez habla sobre los usos que les puedes dar a Ruby y deja volar tu imaginación, pero recuerda, usalo para el bien y no para el mal. :-) Y, si encontraste éste tutorial útil (o confuso, o encontraste algún error), [¡déjame saber!] (mailto:chris@pine.fm)[30] Además, no dudes en compartirlo con todos a quien creas que les puede interesar aprender a programar en un bonito lenguaje.
+
+[29] Acrónimo de la frase en inglés «There’s More Than One Way To Do It».
+[30] De nuevo, recuerda que si envías algún comentario al sr. Pine, es mejor hacerlo en el idioma inglés. En cambio, si tienes un comentario sobre la traducción al español, es mejor [contactarme] (mailto:david.orojo@gmail.com). (También puedes colaborar mediante el [repositorio del proyecto] (https://www.google.com/url?q=https%3A%2F%2Fgithub.com%2FRojo%2FAprende-a-Programar&sa=D&sntz=1&usg=AFQjCNE-59VYPfHsyVBINfDKo3NIYTIVYg).)
