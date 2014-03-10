@@ -215,7 +215,6 @@ puts valorRetornado
 Esto es lo que retorno puts:
 nil
 
-
 Así que el primer puts retornó nil. Aunque no lo probamos directamente, el segundo puts también lo hizo; puts siempre retorna nil. Todos los métodos devuelven algo, aún si sólo es nil.
 
 Toma un pequeño descanso y escribe un programa con el que averigües que retorna el método muge.
@@ -614,13 +613,13 @@ cien cientos cientos cientos cientos cientos
 Ahhh… Eso es mucho, mucho mejor. El programa es bastante denso, que es por lo cual puse tantos comentarios. Hasta funciona para números grandes… pero no tan bien como uno esperaría. Por ejemplo, pienso que 'un billón' se vería mejor como el valor retornado para el último número, o hasta 'un millón millón'. De hecho, podrías hacerlo ahora mismo…
 
 Algunas cosas para intentar
-Expande numero_a_espanol. Primero, agrega los miles. Debería retornar 'un mil' (o 'mil' o hasta 'uno mil') en lugar de 'diez cientos' y 'diez mil' en lugar de 'cien cientos cientos'.
+* Expande numero_a_espanol. Primero, agrega los miles. Debería retornar 'un mil' (o 'mil' o hasta 'uno mil') en lugar de 'diez cientos' y 'diez mil' en lugar de 'cien cientos cientos'.
 
-Expande numero_a_espanol una vez más. Haz que ahora pueda manejar millones para obtener 'un millón' en lugar de 'un mil mil'. Después intenta agregar millardos, billones, trillones… ¿Hasta dónde puedes llegar?
+* Expande numero_a_espanol una vez más. Haz que ahora pueda manejar millones para obtener 'un millón' en lugar de 'un mil mil'. Después intenta agregar millardos, billones, trillones… ¿Hasta dónde puedes llegar?
 
-¿Qué tal un programa que escriba números en estilo de números de boda? Debería ser casi lo mismo que numero_a_espanol, pero insertando «y» entre los grupos de unidades, retornando cosas como 'diecinueve cientos y setenta y dos' o como se supone que se deben escribir los números en las invitaciones de boda. Te daría más ejemplos, pero yo mismo no lo he terminado de entender. Podrías necesitar contactar a tu organizador de bodas más cercano.
+* ¿Qué tal un programa que escriba números en estilo de números de boda? Debería ser casi lo mismo que numero_a_espanol, pero insertando «y» entre los grupos de unidades, retornando cosas como 'diecinueve cientos y setenta y dos' o como se supone que se deben escribir los números en las invitaciones de boda. Te daría más ejemplos, pero yo mismo no lo he terminado de entender. Podrías necesitar contactar a tu organizador de bodas más cercano.
 
-«Un elefante se balanceaba…» Usando numero_a_espanol y tu viejo programa, escribe la letra de la canción de la forma correcta ésta vez. Castiga a tu computadora: deja que alcance hasta 9,999 elefantes. (Pero tampoco escojas un número muy grande ya que escribir todo eso en la pantalla puede tomar bastante tiempo aún a una computadora; si pones como límite un millón de elefantes, ¡te estarás castigando también a ti mismo!)
+* «Un elefante se balanceaba…» Usando numero_a_espanol y tu viejo programa, escribe la letra de la canción de la forma correcta ésta vez. Castiga a tu computadora: deja que alcance hasta 9,999 elefantes. (Pero tampoco escojas un número muy grande ya que escribir todo eso en la pantalla puede tomar bastante tiempo aún a una computadora; si pones como límite un millón de elefantes, ¡te estarás castigando también a ti mismo!)
 
 ¡Felicidades! ¡En éste punto ya eres un verdadero programador! Has aprendido todo lo que necesitas para construir programas enormes desde el fundamento. Si tienes ideas para programas que quisieras escribir para ti mismo, ¡intentalo!
 
