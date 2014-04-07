@@ -110,7 +110,7 @@ end
 
 construirArregloDeCuadrados = Proc.new do | arreglo |
   ultimoNumero = arreglo.last
- 
+
   if ultimoNumero <= 0
     false
   else
@@ -238,9 +238,9 @@ Contar hasta un millón: 0.90245 segundos
 ¡Qué sencillo! ¡Qué elegante! Con ese pequeño método, ahora puedo con facilidad medir el tiempo de cualquier sección en cualquier programa que quiera hacer; sólo aventaré el programa en un bloque y se lo pasaré a perfilar. ¿Qué podría ser más simple? En la mayoría de los lenguajes, tendría que añadir explícitamente el código para tomar el tiempo (las cosas en perfilar) alrededor de cada sección de código que quisiera analizar. En cambio, en Ruby puedo tenerlo todo en un solo lugar y (más importante) ¡fuera de mi camino!
 
 Algunas cosas para intentar
-El reloj del abuelo: Escribe un método que reciba un bloque y lo llame por cada hora que ha pasado el día de hoy. De esa forma, si yo le pasara el bloque do puts '¡DONG!' end, repicaría como un reloj de péndulo. Prueba tu método con unos cuantos bloques diferentes (incluyendo el que acabo de darte). Pista: Puedes usar Time.now.hour para obtener la hora actual. Pero esto devuelve un número entre 0 y 23, así que tienes que alterar esos números para obtener números comunes en la carátula de un reloj (del 1 a 12).
+* El reloj del abuelo: Escribe un método que reciba un bloque y lo llame por cada hora que ha pasado el día de hoy. De esa forma, si yo le pasara el bloque do puts '¡DONG!' end, repicaría como un reloj de péndulo. Prueba tu método con unos cuantos bloques diferentes (incluyendo el que acabo de darte). Pista: Puedes usar Time.now.hour para obtener la hora actual. Pero esto devuelve un número entre 0 y 23, así que tienes que alterar esos números para obtener números comunes en la carátula de un reloj (del 1 a 12).
 
-Registro de programas. Escribe un método llamado registro, que toma una cadena como descripción de un bloque y, por supuesto, un bloque, además de otra cadena al final, diciendo que ha terminado el bloque. De forma similar a algoImportante, debe poner una cadena diciendo que ha comenzado el bloque y otra cadena al final indicando que ha terminado el bloque, indicando lo que el bloque retornó. Prueba tu método enviándole un bloque de código. Dentro de ese bloque, coloca otra llamada a registro, pasando otro bloque. (Esto es llamado anidar.) En otras palabras, tu salida debe verse de forma similar a ésta:
+* Registro de programas. Escribe un método llamado registro, que toma una cadena como descripción de un bloque y, por supuesto, un bloque, además de otra cadena al final, diciendo que ha terminado el bloque. De forma similar a algoImportante, debe poner una cadena diciendo que ha comenzado el bloque y otra cadena al final indicando que ha terminado el bloque, indicando lo que el bloque retornó. Prueba tu método enviándole un bloque de código. Dentro de ese bloque, coloca otra llamada a registro, pasando otro bloque. (Esto es llamado anidar.) En otras palabras, tu salida debe verse de forma similar a ésta:
 
 Comenzando «bloque exterior»...
 Comenzando «algún pequeño bloque»...
@@ -249,7 +249,7 @@ Comenzando «un bloque más»...
 ...«un bloque más» terminó, retornando: ¡Me gusta la comida tailandesa!
 ...«bloque exterior» terminó, retornando: false
 
-Un mejor registro de programas. La salida del último registro fue un poco difícil de leer y sería peor entre más métodos anidados recibiera. Sería mucho más fácil de leer si sangrara las líneas en los bloques internos. Para hacerlo, necesitarás llevar un registro de que tan profundamente anidado te encuentras cada vez que el registro quiera escribir algo. Para hacerlo, utiliza una variable global, una variable que puedes ver desde cualquier parte de tu código. Para crear una variable global, sólo precede el nombre de su variable con $, como éstas: $global, $profundidadDeAnidado y $chapulinColorado. Al final, tu registro debe presentar algo como esto:
+* Un mejor registro de programas. La salida del último registro fue un poco difícil de leer y sería peor entre más métodos anidados recibiera. Sería mucho más fácil de leer si sangrara las líneas en los bloques internos. Para hacerlo, necesitarás llevar un registro de que tan profundamente anidado te encuentras cada vez que el registro quiera escribir algo. Para hacerlo, utiliza una variable global, una variable que puedes ver desde cualquier parte de tu código. Para crear una variable global, sólo precede el nombre de su variable con $, como éstas: $global, $profundidadDeAnidado y $chapulinColorado. Al final, tu registro debe presentar algo como esto:
 
 Comenzando «bloque exterior»...
     Comenzando «algún pequeño bloque»...

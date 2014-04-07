@@ -131,8 +131,7 @@ puts cadena.ljust(anchoDeLínea / 2) + cadena.rjust(anchoDeLínea / 2)
                                        --> texto <--
 --> texto <--                          --> texto <--
 
-Algunas cosas para intentar[15]
-
+Algunas cosas para intentar
 * Escribe el programa «Jefe enojado». Debe preguntar de forma ruda que es lo que quieres. Lo que sea que le pidas, el jefe enojado debe contestarte gritando y después, despedirte. Así que, por ejemplo, si tú escribes Quiero un aumento. él debe contestar gritando: ¿¡¿QUÉ QUIERES DECIR CON «QUIERO UN AUMENTO»?!? ¡¡ESTÁS DESPEDIDO!!
 
 * Aquí hay algo para que puedas jugar un poco más con center, ljust y rjust. Escribe un programa que desplegará una «Tabla de contenidos» de forma que se vea como ésta:
@@ -145,7 +144,4 @@ Capítulo 3: Variables                      página 118
 
 [13] «Advertencia: coloca los argumentos dentro de paréntesis para futuras versiones [del programa]»
 [14] Literalmente se traduciría como: «ErrorDeTipo: no puedo convertir NúmeroFijo en Cadenas».
-[15] En caso de que necesites ver un ejemplo de cómo pueden resolverse los ejercicios, aquí hay enlaces al código (recuerda tratar de resolverlos por ti mismo antes):
-  * [Jefe enojado] (https://github.com/Rojo/TR-ISBN-0-9766940-4-2/blob/master/Es/05%20Mas%20acerca%20de%20los%20metodos/5.1_jefe_enojado.rb).
-  * [Tabla de contenidos] (https://github.com/Rojo/TR-ISBN-0-9766940-4-2/blob/master/Es/05%20Mas%20acerca%20de%20los%20metodos/5.2_tabla_de_contenidos.rb).
-  
+

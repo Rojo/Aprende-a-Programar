@@ -143,11 +143,7 @@ Algunas cosas para intentar
 
 * Reescribe el programa «Tabla de contenidos» (del capítulo sobre métodos). Comienza el programa con un arreglo que contenga toda la información de la tabla de contenidos (nombres de capítulos, números de página, etc.). Después imprime la información con una bonita presentación.
 
-Hasta ahora hemos aprendido un gran número de diferentes métodos.[24] Es tiempo de aprender a hacer los nuestros.
+Hasta ahora hemos aprendido un gran número de diferentes métodos. Es tiempo de aprender a hacer los nuestros.
 
 [22] En el tutorial original, el sr. Pine hacía referencia a usar el cardinal del número cero, pero como ese cardinal no existe en español, la oración fue removida.
 [23] Parte de la letra de la popular canción “My Favorite Things”, en la cual, a tono de broma se cambio la palabra “whishkers” (bigotes) por “whiskey”.
-[24] Los ejercicios parecen ir aumentando poco a poco en complejidad, pero dedicando un poco de tiempo no es complicado idear alguna solución. En caso de que tengas problemas, puedes ver las soluciones propuestas:
-  * Palabras ordenadas.
-  * Palabras ordenadas (sin sort).
-  * Revisita a la «tabla de contenidos».
