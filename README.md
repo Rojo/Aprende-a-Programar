@@ -1,5 +1,6 @@
 
 # Aprende a programar
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/Rojo/Aprende-a-Programar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Ésta es una traducción al español de [«Learn to Pogram»][1], un excelente
 tutorial escrito por Chris Pine para aquellas personas que deseen adentrarse al
 mundo de la programación, utilizando el sencillo y elegante lenguaje de
